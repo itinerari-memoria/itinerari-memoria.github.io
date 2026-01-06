@@ -2,37 +2,69 @@
 <html lang="it">
 <head>
   <meta charset="utf-8" />
+  <title>Itinerari della Memoria 2.0</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>QR Redirect</title>
-  <style>
-    body { font-family: system-ui, sans-serif; margin: 16px; }
-    video { width: 100%; max-width: 520px; border-radius: 12px; background: #000; }
-    .row { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
-    button { padding: 10px 14px; border-radius: 10px; border: 1px solid #ccc; background: #fff; }
-    .log { margin-top: 10px; padding: 10px; background: #f6f6f6; border-radius: 10px; }
-  </style>
+
+  <!-- CSS comune del progetto -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <h2>Scansiona un QR e vai al link</h2>
 
-  <div class="row">
-    <button id="startBtn">Avvia fotocamera</button>
-    <button id="stopBtn" disabled>Stop</button>
-  </div>
+  <header class="site-header">
+    <div class="container">
+      <h1>Itinerari della Memoria 2.0</h1>
+      <p class="subtitle">
+        Scansiona il QR code presente nei luoghi dell’itinerario
+        oppure seleziona manualmente il punto.
+      </p>
+    </div>
+  </header>
 
-  <video id="video" playsinline muted></video>
-  <canvas id="canvas" style="display:none;"></canvas>
+  <main class="content">
+    <div class="container">
 
-  <div class="log" id="log">Premi “Avvia fotocamera”.</div>
+      <!-- Sezione QR -->
+      <section class="card">
+        <h2>Scansione QR</h2>
 
-  <h3>Accesso manuale ai punti</h3>
+        <div class="btn-row">
+          <button class="btn" id="startBtn">Avvia fotocamera</button>
+          <button class="btn" id="stopBtn" disabled>Stop</button>
+        </div>
 
-  <div class="row">
-    <button onclick="goToPoint(1)">Punto 1</button>
-    <button onclick="goToPoint(2)">Punto 2</button>
-    <button onclick="goToPoint(3)">Punto 3</button>
-    <button onclick="goToPoint(4)">Punto 4</button>
-  </div>
+        <video id="video" playsinline muted></video>
+        <canvas id="canvas" style="display:none;"></canvas>
+
+        <div class="log" id="log">
+          Premi “Avvia fotocamera” e inquadra il QR code.
+        </div>
+      </section>
+
+      <!-- Accesso manuale -->
+      <section class="card">
+        <h2>Accesso manuale ai punti</h2>
+        <p>
+          Se il QR code non viene riconosciuto, puoi accedere manualmente
+          alle pagine dell’itinerario.
+        </p>
+
+        <div class="btn-row">
+          <button class="btn" onclick="goToPoint(1)">Punto 1</button>
+          <button class="btn" onclick="goToPoint(2)">Punto 2</button>
+          <button class="btn" onclick="goToPoint(3)">Punto 3</button>
+          <button class="btn" onclick="goToPoint(4)">Punto 4</button>
+          <!-- aggiungere altri pulsanti se servono -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Progetto scolastico – Itinerari della Memoria</p>
+    </div>
+  </footer>
 
   <!-- Libreria jsQR (solo client-side) -->
   <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
@@ -48,28 +80,30 @@
     let stream = null;
     let scanning = false;
 
-    function setLog(msg) { log.textContent = msg; }
+    function setLog(msg) {
+      log.textContent = msg;
+    }
 
     function isLikelyUrl(text) {
-      // Accetta http/https oppure URL senza schema (es. www.sito.it)
       try {
         const u = new URL(text);
         return u.protocol === "http:" || u.protocol === "https:";
       } catch {
-        // prova a forzare https
-        if (/^[a-z0-9.-]+\.[a-z]{2,}([\/?#].*)?$/i.test(text)) return true;
-        return false;
+        return /^[a-z0-9.-]+\.[a-z]{2,}([\/?#].*)?$/i.test(text);
       }
     }
 
     function normalizeUrl(text) {
-      try { return new URL(text).toString(); }
-      catch { return "https://" + text; }
+      try {
+        return new URL(text).toString();
+      } catch {
+        return "https://" + text;
+      }
     }
 
     async function startCamera() {
       if (!navigator.mediaDevices?.getUserMedia) {
-        setLog("getUserMedia non supportato su questo browser.");
+        setLog("Fotocamera non supportata su questo browser.");
         return;
       }
 
@@ -102,6 +136,7 @@
         stream.getTracks().forEach(t => t.stop());
         stream = null;
       }
+
       video.srcObject = null;
       setLog("Fotocamera fermata.");
     }
@@ -127,14 +162,11 @@
             const url = normalizeUrl(data);
             setLog("Reindirizzo a: " + url);
 
-            // stop camera prima del redirect
             stopCamera();
-
-            // redirect
             window.location.href = url;
             return;
           } else {
-            setLog("QR letto ma non sembra un URL. Contenuto: " + data);
+            setLog("QR letto ma non è un URL valido.");
           }
         }
       }
@@ -142,13 +174,14 @@
       requestAnimationFrame(tick);
     }
 
-    startBtn.addEventListener("click", startCamera);
-    stopBtn.addEventListener("click", stopCamera);
-
     function goToPoint(n) {
       const num = String(n).padStart(2, "0");
       window.location.href = `points/point-${num}.html`;
     }
+
+    startBtn.addEventListener("click", startCamera);
+    stopBtn.addEventListener("click", stopCamera);
   </script>
+
 </body>
 </html>
