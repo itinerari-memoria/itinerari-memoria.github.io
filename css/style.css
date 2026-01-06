@@ -1,1 +1,163 @@
+/* =========================
+   Itinerari della memoria 2.0
+   CSS comune (mobile-first)
+   ========================= */
+
+:root{
+  --bg: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --card: #f9fafb;
+
+  --primary: #1f2937;
+  --link: #1d4ed8;
+
+  --radius: 14px;
+  --shadow: 0 8px 20px rgba(0,0,0,.06);
+
+  --max: 860px;
+  --pad: 16px;
+  --lh: 1.6;
+}
+
+*{ box-sizing: border-box; }
+html, body{ margin:0; padding:0; }
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: var(--lh);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img, video{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a{
+  color: var(--link);
+  text-decoration: none;
+}
+a:hover{ text-decoration: underline; }
+
+.container{
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+/* Header */
+.site-header{
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+}
+.site-header .container{
+  padding-top: 18px;
+  padding-bottom: 14px;
+}
+.site-header h1{
+  margin: 0 0 4px 0;
+  font-size: 1.35rem;
+  letter-spacing: .2px;
+}
+.subtitle{
+  margin: 0;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+/* Main */
+.content{
+  padding: 18px 0 34px 0;
+}
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px;
+  margin: 14px 0;
+}
+section{
+  margin: 18px 0;
+}
+h2{
+  margin: 0 0 10px 0;
+  font-size: 1.15rem;
+}
+p{ margin: 0 0 12px 0; }
+ul{ margin: 0 0 12px 18px; }
+li{ margin: 6px 0; }
+
+/* Figure */
+figure{
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #fff;
+}
+figure img, figure video{ width: 100%; }
+figcaption{
+  padding: 10px 12px;
+  color: var(--muted);
+  font-size: .92rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Quote / highlight */
+.note{
+  padding: 12px 14px;
+  border-left: 4px solid var(--primary);
+  background: #f3f4f6;
+  border-radius: 10px;
+  color: #111827;
+}
+
+/* Footer */
+.site-footer{
+  border-top: 1px solid var(--border);
+  padding: 16px 0 26px 0;
+  color: var(--muted);
+  font-size: .95rem;
+}
+.site-footer a{
+  display: inline-block;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+}
+
+/* Buttons list (manual nav in index) */
+.btn-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.btn{
+  appearance: none;
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font: inherit;
+}
+.btn:hover{
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+
+/* Small screens tweaks */
+@media (min-width: 720px){
+  .site-header h1{ font-size: 1.6rem; }
+  h2{ font-size: 1.25rem; }
+  .card{ padding: 16px; }
+}
 
