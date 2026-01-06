@@ -25,6 +25,15 @@
 
   <div class="log" id="log">Premi “Avvia fotocamera”.</div>
 
+  <h3>Accesso manuale ai punti</h3>
+
+  <div class="row">
+    <button onclick="goToPoint(1)">Punto 1</button>
+    <button onclick="goToPoint(2)">Punto 2</button>
+    <button onclick="goToPoint(3)">Punto 3</button>
+    <button onclick="goToPoint(4)">Punto 4</button>
+  </div>
+
   <!-- Libreria jsQR (solo client-side) -->
   <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
 
@@ -135,6 +144,11 @@
 
     startBtn.addEventListener("click", startCamera);
     stopBtn.addEventListener("click", stopCamera);
+
+    function goToPoint(n) {
+      const num = String(n).padStart(2, "0");
+      window.location.href = `points/point-${num}.html`;
+    }
   </script>
 </body>
 </html>
