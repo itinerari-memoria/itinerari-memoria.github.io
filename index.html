@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QR Redirect</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 16px; }
+    video { width: 100%; max-width: 520px; border-radius: 12px; background: #000; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
+    button { padding: 10px 14px; border-radius: 10px; border: 1px solid #ccc; background: #fff; }
+    .log { margin-top: 10px; padding: 10px; background: #f6f6f6; border-radius: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Scansiona un QR e vai al link</h2>
+
+  <div class="row">
+    <button id="startBtn">Avvia fotocamera</button>
+    <button id="stopBtn" disabled>Stop</button>
+  </div>
+
+  <video id="video" playsinline muted></video>
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <div class="log" id="log">Premi “Avvia fotocamera”.</div>
+
+  <!-- Libreria jsQR (solo client-side) -->
+  <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+
+  <script>
+    const video = document.getElementById("video");
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const log = document.getElementById("log");
+    const startBtn = document.getElementById("startBtn");
+    const stopBtn = document.getElementById("stopBtn");
+
+    let stream = null;
+    let scanning = false;
+
+    function setLog(msg) { log.textContent = msg; }
+
+    function isLikelyUrl(text) {
+      // Accetta http/https oppure URL senza schema (es. www.sito.it)
+      try {
+        const u = new URL(text);
+        return u.protocol === "http:" || u.protocol === "https:";
+      } catch {
+        // prova a forzare https
+        if (/^[a-z0-9.-]+\.[a-z]{2,}([\/?#].*)?$/i.test(text)) return true;
+        return false;
+      }
+    }
+
+    function normalizeUrl(text) {
+      try { return new URL(text).toString(); }
+      catch { return "https://" + text; }
+    }
+
+    async function startCamera() {
+      if (!navigator.mediaDevices?.getUserMedia) {
+        setLog("getUserMedia non supportato su questo browser.");
+        return;
+      }
+
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: { ideal: "environment" } },
+          audio: false
+        });
+
+        video.srcObject = stream;
+        await video.play();
+
+        scanning = true;
+        startBtn.disabled = true;
+        stopBtn.disabled = false;
+        setLog("Fotocamera avviata. Inquadra il QR…");
+
+        requestAnimationFrame(tick);
+      } catch (err) {
+        setLog("Errore accesso fotocamera: " + err.message);
+      }
+    }
+
+    function stopCamera() {
+      scanning = false;
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
+
+      if (stream) {
+        stream.getTracks().forEach(t => t.stop());
+        stream = null;
+      }
+      video.srcObject = null;
+      setLog("Fotocamera fermata.");
+    }
+
+    function tick() {
+      if (!scanning) return;
+
+      if (video.readyState === video.HAVE_ENOUGH_DATA) {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const code = jsQR(imageData.data, imageData.width, imageData.height, {
+          inversionAttempts: "dontInvert"
+        });
+
+        if (code?.data) {
+          const data = code.data.trim();
+          setLog("QR letto: " + data);
+
+          if (isLikelyUrl(data)) {
+            const url = normalizeUrl(data);
+            setLog("Reindirizzo a: " + url);
+
+            // stop camera prima del redirect
+            stopCamera();
+
+            // redirect
+            window.location.href = url;
+            return;
+          } else {
+            setLog("QR letto ma non sembra un URL. Contenuto: " + data);
+          }
+        }
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    startBtn.addEventListener("click", startCamera);
+    stopBtn.addEventListener("click", stopCamera);
+  </script>
+</body>
+</html>
