@@ -161,3 +161,45 @@ figcaption{
   .card{ padding: 16px; }
 }
 
+.tooltip-hover {
+  position: relative;
+  color: darkred;
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+/* Tooltip stile wikipedia per approfondimenti */
+.tooltip-hover {
+  position: relative;          /* fondamentale per il tooltip */
+  color: #0066cc;              /* blu personalizzato */
+  font-weight: bold;            /* evidenziata */
+  text-decoration: none;        /* togli sottolineatura predefinita */
+  border-bottom: 2px solid #0066cc; /* sottolineatura blu */
+  cursor: pointer;              /* mano al passaggio */
+}
+
+.tooltiptext-hover {
+  visibility: hidden;
+  opacity: 0;
+  width: 300px;
+  background-color: #fdfdfd;
+  color: #333;
+  text-align: left;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  position: absolute;
+  top: 1.5em;      /* distanza dalla parola */
+  left: 0;
+  z-index: 100;
+  transition: opacity 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.tooltip-hover:hover .tooltiptext-hover {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
