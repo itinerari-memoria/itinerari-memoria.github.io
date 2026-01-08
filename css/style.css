@@ -202,12 +202,14 @@ figcaption{
 }
 
 /* Riquadro audio */
-.audio-box {
+.card .audio-box {
+  position: relative;
   margin-top: 1.5rem;
   padding: 1rem 1.2rem;
-  border-left: 4px solid #8b0000; /* rosso scuro, memoria/resistenza */
+  border-left: 4px solid #8b0000;
   background-color: #f8f8f8;
 }
+
 
 .audio-title {
   font-weight: 600;
