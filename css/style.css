@@ -201,5 +201,25 @@ figcaption{
   opacity: 1;
 }
 
+/* Riquadro audio */
+.audio-box {
+  margin-top: 1.5rem;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid #8b0000; /* rosso scuro, memoria/resistenza */
+  background-color: #f8f8f8;
+}
+
+.audio-title {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.audio-description {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 0.8rem;
+}
+
+
 
 
