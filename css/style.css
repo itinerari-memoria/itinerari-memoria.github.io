@@ -96,7 +96,7 @@ li{ margin: 6px 0; }
 
 /* Figure */
 figure{
-  margin: 0;
+  margin:20px 0;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
