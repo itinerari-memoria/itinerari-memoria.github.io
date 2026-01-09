@@ -170,12 +170,12 @@ figcaption{
 
 /* Tooltip stile wikipedia per approfondimenti */
 .tooltip-hover {
-  position: relative;          /* fondamentale per il tooltip */
-  color: #0066cc;              /* blu personalizzato */
-  font-weight: bold;            /* evidenziata */
-  text-decoration: none;        /* togli sottolineatura predefinita */
+  position: relative;             /* fondamentale per il tooltip */
+  color: #0066cc;                 /* blu personalizzato */
+  font-weight: bold;              /* la parola è in grassetto */
+  text-decoration: none;           /* togli sottolineatura predefinita */
   border-bottom: 2px solid #0066cc; /* sottolineatura blu */
-  cursor: pointer;              /* mano al passaggio */
+  cursor: pointer;                /* mano al passaggio */
 }
 
 .tooltiptext-hover {
@@ -184,6 +184,7 @@ figcaption{
   width: 300px;
   background-color: #fdfdfd;
   color: #333;
+  font-weight: normal;            /* testo del tooltip normale */
   text-align: left;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -200,6 +201,7 @@ figcaption{
   visibility: visible;
   opacity: 1;
 }
+
 
 /* Riquadro audio */
 .card .audio-box {
