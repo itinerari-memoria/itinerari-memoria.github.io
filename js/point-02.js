@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     // Coordinate dell'Istituto Tecnico Vittorio Emanuele II
-    const coordinates = [45.69503, 9.66908];
+    const coordinates = [45.69255919897298, 9.67478728735614];
 
     // Inizializza la mappa
     const map = L.map('map').setView(coordinates, 16);

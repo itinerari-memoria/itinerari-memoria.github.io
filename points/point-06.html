@@ -3,11 +3,13 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>punto 06 – Donne in armi</title>
+    <title>Punto 06 – Donne in armi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- CSS comune del progetto -->
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
 </head>
 
 <body>
@@ -15,7 +17,7 @@
     <!-- Header -->
     <header class="site-header">
         <div class="container">
-            <h1>punto 06 – Donne in armi</h1>
+            <h1>Punto 06 – Donne in armi</h1>
             <p class="subtitle">
                 Itinerari della Memoria 2.0
             </p>
@@ -82,15 +84,12 @@
                     </figcaption>
                 </figure>
 
-                <!--
-        Esempi alternativi (opzionali):
+                <!-- Contenitore mappa aggiunto per evitare l'errore -->
+                <section class="card">
+                    <h2>Localizzazione</h2>
+                    <div id="map"></div>
+                </section>
 
-        Audio:
-        <audio controls src="../assets/audio/point-06.mp3"></audio>
-
-        Video (meglio embed):
-        <iframe ...></iframe>
-        -->
             </section>
 
             <!-- Fonti -->
@@ -130,6 +129,9 @@
             </p>
         </div>
     </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/point-06.js"></script>
 
 </body>
 
