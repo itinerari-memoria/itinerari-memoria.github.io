@@ -39,13 +39,7 @@
           <!--Il testo deve essere chiaro, sintetico e comprensibile anche
           da smartphone.-->
           Questo edificio, simbolo del potere comunale, dal 28 ottobre 1928 (anniversario della
-          <span class="tooltip-hover">
-            Marcia su Roma
-            <span class="tooltiptext-hover">
-              La Marcia su Roma segnò l’inizio del regime fascista e divenne un’occasione per legittimare il controllo
-              del governo centrale sulle amministrazioni locali.
-            </span>
-          </span>
+          <span class="popup-trigger" data-popup="popup1">Marcia su Roma</span>.
           ) divenne sede ufficiale dell’amministrazione comunale, sostituendo il vecchio palazzo situato in via T.
           Tasso, 4. La scelta di questa data non è casuale: il 28 ottobre 1928 segnava la celebrazione dell'ascesa al
           potere di Mussolini e del regime fascista, e rappresentava un momento di consolidamento del controllo del
@@ -57,7 +51,15 @@
           <audio controls src="../assets/audio/point-10-1.mp3"></audio>
         </div>
       </section>
-
+      <div class="popup-box" id="popup1">
+        <div class="popup-content">
+          <p>
+            La Marcia su Roma segnò l’inizio del regime fascista e divenne un’occasione per legittimare il controllo
+            del governo centrale sulle amministrazioni locali.
+          </p>
+          <button class="popup-close">Chiudi</button>
+        </div>
+      </div>
       <!-- Significato -->
       <section class="card">
         <h2>Perché è un luogo della memoria</h2>
@@ -65,13 +67,10 @@
           <!--Spiegare perché questo luogo è significativo dal punto di vista
           storico, civile o sociale e perché è importante ricordarlo oggi.-->
           Dal 4 febbraio 1926, infatti, tutte le funzioni di sindaco, giunta comunale e consiglio comunale furono
-          centralizzate e attribuite al
-          <span class="tooltip-hover">
-            podestà
-            <span class="tooltiptext-hover">
-              figura che ricalcava modelli medievali di governo centralizzato, amati da Mussolini, che li rivisitava
-              come strumenti di autocrazia e di controllo.
-            </span>
+          centralizzate e attribuite al podestà figura che ricalcava modelli medievali di governo centralizzato, amati
+          da Mussolini, che li rivisitava
+          come strumenti di autocrazia e di controllo.
+          </span>
           </span>
           . Questa riforma dava al podestà il potere esclusivo di nominare e gestire gli uffici comunali, eliminando
           ogni forma di partecipazione popolare.
@@ -149,15 +148,16 @@
           Locatelli <a
             href="https://www.bdl.servizirl.it/bdl/bookreader/index.html?path=fe&cdOggetto=5178#page/366/mode/2up">pg367-413</a>
         </p>
+        <div class="audio-box">
+          <audio controls src="../assets/audio/point-10-03.mp3"></audio>
+        </div>
         <div class="video-container">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/w2HxdSS0Pz4" title="Antonio Locatelli"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
-          <div class="audio-box">
-            <audio controls src="../assets/audio/point-10-3.mp3"></audio>
-          </div>
+
         </div>
       </section>
 
@@ -229,7 +229,7 @@
       </p>
     </div>
   </footer>
-
+  <script src="../js/popup.js"></script>
 </body>
 
 </html>
