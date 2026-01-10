@@ -337,3 +337,15 @@ figcaption {
   }
 }
 
+.lang-switch {
+text-align: right;
+font-size: 0.9rem;
+}
+
+.lang-link {
+text-decoration: none;
+}
+
+.lang-active {
+font-weight: bold;
+}
