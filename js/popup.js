@@ -1,30 +1,28 @@
-"use strict";
+document.querySelectorAll('.popup-trigger').forEach(trigger => {
+  const popup = document.getElementById(trigger.dataset.popup);
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Prende tutti i trigger
-  document.querySelectorAll('.popup-trigger').forEach(trigger => {
-    const popupId = trigger.dataset.popup;
-    const popup = document.getElementById(popupId);
-    const closeBtn = popup.querySelector('.popup-close');
+  // Apri popup
+  trigger.addEventListener('click', () => {
+    popup.style.display = 'flex';
+    setTimeout(() => popup.querySelector('.popup-content').style.opacity = 1, 10);
+    setTimeout(() => popup.querySelector('.popup-content').style.transform = 'scale(1)', 10);
+  });
 
-    // Mostra popup
-    trigger.addEventListener('click', () => {
-      popup.style.display = 'flex';
-      setTimeout(() => popup.classList.add('show'), 10);
-    });
+  // Chiudi popup con pulsante
+  popup.querySelector('.popup-close').addEventListener('click', () => {
+    const content = popup.querySelector('.popup-content');
+    content.style.opacity = 0;
+    content.style.transform = 'scale(0.9)';
+    setTimeout(() => popup.style.display = 'none', 250);
+  });
 
-    // Chiudi con pulsante
-    closeBtn.addEventListener('click', () => {
-      popup.classList.remove('show');
+  // Chiudi popup cliccando sull'overlay
+  popup.addEventListener('click', e => {
+    if (e.target === popup) {
+      const content = popup.querySelector('.popup-content');
+      content.style.opacity = 0;
+      content.style.transform = 'scale(0.9)';
       setTimeout(() => popup.style.display = 'none', 250);
-    });
-
-    // Chiudi cliccando fuori dal contenuto
-    popup.addEventListener('click', e => {
-      if (e.target === popup) {
-        popup.classList.remove('show');
-        setTimeout(() => popup.style.display = 'none', 250);
-      }
-    });
+    }
   });
 });
