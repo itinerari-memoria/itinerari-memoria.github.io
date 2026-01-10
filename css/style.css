@@ -213,22 +213,24 @@ figcaption {
 
 
 
-/* Tooltip stile wikipedia per approfondimenti */
+/* Tooltip stile Wikipedia per approfondimenti */
 .tooltip-hover {
   position: relative;
   color: #0066cc;
   font-weight: bold;
   border-bottom: 2px solid #0066cc;
   cursor: pointer;
+  /* rendiamo il tooltip focusable su iOS */
+  outline: none;
 }
 
-/* tooltip */
+/* Tooltip vero e proprio */
 .tooltiptext-hover {
   visibility: hidden;
   opacity: 0;
 
-  /* 🔥 niente larghezza fissa */
-  max-width: 90vw;
+  /* larghezza massima in base alla finestra */
+  max-width: calc(100vw - 20px);
   width: max-content;
 
   background-color: #fdfdfd;
@@ -237,10 +239,11 @@ figcaption {
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 10px;
-  position: absolute;
 
-  /* 🔥 lo centro sotto la parola */
+  position: absolute;
   top: 1.8em;
+
+  /* centrato rispetto alla parola */
   left: 50%;
   transform: translateX(-50%);
 
@@ -248,23 +251,20 @@ figcaption {
   transition: opacity 0.2s;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 
-  /* 🔥 permette il ritorno a capo */
+  /* ritorno a capo automatico */
   white-space: normal;
   overflow-wrap: break-word;
+  box-sizing: border-box;
 }
 
-/* desktop + Android */
-.tooltip-hover:hover .tooltiptext-hover {
-  visibility: visible;
-  opacity: 1;
-}
-
-/* iOS tap */
+/* Mostra tooltip su hover / focus (desktop, Android, iOS) */
+.tooltip-hover:hover .tooltiptext-hover,
 .tooltip-hover:focus .tooltiptext-hover,
 .tooltip-hover:focus-within .tooltiptext-hover {
   visibility: visible;
   opacity: 1;
 }
+
 
 
 
