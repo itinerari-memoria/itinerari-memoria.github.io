@@ -211,42 +211,55 @@ figcaption {
   cursor: help;
 }
 
+
+
 /* Tooltip stile wikipedia per approfondimenti */
 .tooltip-hover {
   position: relative;
   color: #0066cc;
   font-weight: bold;
-  text-decoration: none;
   border-bottom: 2px solid #0066cc;
   cursor: pointer;
 }
 
+/* tooltip */
 .tooltiptext-hover {
   visibility: hidden;
   opacity: 0;
-  width: 300px;
+
+  /* 🔥 niente larghezza fissa */
+  max-width: 90vw;
+  width: max-content;
+
   background-color: #fdfdfd;
   color: #333;
-  font-weight: normal;
   text-align: left;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 10px;
   position: absolute;
-  top: 1.5em;
-  left: 0;
+
+  /* 🔥 lo centro sotto la parola */
+  top: 1.8em;
+  left: 50%;
+  transform: translateX(-50%);
+
   z-index: 100;
   transition: opacity 0.2s;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+
+  /* 🔥 permette il ritorno a capo */
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
-/* desktop e Android */
+/* desktop + Android */
 .tooltip-hover:hover .tooltiptext-hover {
   visibility: visible;
   opacity: 1;
 }
 
-/* iOS (tap = focus) */
+/* iOS tap */
 .tooltip-hover:focus .tooltiptext-hover,
 .tooltip-hover:focus-within .tooltiptext-hover {
   visibility: visible;
