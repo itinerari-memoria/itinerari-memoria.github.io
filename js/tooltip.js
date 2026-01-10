@@ -1,20 +1,13 @@
 "use strict";
 
 document.addEventListener('DOMContentLoaded', function() {
+
+  const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
   document.querySelectorAll('.tooltip-hover').forEach(el => {
     const tooltip = el.querySelector('.tooltiptext-hover');
 
-    function showTooltip() {
-      el.classList.add('show-tooltip');
-      adjustTooltipPosition();
-    }
-
-    function hideTooltip() {
-      el.classList.remove('show-tooltip');
-      tooltip.style.transform = '';
-    }
-
-    function adjustTooltipPosition() {
+    function adjustPosition() {
       const rect = tooltip.getBoundingClientRect();
       const screenWidth = window.innerWidth;
       let shiftX = 0;
@@ -26,32 +19,47 @@ document.addEventListener('DOMContentLoaded', function() {
       tooltip.style.transform = `translateX(calc(-50% + ${shiftX}px))`;
     }
 
-    // Eventi desktop
+    function showTooltip() {
+      el.classList.add('show-tooltip');
+      adjustPosition();
+    }
+
+    function hideTooltip() {
+      el.classList.remove('show-tooltip');
+      tooltip.style.transform = '';
+    }
+
+    // desktop hover/focus
     el.addEventListener('mouseenter', showTooltip);
     el.addEventListener('mouseleave', hideTooltip);
     el.addEventListener('focus', showTooltip);
     el.addEventListener('blur', hideTooltip);
 
-    // Eventi touch/mobile
-    el.addEventListener('touchstart', function(e) {
-      if(el.classList.contains('show-tooltip')) hideTooltip();
-      else showTooltip();
-    });
+    if(isTouch){
+      // touch devices
+      el.addEventListener('click', function(e){
+        e.stopPropagation(); // importante: blocca il bubbling
+        if(el.classList.contains('show-tooltip')) hideTooltip();
+        else showTooltip();
+      });
+    }
   });
 
-  // Chiude tooltip se tocchi fuori su mobile
-  document.addEventListener('touchstart', function(e){
+  if(isTouch){
+    // chiudi tooltip se tocchi fuori
+    document.addEventListener('click', function(e){
+      document.querySelectorAll('.tooltip-hover.show-tooltip').forEach(el=>{
+        if(!el.contains(e.target)){
+          el.classList.remove('show-tooltip');
+          el.querySelector('.tooltiptext-hover').style.transform = '';
+        }
+      });
+    });
+  }
+
+  // aggiorna tooltip al resize della finestra
+  window.addEventListener('resize', function(){
     document.querySelectorAll('.tooltip-hover.show-tooltip').forEach(el=>{
-      if(!el.contains(e.target)){
-        el.classList.remove('show-tooltip');
-        el.querySelector('.tooltiptext-hover').style.transform = '';
-      }
-    });
-  });
-
-  // Aggiorna posizione al resize della finestra
-  window.addEventListener('resize', () => {
-    document.querySelectorAll('.tooltip-hover.show-tooltip').forEach(el => {
       const tooltip = el.querySelector('.tooltiptext-hover');
       const rect = tooltip.getBoundingClientRect();
       const screenWidth = window.innerWidth;
