@@ -3,11 +3,13 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>punto 18 – Ferruccio Dell'Orto</title>
+    <title>Punto 18 – Ferruccio Dell'Orto</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- CSS comune del progetto -->
     <link rel="stylesheet" href="../css/style.css">
+    <!-- Leaflet CSS aggiunto -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
@@ -15,7 +17,7 @@
     <!-- Header -->
     <header class="site-header">
         <div class="container">
-            <h1>punto 18 – Ferruccio Dell'Orto</h1>
+            <h1>Punto 18 – Ferruccio Dell'Orto</h1>
             <p class="subtitle">
                 Itinerari della Memoria 2.0
             </p>
@@ -84,7 +86,7 @@
 
                 <figure>
                     <div class="video-container">
-                        <iframe src="https://youtu.be/IXD7OjNIy1w?si=PRRl_o827ZiFs44" title="Storia di Ferruccio Dell'Orto"
+                        <iframe src="https://www.youtube.com/embed/IXD7OjNIy1w" title="Storia di Ferruccio Dell'Orto"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen>
                         </iframe>
@@ -94,6 +96,21 @@
                     </figcaption>
                 </figure>
 
+                <figure>
+                    <div class="video-container">
+                        <video controls preload="metadata">
+                            <source src="../assets/video/point-18.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <figcaption>
+                        Storia di Ferruccio Dell'Orto
+                    </figcaption>
+                </figure>
+
+                <section class="card">
+                    <h2>Localizzazione</h2>
+                    <div id="map"></div>
+                </section>
 
                 <!--
         Esempi alternativi (opzionali):
@@ -129,6 +146,16 @@
                     </li>
                 </ul>
 
+                <h3>Fonti video</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.youtube.com/embed/IXD7OjNIy1w" target="_blank"
+                            rel="noopener">
+                            Ferruccio Dell'Orto e Casa Pound
+                        </a>
+                    </li>
+                </ul>
+
             </section>
 
             <!-- Navigazione -->
@@ -147,6 +174,12 @@
             </p>
         </div>
     </footer>
+
+    <!-- Leaflet JS aggiunto -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Script dedicato alla mappa -->
+    <script src="../js/point-18.js"></script>
 
 </body>
 

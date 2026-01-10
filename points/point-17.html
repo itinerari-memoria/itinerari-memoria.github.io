@@ -3,11 +3,14 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>punto 17 – La banda Turani</title>
+    <title>Punto 17 – La banda Turani</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- CSS comune del progetto -->
     <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Leaflet CSS aggiunto -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
@@ -15,7 +18,7 @@
     <!-- Header -->
     <header class="site-header">
         <div class="container">
-            <h1>punto 17 – La banda Turani</h1>
+            <h1>Punto 17 – La banda Turani</h1>
             <p class="subtitle">
                 Itinerari della Memoria 2.0
             </p>
@@ -76,7 +79,6 @@
                     </figcaption>
                 </figure>
 
-
                 <figure>
                     <img src="../assets/img/point-17-2.jpg" alt="Membri della banda Turani">
                     <figcaption>
@@ -91,6 +93,10 @@
                     </figcaption>
                 </figure>
 
+                <section class="card">
+                    <h2>Localizzazione</h2>
+                    <div id="map"></div>
+                </section>
 
                 <!--
         Esempi alternativi (opzionali):
@@ -157,6 +163,12 @@
             </p>
         </div>
     </footer>
+
+    <!-- Leaflet JS aggiunto -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Script dedicato alla mappa -->
+    <script src="../js/point-17.js"></script>
 
 </body>
 
