@@ -204,46 +204,50 @@ figcaption {
   }
 }
 
+/* Tooltip stile wikipedia per approfondimenti */
 .tooltip-hover {
-  position: relative;
-  color: #0066cc;
-  border-bottom: 2px solid #0066cc;
-  cursor: pointer;
-  outline: none;
+  position: relative;             /* fondamentale per il tooltip */
+  color: #0066cc;                 /* blu personalizzato */
+  font-weight: bold;              /* la parola è in grassetto */
+  text-decoration: none;           /* togli sottolineatura predefinita */
+  border-bottom: 2px solid #0066cc; /* sottolineatura blu */
+  cursor: pointer;                /* mano al passaggio */
 }
 
 .tooltiptext-hover {
   visibility: hidden;
   opacity: 0;
-  position: absolute;
-  top: 1.8em;
-
-  max-width: 400px; /* larghezza massima */
-  width: max-content;
-
+  width: 300px;
   background-color: #fdfdfd;
   color: #333;
+  font-weight: normal;            /* testo del tooltip normale */
+  text-align: left;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 10px;
-
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-
-  white-space: normal;
-  overflow-wrap: break-word;
-  box-sizing: border-box;
-
-  transition: opacity 0.2s;
+  position: absolute;
+  top: 1.5em;      /* distanza dalla parola */
+  left: 0;
   z-index: 100;
+  transition: opacity 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-/* Mostra tooltip su hover/focus o JS */
-.tooltip-hover:hover .tooltiptext-hover,
-.tooltip-hover:focus .tooltiptext-hover,
-.tooltip-hover.show-tooltip .tooltiptext-hover {
+.tooltip-hover:hover .tooltiptext-hover {
   visibility: visible;
   opacity: 1;
 }
+
+
+/* Riquadro audio */
+.card .audio-box {
+  position: relative;
+  margin-top: 1.5rem;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid #8b0000;
+  background-color: #f8f8f8;
+}
+
 
 
 
