@@ -349,3 +349,23 @@ text-decoration: none;
 .lang-active {
 font-weight: bold;
 }
+
+/* Stile per il pulsante nel popup della mappa */
+.popup-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  transition: background-color 0.2s, transform 0.1s;
+  margin-top: 5px;
+}
+
+.popup-btn:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
