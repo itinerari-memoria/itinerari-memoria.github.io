@@ -36,7 +36,7 @@ points.forEach(p => {
     .bindPopup(`
       <b>${p.title}</b><br>
       <a href="${p.url}" style="text-decoration:none;color:#007bff;">Vai alla pagina</a><br><br>
-      <a href="${googleMapsUrl}" target="_blank" class="popup-btn">
+      <a href="${googleMapsUrl}" target="_blank" class="menu-btn">
         Directions on Google Maps
       </a>
     `);
