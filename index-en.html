@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Historical Itineraries 2.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSS comune del progetto -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="lang-switch">
+                <a href="index.html" class="lang-link">IT</a> |
+                <span class="lang-active">EN</span>
+            </div>
+            <h1>Historical Itineraries 2.0</h1>
+            <p class="subtitle">
+                Historical Itineraries 2.0
+            </p>
+        </div>
+    </header>
+
+    <main class="content">
+        <div class="container">
+
+            <!-- Sezione QR -->
+            <section class="card">
+                <h2>QR Scan</h2>
+
+                <div class="btn-row">
+                    <button class="btn" id="startBtn">Start camera</button>
+                    <button class="btn" id="stopBtn" disabled>Stop</button>
+                </div>
+
+                <video id="video" playsinline muted></video>
+                <canvas id="canvas" style="display:none;"></canvas>
+
+                <div class="log" id="log">
+                    Press “Start camera” and frame the QR code.
+                </div>
+            </section>
+
+            <!-- Accesso manuale -->
+            <section class="card">
+                <h2>Manual access to points</h2>
+                <p>
+                    If the QR code is not recognized, you can manually access
+                    the itinerary pages.
+                </p>
+
+                <div class="btn-row">
+                    <button class="btn" onclick="goToPoint(1)">Point 1</button>
+                    <button class="btn" onclick="goToPoint(2)">Point 2</button>
+                    <button class="btn" onclick="goToPoint(3)">Point 3</button>
+                    <button class="btn" onclick="goToPoint(4)">Point 4</button>
+                    <button class="btn" onclick="goToPoint(5)">Point 5</button>
+                    <button class="btn" onclick="goToPoint(6)">Point 6</button>
+                    <button class="btn" onclick="goToPoint(7)">Point 7</button>
+                    <button class="btn" onclick="goToPoint(8)">Point 8</button>
+                    <button class="btn" onclick="goToPoint(9)">Point 9</button>
+                    <button class="btn" onclick="goToPoint(10)">Point 10</button>
+                    <button class="btn" onclick="goToPoint(11)">Point 11</button>
+                    <button class="btn" onclick="goToPoint(12)">Point 12</button>
+                    <button class="btn" onclick="goToPoint(13)">Point 13</button>
+                    <button class="btn" onclick="goToPoint(14)">Point 14</button>
+                    <button class="btn" onclick="goToPoint(15)">Point 15</button>
+                    <button class="btn" onclick="goToPoint(16)">Point 16</button>
+                    <button class="btn" onclick="goToPoint(17)">Point 17</button>
+                    <button class="btn" onclick="goToPoint(18)">Point 18</button>
+                    <!-- aggiungere altri pulsanti se servono -->
+                </div>
+            </section>
+
+            <div class="video-container">
+                <iframe
+                    src="https://www.google.com/maps/d/u/0/embed?mid=1xKRXjNgF_2FS0EoQZfCGtt4FzNtmtBY&ehbc=2E312F"></iframe>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>School project – Historical Itineraries</p>
+        </div>
+    </footer>
+
+    <!-- Libreria jsQR (solo client-side) -->
+    <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+
+    <script>
+        const video = document.getElementById("video");
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+        const log = document.getElementById("log");
+        const startBtn = document.getElementById("startBtn");
+        const stopBtn = document.getElementById("stopBtn");
+
+        let stream = null;
+        let scanning = false;
+
+        function setLog(msg) {
+            log.textContent = msg;
+        }
+
+        function isLikelyUrl(text) {
+            try {
+                const u = new URL(text);
+                return u.protocol === "http:" || u.protocol === "https:";
+            } catch {
+                return /^[a-z0-9.-]+\.[a-z]{2,}([\/?#].*)?$/i.test(text);
+            }
+        }
+
+        function normalizeUrl(text) {
+            try {
+                return new URL(text).toString();
+            } catch {
+                return "https://" + text;
+            }
+        }
+
+        async function startCamera() {
+            if (!navigator.mediaDevices?.getUserMedia) {
+                setLog("Camera not supported on this browser.");
+                return;
+            }
+
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: { ideal: "environment" } },
+                    audio: false
+                });
+
+                video.srcObject = stream;
+                await video.play();
+
+                scanning = true;
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+                setLog("Camera started. Frame the QR…");
+
+                requestAnimationFrame(tick);
+            } catch (err) {
+                setLog("Camera access error: " + err.message);
+            }
+        }
+
+        function stopCamera() {
+            scanning = false;
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+
+            if (stream) {
+                stream.getTracks().forEach(t => t.stop());
+                stream = null;
+            }
+
+            video.srcObject = null;
+            setLog("Camera stopped.");
+        }
+
+        function tick() {
+            if (!scanning) return;
+
+            if (video.readyState === video.HAVE_ENOUGH_DATA) {
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                const code = jsQR(imageData.data, imageData.width, imageData.height, {
+                    inversionAttempts: "dontInvert"
+                });
+
+                if (code?.data) {
+                    const data = code.data.trim();
+                    setLog("QR read: " + data);
+
+                    if (isLikelyUrl(data)) {
+                        const url = normalizeUrl(data);
+                        setLog("Redirecting to: " + url);
+
+                        stopCamera();
+                        window.location.href = url;
+                        return;
+                    } else {
+                        setLog("QR read but it is not a valid URL.");
+                    }
+                }
+            }
+
+            requestAnimationFrame(tick);
+        }
+
+        function goToPoint(n) {
+            const num = String(n).padStart(2, "0");
+            window.location.href = `points/point-${num}-en.html`;
+        }
+
+        startBtn.addEventListener("click", startCamera);
+        stopBtn.addEventListener("click", stopCamera);
+    </script>
+
+</body>
+
+</html>
