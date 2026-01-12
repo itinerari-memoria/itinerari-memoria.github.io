@@ -1023,3 +1023,121 @@ figcaption {
 .leaflet-bottom {
   z-index: 20 !important;
 }
+
+/* ===================== FIX FINALI CORRETTI ===================== */
+
+/* FIX 1: Language switch su mobile - CORRETTO */
+@media (max-width: 767px) {
+  .lang-switch {
+    top: 16px !important; /* Più in alto */
+    right: 16px !important; /* CORREZIONE: usa valore fisso invece di --pad-mobile */
+    padding: 4px 10px !important;
+    font-size: 0.8rem !important;
+    background: rgba(255, 255, 255, 0.85) !important;
+    transform: translateY(0) !important;
+  }
+  
+  /* Sposta il titolo più in basso per fare spazio */
+  .header-title-wrapper {
+    margin-top: 48px !important; /* Più spazio per il lang-switch */
+    padding-top: 8px !important;
+  }
+  
+  /* Assicura che non ci siano sovrapposizioni */
+  .site-header h1 {
+    padding-right: 60px !important; /* Lascia spazio per il lang-switch */
+    max-width: 100% !important; /* Modificato da calc(100% - 70px) */
+  }
+}
+
+/* FIX 2: Riquadro audio su mobile - MIGLIORATO */
+@media (max-width: 767px) {
+  .card .audio-box {
+    margin-top: 1.5rem !important;
+    padding: 1.25rem !important; /* Ridotto un po' il padding */
+    margin-left: -12px !important; /* Compensa meglio il padding della card */
+    margin-right: -12px !important; /* Compensa meglio il padding della card */
+    width: calc(100% + 24px) !important; /* Estende di più */
+    border-radius: calc(var(--radius) - 4px) !important; /* Raggio leggermente più piccolo */
+    overflow: visible !important;
+    position: relative;
+    left: -4px; /* Leggero spostamento a sinistra */
+  }
+  
+  /* Assicura che il contenuto interno non venga tagliato */
+  .audio-title,
+  .audio-description {
+    padding-right: 8px !important;
+    padding-left: 8px !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  /* Se hai player audio personalizzati */
+  .card .audio-box audio {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 4px !important;
+  }
+}
+
+/* FIX EXTRA: Assicura che tutto sia visibile su schermi piccoli */
+@media (max-width: 375px) {
+  .container {
+    padding: 0 12px !important;
+  }
+  
+  .card {
+    padding: 18px 14px !important;
+    margin-left: -6px !important;
+    margin-right: -6px !important;
+    width: calc(100% + 12px) !important;
+  }
+  
+  .lang-switch {
+    right: 12px !important;
+    font-size: 0.75rem !important;
+    padding: 3px 8px !important;
+  }
+  
+  .header-title-wrapper {
+    margin-top: 44px !important; /* Leggermente meno spazio */
+  }
+  
+  .site-header h1 {
+    font-size: 1.6rem !important; /* Titolo più piccolo */
+    padding-right: 50px !important; /* Meno spazio per lang-switch */
+  }
+}
+
+/* FIX PER LANG-SWITCH ANCHE SU TABLET */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .lang-switch {
+    top: 20px !important;
+    right: 20px !important;
+  }
+  
+  .header-title-wrapper {
+    margin-top: 40px !important;
+    padding-right: 80px !important;
+  }
+}
+
+/* FIX PER AUDIO BOX ANCHE SU TABLET */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .card .audio-box {
+    padding: 1.75rem !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    width: calc(100% + 32px) !important;
+  }
+}
+
+/* AGGIUNGI QUESTA REGOLA PER IL CONTAINER SU MOBILE */
+@media (max-width: 767px) {
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
