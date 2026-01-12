@@ -1,1 +1,25 @@
-1. Togliere mappe singoli punti e lasciare mappa index.html
+Togliere mappe singoli punti e lasciare mappa index.html
+
+In alcuni c'è una mappa sulla pagina del punto in altri no
+
+In alcuni ce scritta Audio Lettura in altri no
+
+Home EN non ci sono le indicazioni nel sottotitolo 
+
+2 mancano audio, eng non va img e non ci sono fonti link, il back home porta a quella italiana
+
+3 manca collegamento It en, EN porta home italiana
+
+6 EN manca audio, porta a home it
+
+8 manca collegamento EN, sbagliati audio in inglese, EN porta a home it
+
+12 non esiste
+
+15 audio ita sbagliato
+
+16 non c'è collegamento EN, porta home ita
+
+17 mancano audio EN, porta home ita
+
+18 no audio eng, home ita

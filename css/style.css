@@ -354,7 +354,7 @@ font-weight: bold;
 .popup-btn {
   display: inline-block;
   padding: 6px 12px;
-  background-color: #28a745;
+  background-color: lightblue;
   color: white;
   font-weight: bold;
   border-radius: 5px;
@@ -366,6 +366,6 @@ font-weight: bold;
 }
 
 .popup-btn:hover {
-  background-color: #218838;
+  background-color: lightblue;
   transform: scale(1.05);
 }
