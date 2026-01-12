@@ -31,5 +31,5 @@ const points = [
 points.forEach(p => {
   L.marker([p.lat, p.lng])
     .addTo(map)
-    .bindPopup(`<b>${p.title}</b><br><a href="${p.url}">Vai alla pagina</a>`);
+    .bindPopup(`<b>${p.title}</b><br><a href="${p.url}">Go to page</a>`);
 });
