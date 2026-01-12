@@ -29,7 +29,15 @@ const points = [
 ];
 
 points.forEach(p => {
+  const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}`;
+  
   L.marker([p.lat, p.lng])
     .addTo(map)
-    .bindPopup(`<b>${p.title}</b><br><a href="${p.url}">Go to page</a>`);
+    .bindPopup(`
+      <b>${p.title}</b><br>
+      <a href="${p.url}" style="text-decoration:none;color:#007bff;">Vai alla pagina</a><br><br>
+      <a href="${googleMapsUrl}" target="_blank" class="popup-btn">
+        Directions on Google Maps
+      </a>
+    `);
 });
