@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- CSS comune del progetto -->
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="style-prova.css" />
 </head>
 
 <body>
@@ -49,35 +49,39 @@
       </section>
 
       <!-- Accesso manuale -->
-      <section class="card">
-        <h2>Accesso manuale ai punti</h2>
-        <p>
-          Se il QR code non viene riconosciuto, puoi accedere manualmente
-          alle pagine dell’itinerario.
+      <div class="punti-menu-container">
+        <p class="punti-description">
+          Se il QR code non viene riconosciuto, puoi accedere manualmente alle pagine dell’itinerario.
         </p>
 
-        <div class="btn-row">
-          <button class="btn" onclick="goToPoint(1)">Punto 1</button>
-          <button class="btn" onclick="goToPoint(2)">Punto 2</button>
-          <button class="btn" onclick="goToPoint(3)">Punto 3</button>
-          <button class="btn" onclick="goToPoint(4)">Punto 4</button>
-          <button class="btn" onclick="goToPoint(5)">Punto 5</button>
-          <button class="btn" onclick="goToPoint(6)">Punto 6</button>
-          <button class="btn" onclick="goToPoint(7)">Punto 7</button>
-          <button class="btn" onclick="goToPoint(8)">Punto 8</button>
-          <button class="btn" onclick="goToPoint(9)">Punto 9</button>
-          <button class="btn" onclick="goToPoint(10)">Punto 10</button>
-          <button class="btn" onclick="goToPoint(11)">Punto 11</button>
-          <button class="btn" onclick="goToPoint(12)">Punto 12</button>
-          <button class="btn" onclick="goToPoint(13)">Punto 13</button>
-          <button class="btn" onclick="goToPoint(14)">Punto 14</button>
-          <button class="btn" onclick="goToPoint(15)">Punto 15</button>
-          <button class="btn" onclick="goToPoint(16)">Punto 16</button>
-          <button class="btn" onclick="goToPoint(17)">Punto 17</button>
-          <button class="btn" onclick="goToPoint(18)">Punto 18</button>
-          <!-- aggiungere altri pulsanti se servono -->
+        <button class="menu-toggle" id="puntiToggle">
+          <span>Accesso manuale ai punti (clicca per aprire)</span>
+          <span class="icon">▼</span>
+        </button>
+
+        <div class="punti-dropdown" id="puntiDropdown">
+          <div class="punti-grid">
+            <a href="punto-01.html" class="punto-btn">Punto 1</a>
+            <a href="punto-02.html" class="punto-btn">Punto 2</a>
+            <a href="punto-03.html" class="punto-btn">Punto 3</a>
+            <a href="punto-04.html" class="punto-btn">Punto 4</a>
+            <a href="punto-05.html" class="punto-btn">Punto 5</a>
+            <a href="punto-06.html" class="punto-btn">Punto 6</a>
+            <a href="punto-07.html" class="punto-btn">Punto 7</a>
+            <a href="punto-08.html" class="punto-btn">Punto 8</a>
+            <a href="punto-09.html" class="punto-btn">Punto 9</a>
+            <a href="punto-10.html" class="punto-btn">Punto 10</a>
+            <a href="punto-11.html" class="punto-btn">Punto 11</a>
+            <a href="punto-12.html" class="punto-btn">Punto 12</a>
+            <a href="punto-13.html" class="punto-btn">Punto 13</a>
+            <a href="punto-14.html" class="punto-btn">Punto 14</a>
+            <a href="punto-15.html" class="punto-btn">Punto 15</a>
+            <a href="punto-16.html" class="punto-btn">Punto 16</a>
+            <a href="punto-17.html" class="punto-btn">Punto 17</a>
+            <a href="punto-18.html" class="punto-btn">Punto 18</a>
+          </div>
         </div>
-      </section>
+      </div>
 
       <!-- Mappa interattiva -->
       <section class="card">
@@ -100,7 +104,9 @@
   <!-- Leaflet JS (necessario per far funzionare la mappa) -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <!-- File JS esterno con la logica della mappa -->
-  <script src="js/mappaInterattiva.js"></script>
+  <script src="mappaInterattiva.js"></script>
+
+  <script src="menuTendina.js"></script>
 
   <!-- Libreria jsQR (solo client-side) -->
   <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>

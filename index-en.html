@@ -19,9 +19,6 @@
                 <span class="lang-active">EN</span>
             </div>
             <h1>Historical Itineraries 2.0</h1>
-            <p class="subtitle">
-                Historical Itineraries 2.0
-            </p>
         </div>
     </header>
 
@@ -31,6 +28,11 @@
             <!-- Sezione QR -->
             <section class="card">
                 <h2>QR Scan</h2>
+
+                <p class="subtitle">
+                    Scan the QR code present in the itinerary locations
+                    or manually select the point.
+                </p>
 
                 <div class="btn-row">
                     <button class="btn" id="startBtn">Start camera</button>
@@ -76,19 +78,28 @@
                 </div>
             </section>
 
-            <div class="video-container">
-                <iframe
-                    src="https://www.google.com/maps/d/u/0/embed?mid=1xKRXjNgF_2FS0EoQZfCGtt4FzNtmtBY&ehbc=2E312F"></iframe>
-            </div>
+            <!-- Mappa interattiva -->
+            <section class="card">
+                <h2>Interactive Map</h2>
+                <div id="map"></div>
+            </section>
+
+            <!-- Leaflet CSS -->
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
         </div>
     </main>
 
     <footer class="site-footer">
         <div class="container">
-            <p>School project – Historical Itineraries</p>
+            <p>School project - Historical Itineraries 2.0</p>
         </div>
     </footer>
+
+    <!-- Leaflet JS (necessario per far funzionare la mappa) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- File JS esterno con la logica della mappa -->
+    <script src="js/mappaInterattiva-en.js"></script>
 
     <!-- Libreria jsQR (solo client-side) -->
     <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
