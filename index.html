@@ -77,9 +77,14 @@
         </div>
       </section>
 
-      <div class="video-container">
-        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1xKRXjNgF_2FS0EoQZfCGtt4FzNtmtBY&ehbc=2E312F"></iframe>
-      </div>
+      <!-- Mappa interattiva -->
+      <section class="card">
+        <h2>Mappa interattiva</h2>
+        <div id="map"></div>
+      </section>
+
+      <!-- Leaflet CSS -->
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
     </div>
   </main>
@@ -89,6 +94,11 @@
       <p>Progetto scolastico – Itinerari della Memoria</p>
     </div>
   </footer>
+
+  <!-- Leaflet JS (necessario per far funzionare la mappa) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- File JS esterno con la logica della mappa -->
+  <script src="js/mappaInterattiva.js"></script>
 
   <!-- Libreria jsQR (solo client-side) -->
   <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
