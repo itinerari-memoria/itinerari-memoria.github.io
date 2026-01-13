@@ -35,7 +35,7 @@ points.forEach(p => {
     .addTo(map)
     .bindPopup(`
       <b>${p.title}</b><br>
-      <a href="${p.url}" style="text-decoration:none;color:#007bff;">Vai alla pagina</a><br><br>
+      <a href="${p.url}" style="text-decoration:none;color:#007bff;">Go to page</a><br><br>
       <a href="${googleMapsUrl}" target="_blank" class="menu-btn">
         Directions on Google Maps
       </a>
