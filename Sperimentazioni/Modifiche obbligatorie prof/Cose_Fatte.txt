@@ -1,1 +1,1 @@
-Inserita la parte introduttiva, la parte qr si apre solo se c'è una telecamera rilevata, se la lingua del browser non è italiana manda all'index in inglese, modificate le scritte dei punti con emoji, invertito mappa con punti
+Inserita la parte introduttiva, la parte qr si apre solo se c'è una telecamera rilevata, se la lingua del browser non è italiana manda all'index in inglese, modificate le scritte dei punti con emoji, invertito mappa con punti, mappa piu zoommata

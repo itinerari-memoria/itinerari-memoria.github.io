@@ -1,5 +1,6 @@
 // Centra la mappa su Bergamo
-const map = L.map('map').setView([45.6983, 9.6773], 13);
+const map = L.map('map').setView([45.6983, 9.6773], 15);
+
 
 // Tile OpenStreetMap
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
