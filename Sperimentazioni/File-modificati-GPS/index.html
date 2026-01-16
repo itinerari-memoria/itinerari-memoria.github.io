@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <title>Itinerari della Memoria 2.0</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- CSS comune del progetto -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="lang-switch">
+      <span class="lang-active">IT</span> | <a href="index-en.html" class="lang-link">EN</a>
+    </div>
+    <h1>Itinerari della Memoria 2.0</h1>
+  </div>
+</header>
+
+<main class="content">
+  <div class="container">
+
+    <!-- Sezione QR -->
+    <section class="card">
+      <h2>Scansione QR</h2>
+      <p class="subtitle">
+        Scansiona il QR code presente nei luoghi dell’itinerario oppure seleziona manualmente il punto.
+      </p>
+
+      <div class="btn-row">
+        <button class="btn" id="startBtn">Avvia fotocamera</button>
+        <button class="btn" id="stopBtn" disabled>Stop</button>
+      </div>
+
+      <video id="video" playsinline muted></video>
+      <canvas id="canvas" style="display:none;"></canvas>
+
+      <div class="log" id="log">
+        Premi “Avvia fotocamera” e inquadra il QR code.
+      </div>
+    </section>
+
+    <!-- Accesso manuale ai punti -->
+    <section class="card gps-section">
+      <h2>Accesso manuale ai punti</h2>
+      <p id="gpsStatus" class="gps-status"></p>
+      <button id="gpsBtn" class="btn" style="display:none;">📡 Attiva localizzazione</button>
+
+      <div id="points-cards" class="points-grid">
+        <!-- Card generate via JS -->
+      </div>
+    </section>
+
+    <!-- Mappa interattiva -->
+    <section class="card">
+      <h2>Mappa interattiva</h2>
+      <div id="map"></div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Progetto scolastico – Itinerari della Memoria 2.0</p>
+  </div>
+</footer>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- JS mappa e GPS -->
+<script src="js/mappaInterattiva.js"></script>
+
+<!-- jsQR -->
+<script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+
+<script>
+  // ===== QR CAMERA =====
+  const video = document.getElementById("video");
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+  const log = document.getElementById("log");
+  const startBtn = document.getElementById("startBtn");
+  const stopBtn = document.getElementById("stopBtn");
+  let stream = null;
+  let scanning = false;
+
+  function setLog(msg) { log.textContent = msg; }
+
+  async function startCamera() {
+    if (!navigator.mediaDevices?.getUserMedia) { setLog("Fotocamera non supportata."); return; }
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: "environment" } }, audio: false });
+      video.srcObject = stream; await video.play();
+      scanning = true; startBtn.disabled = true; stopBtn.disabled = false;
+      setLog("Fotocamera avviata. Inquadra il QR…");
+      requestAnimationFrame(tick);
+    } catch (err) { setLog("Errore fotocamera: " + err.message); }
+  }
+
+  function stopCamera() {
+    scanning = false; startBtn.disabled = false; stopBtn.disabled = true;
+    if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
+    video.srcObject = null; setLog("Fotocamera fermata.");
+  }
+
+  function tick() {
+    if (!scanning) return;
+    if (video.readyState === video.HAVE_ENOUGH_DATA) {
+      canvas.width = video.videoWidth; canvas.height = video.videoHeight;
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const code = jsQR(imageData.data, imageData.width, imageData.height, { inversionAttempts: "dontInvert" });
+      if (code?.data) {
+        const data = code.data.trim();
+        setLog("QR letto: " + data);
+        try { window.location.href = new URL(data).toString(); } catch { setLog("QR non è URL valido."); }
+        stopCamera();
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+
+  startBtn.addEventListener("click", startCamera);
+  stopBtn.addEventListener("click", stopCamera);
+</script>
+
+</body>
+</html>
