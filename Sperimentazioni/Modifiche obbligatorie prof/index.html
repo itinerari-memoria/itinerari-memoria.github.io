@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Itinerari della Memoria 2.0</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- CSS comune del progetto -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="lang-switch">
+        <span class="lang-active">IT</span> |
+        <a href="index-en.html" class="lang-link">EN</a>
+      </div>
+      <h1>Itinerari della Memoria 2.0</h1>
+
+    </div>
+  </header>
+
+  <main class="content">
+    <div class="container">
+      <section class="card">
+        <h2>Il progetto</h2>
+        <p>
+          Itinerari della Memoria 2.0 è un progetto digitale che nasce con
+          l’obiettivo di valorizzare e rendere accessibili i luoghi della memoria storica
+          presenti sul territorio. Attraverso un percorso che unisce spazio fisico e
+          contenuti digitali, il progetto permette di riscoprire monumenti, edifici e luoghi
+          che in passato sono stati legati al fascismo.
+        </p>
+        <p>
+          Il sito presenta un itinerario composto da diverse tappe, ciascuna identificata da
+          un QR code posizionato sul luogo reale. Scansionando il codice è possibile accedere
+          a informazioni, immagini e approfondimenti che aiutano a comprendere il valore
+          storico e simbolico di ogni punto, trasformando una semplice visita in
+          un’esperienza di conoscenza consapevole.
+        </p>
+      </section>
+      <!-- Sezione QR -->
+      <section class="card collapsed" id="qrSection">
+        <h2>Scansione QR</h2>
+
+        <!-- Messaggio se fotocamera non disponibile -->
+        <p class="subtitle no-camera" style="display:none;">
+          Fotocamera non disponibile su questo dispositivo.
+        </p>
+
+        <div class="card-content">
+          <p class="subtitle">
+            Scansiona il QR code presente nei luoghi dell’itinerario
+            oppure seleziona manualmente il punto.
+          </p>
+
+          <div class="btn-row">
+            <button class="btn" id="startBtn">Avvia fotocamera</button>
+            <button class="btn" id="stopBtn" disabled>Stop</button>
+          </div>
+
+          <video id="video" playsinline muted></video>
+          <canvas id="canvas" style="display:none;"></canvas>
+
+          <div class="log" id="log">
+            Premi “Avvia fotocamera” e inquadra il QR code.
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Mappa interattiva -->
+      <section class="card">
+        <h2>Mappa interattiva</h2>
+        <div id="map"></div>
+      </section>
+
+      <!-- Accesso manuale -->
+      <section class="card">
+        <h2>Accesso manuale ai punti</h2>
+        <p>
+          Se il QR code non viene riconosciuto, puoi accedere manualmente
+          alle pagine dell’itinerario.
+        </p>
+
+        <div class="btn-row">
+          <button class="btn" onclick="goToPoint(1)">✋ A braccia incrociate <span class="btn-sub">(Punto
+              01)</span></button>
+          <button class="btn" onclick="goToPoint(2)">🕊️ In memoria di Ernesto Rossi e Ada Rossi <span
+              class="btn-sub">(Punto 02)</span></button>
+          <button class="btn" onclick="goToPoint(3)">🎓 Il controllo dell'educazione <span class="btn-sub">(Punto
+              03)</span></button>
+          <button class="btn" onclick="goToPoint(4)">🚫 Contro qualsiasi opposizione <span class="btn-sub">(Punto
+              04)</span></button>
+          <button class="btn" onclick="goToPoint(5)">⚖️ Il tribunale speciale <span class="btn-sub">(Punto
+              05)</span></button>
+          <button class="btn" onclick="goToPoint(6)">🚺 Donne in armi <span class="btn-sub">(Punto 06)</span></button>
+          <button class="btn" onclick="goToPoint(7)">🏛️ La prefettura <span class="btn-sub">(Punto 07)</span></button>
+          <button class="btn" onclick="goToPoint(8)">📰 La Stampa <span class="btn-sub">(Punto 08)</span></button>
+          <button class="btn" onclick="goToPoint(9)">🧾 Uffici di collocamento <span class="btn-sub">(Punto
+              09)</span></button>
+          <button class="btn" onclick="goToPoint(10)">🏫 Palazzo del Comune <span class="btn-sub">(Punto
+              10)</span></button>
+          <button class="btn" onclick="goToPoint(11)">📍 Al centro della città <span class="btn-sub">(Punto
+              11)</span></button>
+          <button class="btn" onclick="goToPoint(12)">⛪ Casa, scuola, tempio <span class="btn-sub">(Punto
+              12)</span></button>
+          <button class="btn" onclick="goToPoint(13)">🔒 Da Monastero a carcere <span class="btn-sub">(Punto
+              13)</span></button>
+          <button class="btn" onclick="goToPoint(14)">🛡️ Il comando della gendarmeria <span class="btn-sub">(Punto
+              14)</span></button>
+          <button class="btn" onclick="goToPoint(15)">🪖 Caserma Montelungo <span class="btn-sub">(Punto
+              15)</span></button>
+          <button class="btn" onclick="goToPoint(16)">🪨 Pietre d'inciampo <span class="btn-sub">(Punto
+              16)</span></button>
+          <button class="btn" onclick="goToPoint(17)">👥 La Banda Turani <span class="btn-sub">(Punto
+              17)</span></button>
+          <button class="btn" onclick="goToPoint(18)">🕯️ Ferruccio Dell'Orto <span class="btn-sub">(Punto
+              18)</span></button>
+        </div>
+      </section>
+
+
+
+
+      <!-- Leaflet CSS -->
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Progetto scolastico – Itinerari della Memoria 2.0</p>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS (necessario per far funzionare la mappa) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- File JS esterno con la logica della mappa -->
+  <script src="js/mappaInterattiva.js"></script>
+
+  <!-- Libreria jsQR (solo client-side) -->
+  <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+
+  <!-- PER LA LINGUA-->
+  <script src="js/lingua.js"></script>
+
+    <!-- PER IL QR Code-->
+    <script src="js/QrCode.js"></script>
+
+  <script>
+    const video = document.getElementById("video");
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const log = document.getElementById("log");
+    const startBtn = document.getElementById("startBtn");
+    const stopBtn = document.getElementById("stopBtn");
+
+    let stream = null;
+    let scanning = false;
+
+    function setLog(msg) {
+      log.textContent = msg;
+    }
+
+    function isLikelyUrl(text) {
+      try {
+        const u = new URL(text);
+        return u.protocol === "http:" || u.protocol === "https:";
+      } catch {
+        return /^[a-z0-9.-]+\.[a-z]{2,}([\/?#].*)?$/i.test(text);
+      }
+    }
+
+    function normalizeUrl(text) {
+      try {
+        return new URL(text).toString();
+      } catch {
+        return "https://" + text;
+      }
+    }
+
+    async function startCamera() {
+      if (!navigator.mediaDevices?.getUserMedia) {
+        setLog("Fotocamera non supportata su questo browser.");
+        return;
+      }
+
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: { ideal: "environment" } },
+          audio: false
+        });
+
+        video.srcObject = stream;
+        await video.play();
+
+        scanning = true;
+        startBtn.disabled = true;
+        stopBtn.disabled = false;
+        setLog("Fotocamera avviata. Inquadra il QR…");
+
+        requestAnimationFrame(tick);
+      } catch (err) {
+        setLog("Errore accesso fotocamera: " + err.message);
+      }
+    }
+
+    function stopCamera() {
+      scanning = false;
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
+
+      if (stream) {
+        stream.getTracks().forEach(t => t.stop());
+        stream = null;
+      }
+
+      video.srcObject = null;
+      setLog("Fotocamera fermata.");
+    }
+
+    function tick() {
+      if (!scanning) return;
+
+      if (video.readyState === video.HAVE_ENOUGH_DATA) {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const code = jsQR(imageData.data, imageData.width, imageData.height, {
+          inversionAttempts: "dontInvert"
+        });
+
+        if (code?.data) {
+          const data = code.data.trim();
+          setLog("QR letto: " + data);
+
+          if (isLikelyUrl(data)) {
+            const url = normalizeUrl(data);
+            setLog("Reindirizzo a: " + url);
+
+            stopCamera();
+            window.location.href = url;
+            return;
+          } else {
+            setLog("QR letto ma non è un URL valido.");
+          }
+        }
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    function goToPoint(n) {
+      const num = String(n).padStart(2, "0");
+      window.location.href = `points/point-${num}.html`;
+    }
+
+    startBtn.addEventListener("click", startCamera);
+    stopBtn.addEventListener("click", stopCamera);
+  </script>
+
+</body>
+
+</html>
