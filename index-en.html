@@ -22,11 +22,50 @@
         </div>
     </header>
 
+
+    <!-- Hero Section in stile italiano ma in inglese -->
+    <section class="hero-section">
+        <div class="container">
+            <h2 class="hero-title">Discover the places of memory</h2>
+            <p class="hero-description">
+                Through an interactive journey into the history of our city
+            </p>
+
+            <!-- I due bottoni -->
+            <div class="hero-buttons">
+                <a href="#sezione-telecamera" class="hero-btn">Scan QR</a>
+                <a href="#map" class="hero-btn">Explore Map</a>
+            </div>
+        </div>
+
+        <!-- Pulsante che pulsa per scorrere giù -->
+        <button class="scroll-down-btn" id="scrollDownBtn" aria-label="Scroll to content">
+            ↓
+        </button>
+    </section>
+
     <main class="content">
         <div class="container">
 
-            <!-- Sezione QR -->
             <section class="card">
+                <h2>The project</h2>
+                <p>
+                    Itinerari della Memoria 2.0 is a digital project created with the aim
+                    of enhancing and making accessible the sites of historical memory present in the area.
+                    Through a path that connects physical spaces with digital content, the project allows
+                    visitors to rediscover monuments, buildings, and places that in the past were linked
+                    to Fascism.
+                </p>
+                <p>
+                    The website presents an itinerary made up of several stops, each identified by a QR
+                    code placed at the real location. By scanning the code, users can access information,
+                    images, and in-depth materials that help them understand the historical and symbolic
+                    value of each site, transforming a simple visit into an experience of informed and
+                    conscious learning.
+                </p>
+            </section>
+            <!-- Sezione QR -->
+            <section class="card" id="sezione-telecamera">
                 <h2>QR Scan</h2>
 
                 <p class="subtitle">
@@ -47,46 +86,130 @@
                 </div>
             </section>
 
-            <!-- Accesso manuale -->
-            <section class="card">
-                <h2>Manual access to points</h2>
-                <p>
-                    If the QR code is not recognized, you can manually access
-                    the itinerary pages.
-                </p>
 
-                <div class="btn-row">
-                    <button class="btn" onclick="goToPoint(1)">Point 1</button>
-                    <button class="btn" onclick="goToPoint(2)">Point 2</button>
-                    <button class="btn" onclick="goToPoint(3)">Point 3</button>
-                    <button class="btn" onclick="goToPoint(4)">Point 4</button>
-                    <button class="btn" onclick="goToPoint(5)">Point 5</button>
-                    <button class="btn" onclick="goToPoint(6)">Point 6</button>
-                    <button class="btn" onclick="goToPoint(7)">Point 7</button>
-                    <button class="btn" onclick="goToPoint(8)">Point 8</button>
-                    <button class="btn" onclick="goToPoint(9)">Point 9</button>
-                    <button class="btn" onclick="goToPoint(10)">Point 10</button>
-                    <button class="btn" onclick="goToPoint(11)">Point 11</button>
-                    <button class="btn" onclick="goToPoint(12)">Point 12</button>
-                    <button class="btn" onclick="goToPoint(13)">Point 13</button>
-                    <button class="btn" onclick="goToPoint(14)">Point 14</button>
-                    <button class="btn" onclick="goToPoint(15)">Point 15</button>
-                    <button class="btn" onclick="goToPoint(16)">Point 16</button>
-                    <button class="btn" onclick="goToPoint(17)">Point 17</button>
-                    <button class="btn" onclick="goToPoint(18)">Point 18</button>
-                    <!-- aggiungere altri pulsanti se servono -->
-                </div>
-            </section>
-
-            <!-- Mappa interattiva -->
+            <!-- Interactive Map -->
             <section class="card">
                 <h2>Interactive Map</h2>
                 <div id="map"></div>
+
+                <button id="gpsBtn" class="btn">📍 Enable Location</button>
+                <p id="gpsStatus" class="gps-status"></p>
+
+                <!-- Manual Access -->
+                <div class="punti-menu-container">
+                    <p class="punti-description">
+                        If the QR code is not recognized, you can manually access the itinerary pages.
+                    </p>
+
+                    <button class="menu-toggle" id="puntiToggle">
+                        <span>Manual Access to Points (click to open)</span>
+                        <span class="icon">▼</span>
+                    </button>
+
+                    <div class="punti-dropdown" id="puntiDropdown">
+                        <div class="punti-grid">
+                            <!-- Column 1 -->
+                            <div class="colonna-sinistra">
+                                <a href="points/point-01-en.html" class="punto-btn">
+                                    <span class="titolo-principale">With Crossed Arms</span>
+                                    <span class="icona-emoji">✋</span>
+                                </a>
+
+                                <a href="points/point-02-en.html" class="punto-btn">
+                                    <span class="titolo-principale">In Memory of Ernesto Rossi and Ada Rossi</span>
+                                    <span class="icona-emoji">🕊️</span>
+                                </a>
+
+                                <a href="points/point-03-en.html" class="punto-btn">
+                                    <span class="titolo-principale">Controlling Education</span>
+                                    <span class="icona-emoji">🎓</span>
+                                </a>
+
+                                <a href="points/point-04-en.html" class="punto-btn">
+                                    <span class="titolo-principale">Against Any Opposition</span>
+                                    <span class="icona-emoji">🚫</span>
+                                </a>
+
+                                <a href="points/point-05-en.html" class="punto-btn">
+                                    <span class="titolo-principale">The Special Tribunal</span>
+                                    <span class="icona-emoji">⚖️</span>
+                                </a>
+
+                                <a href="points/point-06-en.html" class="punto-btn">
+                                    <span class="titolo-principale">Women in Arms</span>
+                                    <span class="icona-emoji">🚺</span>
+                                </a>
+
+                                <a href="points/point-07-en.html" class="punto-btn">
+                                    <span class="titolo-principale">The Prefecture</span>
+                                    <span class="icona-emoji">🏛️</span>
+                                </a>
+
+                                <a href="points/point-08-en.html" class="punto-btn">
+                                    <span class="titolo-principale">La Stampa</span>
+                                    <span class="icona-emoji">📰</span>
+                                </a>
+
+                                <a href="points/point-09-en.html" class="punto-btn">
+                                    <span class="titolo-principale">Employment Offices</span>
+                                    <span class="icona-emoji">🧾</span>
+                                </a>
+                            </div>
+
+                            <!-- Column 2 -->
+                            <div class="colonna-destra">
+                                <a href="points/point-10-en.html" class="punto-btn">
+                                    <span class="titolo-principale">City Hall</span>
+                                    <span class="icona-emoji">🏫</span>
+                                </a>
+
+                                <a href="points/point-11-en.html" class="punto-btn">
+                                    <span class="titolo-principale">At the Center of the City</span>
+                                    <span class="icona-emoji">📍</span>
+                                </a>
+
+                                <a href="points/point-12-en.html" class="punto-btn">
+                                    <span class="titolo-principale">Home, School, Temple</span>
+                                    <span class="icona-emoji">⛪</span>
+                                </a>
+
+                                <a href="points/point-13-en.html" class="punto-btn">
+                                    <span class="titolo-principale">From Monastery to Prison</span>
+                                    <span class="icona-emoji">🔒</span>
+                                </a>
+
+                                <a href="points/point-14-en.html" class="punto-btn">
+                                    <span class="titolo-principale">The Gendarmerie Command</span>
+                                    <span class="icona-emoji">🛡️</span>
+                                </a>
+
+                                <a href="points/point-15-en.html" class="punto-btn">
+                                    <span class="titolo-principale">Montelungo Barracks</span>
+                                    <span class="icona-emoji">🪖</span>
+                                </a>
+
+                                <a href="points/point-16-en.html" class="punto-btn">
+                                    <span class="titolo-principale">Stumbling Stones</span>
+                                    <span class="icona-emoji">🪨</span>
+                                </a>
+
+                                <a href="points/point-17-en.html" class="punto-btn">
+                                    <span class="titolo-principale">The Turani Gang</span>
+                                    <span class="icona-emoji">👥</span>
+                                </a>
+
+                                <a href="points/point-18-en.html" class="punto-btn">
+                                    <span class="titolo-principale">Ferruccio Dell'Orto</span>
+                                    <span class="icona-emoji">🕯️</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- Leaflet CSS -->
             <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
         </div>
     </main>
 
@@ -101,8 +224,13 @@
     <!-- File JS esterno con la logica della mappa -->
     <script src="js/mappaInterattiva-en.js"></script>
 
+    <script src="js/menuTendina.js"></script>
+
     <!-- Libreria jsQR (solo client-side) -->
     <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+
+    <!-- PER IL QR Code-->
+    <script src="js/QrCode.js"></script>
 
     <script>
         const video = document.getElementById("video");
@@ -216,6 +344,21 @@
 
         startBtn.addEventListener("click", startCamera);
         stopBtn.addEventListener("click", stopCamera);
+
+        // Scroll smooth al click del pulsante
+        document.addEventListener('DOMContentLoaded', function () {
+            const scrollDownBtn = document.getElementById('scrollDownBtn');
+            const contentSection = document.querySelector('.content'); // La sezione dopo la hero
+
+            if (scrollDownBtn && contentSection) {
+                scrollDownBtn.addEventListener('click', function () {
+                    contentSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            }
+        });
     </script>
 
 </body>

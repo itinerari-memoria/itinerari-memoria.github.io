@@ -8,6 +8,7 @@
 
     <!-- Project common CSS -->
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
@@ -97,6 +98,7 @@
                         “Eugenio Donadoni” middle school in Via Torquato Tasso 14
                     </figcaption>
                 </figure>
+
             </section>
 
             <!-- Sources -->
@@ -129,11 +131,25 @@
                 </ul>
             </section>
 
-            <!-- Navigation -->
-            <section>
-                <a href="../index.html">← Back to home</a>
-            </section>
 
+            <!-- Alla fine della pagina -->
+            <div class="container">
+                <div class="page-nav-simple">
+                <a href="point-05-en.html" class="nav-simple">
+                    <span class="icon">←</span>
+                    Previous
+                </a>
+                
+                <a href="../index-en.html" class="nav-simple">
+                    Back to home
+                </a>
+                
+                <a href="point-07-en.html" class="nav-simple">
+                    Next
+                    <span class="icon">→</span>
+                </a>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -145,6 +161,11 @@
             </p>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/point-06.js"></script>
+    <script src="../js/title-home-en.js"></script>
 
 </body>
 

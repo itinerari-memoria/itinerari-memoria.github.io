@@ -8,6 +8,8 @@
 
     <!-- CSS comune del progetto -->
     <link rel="stylesheet" href="../css/style.css">
+    <!-- Leaflet CSS aggiunto -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
@@ -178,6 +180,7 @@
 
             </section>
 
+
             <!--
         Esempi alternativi (opzionali):
 
@@ -229,10 +232,27 @@
 
             </section>
 
-            <!-- Navigazione -->
-            <section>
-                <a href="../index.html">← Torna alla home</a>
-            </section>
+            <!-- Alla fine della pagina -->
+            <div class="container">
+            <div class="page-nav-simple">
+                
+                <a href="point-17.html" class="nav-simple">
+                <span class="icon">←</span>
+                Precedente
+                </a>
+                
+                <a href="../index.html" class="nav-simple">
+                Torna alla Home
+                </a>
+                
+                <a class="nav-simple disabled" aria-disabled="true">
+                Successivo
+                <span class="icon">→</span>
+                </a>
+
+            </div>
+            </div>
+
 
         </div>
     </main>
@@ -246,6 +266,13 @@
         </div>
     </footer>
 
+    <!-- Leaflet JS aggiunto -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Script dedicato alla mappa -->
+    <script src="../js/point-18.js"></script>
+
+    <script src="../js/title-home.js"></script>
 </body>
 
 </html>

@@ -8,6 +8,9 @@
 
     <!-- CSS comune del progetto -->
     <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Leaflet CSS aggiunto -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
@@ -140,22 +143,6 @@
 
             </section>
 
-            <section class="card">
-                <h2>Approfondimento: La resistenza italiana</h2>
-
-                <p class="audio-title">
-                    La resistenza italiana
-                </p>
-
-                <figure>
-                    <div class="video-container">
-                        <video controls preload="metadata">
-                            <source src="../assets/video/point-17.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </figure>
-
-            </section>
 
             <!--
         Esempi alternativi (opzionali):
@@ -210,10 +197,24 @@
 
             </section>
 
-            <!-- Navigazione -->
-            <section>
-                <a href="../index.html">← Torna alla home</a>
-            </section>
+            <!-- Alla fine della pagina -->
+      <div class="container">
+        <div class="page-nav-simple">
+          <a href="point-16.html" class="nav-simple">
+            <span class="icon">←</span>
+            Precedente
+          </a>
+          
+          <a href="../index.html" class="nav-simple">
+            Torna alla Home
+          </a>
+          
+          <a href="point-18.html" class="nav-simple">
+            Successivo
+            <span class="icon">→</span>
+          </a>
+        </div>
+      </div>
 
         </div>
     </main>
@@ -227,6 +228,13 @@
         </div>
     </footer>
 
+    <!-- Leaflet JS aggiunto -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Script dedicato alla mappa -->
+    <script src="../js/point-17.js"></script>
+
+    <script src="../js/title-home.js"></script>
 </body>
 
 </html>

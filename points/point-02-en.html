@@ -8,6 +8,9 @@
 
     <!-- Project common CSS -->
     <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
@@ -131,11 +134,24 @@
                 </ul>
             </section>
 
-            <!-- Navigation -->
-            <section>
-                <a href="../index.html">← Back to home</a>
-            </section>
-
+            <!-- Alla fine della pagina -->
+            <div class="container">
+                <div class="page-nav-simple">
+                <a href="point-01-en.html" class="nav-simple">
+                    <span class="icon">←</span>
+                    Previous
+                </a>
+                
+                <a href="../index-en.html" class="nav-simple">
+                    Back to home
+                </a>
+                
+                <a href="point-03-en.html" class="nav-simple">
+                    Next
+                    <span class="icon">→</span>
+                </a>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -148,6 +164,11 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/point-02.js"></script>
+
+    <script src="../js/title-home-en.js"></script>
 </body>
 
 </html>
