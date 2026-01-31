@@ -748,7 +748,6 @@
   }
   
   .punti-description::before {
-    content: "📜";
     position: absolute;
     left: 30px;
     top: 50%;
