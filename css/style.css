@@ -213,10 +213,6 @@
     transition: var(--transition);
     position: relative;
     overflow: hidden;
-    background-image: 
-      linear-gradient(90deg, transparent 95%, rgba(141, 110, 99, 0.05) 95%),
-      linear-gradient(rgba(141, 110, 99, 0.05) 1px, transparent 1px);
-    background-size: 20px 20px;
   }
   
   .card::before {
