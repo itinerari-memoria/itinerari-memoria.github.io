@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <title>Itinerari della Memoria 2.0</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- CSS comune del progetto -->
+  <link rel="stylesheet" href="../css/style.css" />
+  
+  <link rel="stylesheet" href="../Sperimentazioni/css/navbar.css" />
+</head>
+
+<body>
+  <!-- Navbar caricata via fetch -->
+  <div id="siteHeader"></div>
+
+  <section class="hero-section">
+    <div class="container">
+      <h2 class="hero-title">Bergamo <br> la memoria dei luoghi</h2>
+      <p class="hero-description">
+        Un museo diffuso per una memoria collettiva tra fascismo, occupazione nazista e Resistenza
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#sezione-telecamera" class="hero-btn">Scansiona QR</a>
+        <a href="#map" class="hero-btn">Esplora Mappa</a>
+      </div>
+    </div>
+
+    <button class="scroll-down-btn" id="scrollDownBtn" aria-label="Scorri verso il contenuto">
+      ↓
+    </button>
+  </section>
+
+  <main class="content">
+    <div class="container">
+      <section class="card">
+        <h2>Il progetto</h2>
+        <p>
+          Itinerari della Memoria 2.0 è un progetto digitale che nasce con
+          l’obiettivo di valorizzare e rendere accessibili i luoghi della memoria storica
+          presenti sul territorio. Attraverso un percorso che unisce spazio fisico e
+          contenuti digitali, il progetto permette di riscoprire monumenti, edifici e luoghi
+          che in passato sono stati legati al fascismo.
+        </p>
+        <p>
+          Il sito presenta un itinerario composto da diverse tappe, ciascuna identificata da
+          un QR code posizionato sul luogo reale. Scansionando il codice è possibile accedere
+          a informazioni, immagini e approfondimenti che aiutano a comprendere il valore
+          storico e simbolico di ogni punto, trasformando una semplice visita in
+          un’esperienza di conoscenza consapevole.
+        </p>
+      </section>
+
+      <section class="card" id="sezione-telecamera">
+        <h2>Scansione QR</h2>
+
+        <p class="subtitle">
+          Scansiona il QR code presente nei luoghi dell’itinerario
+          oppure seleziona manualmente il punto.
+        </p>
+
+        <div class="btn-row">
+          <button class="btn" id="startBtn">Avvia fotocamera</button>
+          <button class="btn" id="stopBtn" disabled>Stop</button>
+        </div>
+
+        <video id="video" playsinline muted></video>
+        <canvas id="canvas" style="display:none;"></canvas>
+
+        <div class="log" id="log">
+          Premi “Avvia fotocamera” e inquadra il QR code.
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Mappa interattiva</h2>
+        <div id="map"></div>
+
+        <button id="gpsBtn" class="btn">📍 Attiva localizzazione</button>
+        <p id="gpsStatus" class="gps-status"></p>
+
+        <div class="punti-menu-container" id="punti-menu">
+          <p class="punti-description">
+            Se il QR code non viene riconosciuto, puoi accedere manualmente alle pagine dell'itinerario.
+          </p>
+
+          <button class="menu-toggle" id="puntiToggle">
+            <span>Accesso manuale ai punti (clicca per aprire)</span>
+            <span class="icon">▼</span>
+          </button>
+
+          <div class="punti-dropdown" id="puntiDropdown">
+            <div class="punti-grid">
+              <div class="colonna-sinistra">
+                <a href="points/point-01.html" class="punto-btn"><span class="titolo-principale">A braccia incrociate</span></a>
+                <a href="points/point-02.html" class="punto-btn"><span class="titolo-principale">In memoria di Ernesto Rossi e Ada Rossi</span></a>
+                <a href="points/point-03.html" class="punto-btn"><span class="titolo-principale">Il controllo dell'educazione</span></a>
+                <a href="points/point-04.html" class="punto-btn"><span class="titolo-principale">Contro qualsiasi opposizione</span></a>
+                <a href="points/point-05.html" class="punto-btn"><span class="titolo-principale">Il tribunale speciale</span></a>
+                <a href="points/point-06.html" class="punto-btn"><span class="titolo-principale">Donne in armi</span></a>
+                <a href="points/point-07.html" class="punto-btn"><span class="titolo-principale">La prefettura</span></a>
+                <a href="points/point-08.html" class="punto-btn"><span class="titolo-principale">La Stampa</span></a>
+                <a href="points/point-09.html" class="punto-btn"><span class="titolo-principale">Uffici di collocamento</span></a>
+              </div>
+
+              <div class="colonna-destra">
+                <a href="points/point-10.html" class="punto-btn"><span class="titolo-principale">Palazzo del Comune</span></a>
+                <a href="points/point-11.html" class="punto-btn"><span class="titolo-principale">Al centro della città</span></a>
+                <a href="points/point-12.html" class="punto-btn"><span class="titolo-principale">Casa, scuola, tempio</span></a>
+                <a href="points/point-13.html" class="punto-btn"><span class="titolo-principale">Da Monastero a carcere</span></a>
+                <a href="points/point-14.html" class="punto-btn"><span class="titolo-principale">Il comando della gendarmeria</span></a>
+                <a href="points/point-15.html" class="punto-btn"><span class="titolo-principale">Caserma Montelungo</span></a>
+                <a href="points/point-16.html" class="punto-btn"><span class="titolo-principale">Pietre d'inciampo</span></a>
+                <a href="points/point-17.html" class="punto-btn"><span class="titolo-principale">La Banda Turani</span></a>
+                <a href="points/point-18.html" class="punto-btn"><span class="titolo-principale">Ferruccio Dell'Orto</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leaflet CSS (meglio nel <head>, ma va anche qui) -->
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    </div>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <p>Progetto scolastico – Itinerari della Memoria</p>
+    </div>
+  </footer>
+
+  <!-- LIBRERIE -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="mappaInterattiva.js"></script>
+  <script src="menuTendina.js"></script>
+  <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+  <script src="../js/lingua.js"></script>
+  <script src="../js/QrCode.js"></script>
+
+  <script>
+    // 1) carico header.html dentro #siteHeader
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => {
+        const container = document.getElementById('siteHeader');
+        if (!container) return;
+        container.innerHTML = html;
+
+        // 2) evidenzio link attivo (Home)
+        markActiveNav();
+      })
+      .catch(console.error);
+
+    // Evidenzia automaticamente il link della pagina corrente
+    function markActiveNav() {
+      const links = document.querySelectorAll('.nav-links a, .mobile-links a');
+      const here = location.pathname.split('/').pop() || 'index.html';
+      links.forEach(a => {
+        const href = (a.getAttribute('href') || '').split('/').pop();
+        if (href === here) a.setAttribute('aria-current', 'page');
+      });
+    }
+
+    // ===== QR SCANNER (come il tuo) =====
+    const video = document.getElementById("video");
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const log = document.getElementById("log");
+    const startBtn = document.getElementById("startBtn");
+    const stopBtn = document.getElementById("stopBtn");
+
+    let stream = null;
+    let scanning = false;
+
+    function setLog(msg) { log.textContent = msg; }
+
+    function isLikelyUrl(text) {
+      try {
+        const u = new URL(text);
+        return u.protocol === "http:" || u.protocol === "https:";
+      } catch {
+        return /^[a-z0-9.-]+\.[a-z]{2,}([\/?#].*)?$/i.test(text);
+      }
+    }
+
+    function normalizeUrl(text) {
+      try { return new URL(text).toString(); }
+      catch { return "https://" + text; }
+    }
+
+    async function startCamera() {
+      if (!navigator.mediaDevices?.getUserMedia) {
+        setLog("Fotocamera non supportata su questo browser.");
+        return;
+      }
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: { ideal: "environment" } },
+          audio: false
+        });
+
+        video.srcObject = stream;
+        await video.play();
+
+        scanning = true;
+        startBtn.disabled = true;
+        stopBtn.disabled = false;
+        setLog("Fotocamera avviata. Inquadra il QR…");
+
+        requestAnimationFrame(tick);
+      } catch (err) {
+        setLog("Errore accesso fotocamera: " + err.message);
+      }
+    }
+
+    function stopCamera() {
+      scanning = false;
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
+
+      if (stream) {
+        stream.getTracks().forEach(t => t.stop());
+        stream = null;
+      }
+      video.srcObject = null;
+      setLog("Fotocamera fermata.");
+    }
+
+    function tick() {
+      if (!scanning) return;
+
+      if (video.readyState === video.HAVE_ENOUGH_DATA) {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const code = jsQR(imageData.data, imageData.width, imageData.height, {
+          inversionAttempts: "dontInvert"
+        });
+
+        if (code?.data) {
+          const data = code.data.trim();
+          setLog("QR letto: " + data);
+
+          if (isLikelyUrl(data)) {
+            const url = normalizeUrl(data);
+            setLog("Reindirizzo a: " + url);
+
+            stopCamera();
+            window.location.href = url;
+            return;
+          } else {
+            setLog("QR letto ma non è un URL valido.");
+          }
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+
+    startBtn.addEventListener("click", startCamera);
+    stopBtn.addEventListener("click", stopCamera);
+
+    // Scroll smooth al click del pulsante
+    document.addEventListener('DOMContentLoaded', function() {
+      const scrollDownBtn = document.getElementById('scrollDownBtn');
+      const contentSection = document.querySelector('.content');
+
+      if (scrollDownBtn && contentSection) {
+        scrollDownBtn.addEventListener('click', function() {
+          contentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
