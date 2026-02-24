@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Punto 04 – Contro qualsiasi opposizione</title>
+  <title>04 – Credito Bergamasco</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- CSS comune del progetto -->
@@ -22,9 +22,9 @@
         <a href="point-04-en.html" class="lang-link">EN</a>
       </div>
 
-      <h1>Punto 04 – Contro qualsiasi opposizione</h1>
+      <h1>04 – Credito Bergamasco</h1>
       <p class="subtitle">
-        Itinerari della Memoria 2.0
+        Contro qualsiasi opposizione
       </p>
     </div>
   </header>
@@ -75,7 +75,20 @@
 
           Qui operarono, tra il 1943 e il 1945, reparti specializzati nella
           repressione dell’opposizione antifascista, responsabili di interrogatori,
-          pestaggi e torture contro partigiani e oppositori politici.
+          pestaggi e torture contro partigiani e oppositori politici, guidati anche 
+          dal capitano <span class="popup-trigger" data-popup="popup2">Aldo Resmini</span>, comandante della Compagnia d’Ordine Pubblico.
+          <div class="popup-box" id="popup2">
+          <div class="popup-content">
+            <p>
+              Capitano della Guardia Nazionale Repubblicana, fu comandante della 612ª Compagnia d’Ordine 
+              Pubblico attiva a Bergamo durante la Repubblica Sociale Italiana. La sua unità si distinse 
+              per la ferocia nella repressione antifascista ed è documentata la responsabilità in arresti 
+              arbitrari, torture e uccisioni di partigiani e oppositori politici. Nel dopoguerra il suo 
+              nome comparve in procedimenti giudiziari per crimini commessi durante l’occupazione nazifascista.
+            </p>
+            <button class="popup-close">Chiudi</button>
+          </div>
+        </div>
         </p>
 
         <!--  Audio: -->
@@ -132,45 +145,32 @@
 
       </section>
 
-      <!-- Media -->
       <section class="card">
-        <h2>Contenuti multimediali</h2>
+      <h2>Contenuti multimediali</h2>
 
-        <figure>
+      <div class="media-gallery">
+        <figure class="gallery-item">
           <img src="../assets/img/point-04.jpg"
-            alt="Lapide commemorativa alle vittime delle torture fasciste in via Gallicciolli, Bergamo">
-          <figcaption>
-            <!-- Didascalia dell’immagine (luogo, data, fonte). -->
-
-            Lapide in memoria delle vittime delle torture fasciste,
-            collocata il 27 maggio 1962.
-          </figcaption>
+              alt="Lapide commemorativa"
+              data-full="../assets/img/point-04.jpg">
+          <figcaption>Lapide in memoria delle vittime delle torture fasciste (1962)</figcaption>
         </figure>
 
-        <figure>
-          <img src="../assets/img/point-04(1).jpg" alt="Foto d’epoca del Collegio Dante Alighieri">
-          <figcaption>
-            <!-- Didascalia dell’immagine (luogo, data, fonte). -->
-
-            Foto d’epoca del Collegio Dante Alighieri
-          </figcaption>
+        <figure class="gallery-item">
+          <img src="../assets/img/point-04(1).jpg"
+              alt="Collegio Dante Alighieri"
+              data-full="../assets/img/point-04(1).jpg">
+          <figcaption>Foto d’epoca del Collegio Dante Alighieri</figcaption>
         </figure>
 
-        <figure>
-          <img src="../assets/img/point-04(2).jpg" alt="Foto d’epoca del credito bergamasco, 1969">
-          <figcaption>
-            <!-- Didascalia dell’immagine (luogo, data, fonte). -->
-
-            Foto d’epoca del credito bergamasco, 1969
-          </figcaption>
+        <figure class="gallery-item">
+          <img src="../assets/img/point-04(2).jpg"
+              alt="Credito Bergamasco 1969"
+              data-full="../assets/img/point-04(2).jpg">
+          <figcaption>Credito Bergamasco, 1969</figcaption>
         </figure>
-
-        <!-- Esempi alternativi (opzionali): -->
-
-        <!--  Video (meglio embed):
-        <iframe ...></iframe> -->
-
-      </section>
+      </div>
+    </section>
 
       <!-- Approfondimento -->
       <section class="card">
@@ -306,7 +306,7 @@
           <li>
             <a href="https://www.raiplaysound.it/audio/2023/04/Via-libera--Strage-di-Cornalba--25-novembre-1944-a5e4a839-d477-45ef-9ec2-aaaf9f337c6b.html"
               target="_blank" rel="noopener">
-               Testimonianza 1: Rai Radio 3, <em>Via libera – Strage di Cornalba (25 novembre 1944)</em>, 25 aprile 2023.
+              Testimonianza 1: Rai Radio 3, <em>Via libera – Strage di Cornalba (25 novembre 1944)</em>, 25 aprile 2023.
             </a>
           </li>
           <li>
@@ -376,6 +376,15 @@
   <script src="../js/popup.js"></script>
 
   <script src="../js/title-home.js"></script>
+
+  <script src="../js/gallery.js"></script>
+  
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+  </div>
+  
+
 </body>
 
 </html>
