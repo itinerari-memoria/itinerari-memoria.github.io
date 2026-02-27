@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Point 07 – The Prefecture</title>
+  <title>07 – Prefecture</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- CSS comune del progetto -->
@@ -22,9 +22,9 @@
         <span class="lang-active">EN</span>
       </div>
 
-      <h1>Point 07 – The Prefecture</h1>
+      <h1>07 – Prefecture</h1>
       <p class="subtitle">
-        Itineraries of Memory 2.0
+        The Prefecture
       </p>
     </div>
   </header>
@@ -95,28 +95,37 @@
       <!-- Media -->
       <section class="card">
         <h2>Multimedia contents</h2>
-
-        <figure>
-          <img src="../assets/img/point-07.jpg" alt="Prefecture Palace of Bergamo, Via Torquato Tasso">
-          <figcaption>
-            Prefecture Palace of Bergamo, a symbolic place of State power and the
-            Liberation.
-          </figcaption>
-        </figure>
-
-        <figure>
-          <img src="../assets/img/point-07(1).jpg" alt="Prefecture Palace of Bergamo, Via Torquato Tasso, 1960">
-          <figcaption>
-            Prefecture Palace of Bergamo, Via Torquato Tasso, 1960
-          </figcaption>
-        </figure>
-
-        <figure>
-          <img src="../assets/img/point-07(2).jpg" alt="Prefecture Palace of Bergamo, Via Torquato Tasso, 1945">
-          <figcaption>
-            Prefecture Palace of Bergamo, Via Torquato Tasso, 1945
-          </figcaption>
-        </figure>
+      
+        <div class="media-gallery">
+      
+          <figure class="gallery-item">
+            <img src="../assets/img/point-07.jpg"
+                 alt="Prefecture Palace of Bergamo, Via Torquato Tasso"
+                 data-full="../assets/img/point-07.jpg">
+            <figcaption>
+              Prefecture Palace of Bergamo, a symbolic place of State power and the Liberation.
+            </figcaption>
+          </figure>
+      
+          <figure class="gallery-item">
+            <img src="../assets/img/point-07(1).jpg"
+                 alt="Prefecture Palace of Bergamo, Via Torquato Tasso, 1960"
+                 data-full="../assets/img/point-07(1).jpg">
+            <figcaption>
+              Prefecture Palace of Bergamo, Via Torquato Tasso, 1960.
+            </figcaption>
+          </figure>
+      
+          <figure class="gallery-item">
+            <img src="../assets/img/point-07(2).jpg"
+                 alt="Prefecture Palace of Bergamo, Via Torquato Tasso, 1945"
+                 data-full="../assets/img/point-07(2).jpg">
+            <figcaption>
+              Prefecture Palace of Bergamo, Via Torquato Tasso, 1945.
+            </figcaption>
+          </figure>
+      
+        </div>
 
         <figure>
           <div class="video-container">
@@ -238,5 +247,11 @@
   </footer>
   <script src="../js/title-home-en.js"></script>
 
+  <script src="../js/gallery.js"></script>
+  
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+  </div>
 </body>
 </html>

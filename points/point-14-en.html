@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Point 14 – The Gendarmerie Command</title>
+  <title>14 – Collegio Baroni</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- CSS comune del progetto -->
@@ -22,9 +22,9 @@
         <span class="lang-active">EN</span>
       </div>
 
-      <h1>Point 14 – The Gendarmerie Command</h1>
+      <h1>14 – Collegio Baroni</h1>
       <p class="subtitle">
-        Itineraries of Memory 2.0
+        The Gendarmerie Command
       </p>
     </div>
   </header>
@@ -96,23 +96,29 @@
       <!-- Media -->
       <section class="card">
         <h2>Multimedia contents</h2> 
-
-        <figure>
-          <img src="../assets/img/point-14.jpg" alt="Baroni College, today home to the University of Bergamo">
-          <figcaption>
-            Baroni College, now the University of Bergamo, former headquarters of the German Gendarmerie.
-          </figcaption>
-        </figure>
-
-        <figure>
-          <img src="../assets/img/point-14(1).jpg"
-            alt="Baroni College, today home to the University of Bergamo">
-          <figcaption>
-            Former Baroni College in Bergamo, today home to the University,
-            1920
-          </figcaption>
-        </figure>
-
+      
+        <div class="media-gallery">
+      
+          <figure class="gallery-item">
+            <img src="../assets/img/point-14.jpg"
+                 alt="Baroni College, today home to the University of Bergamo"
+                 data-full="../assets/img/point-14.jpg">
+            <figcaption>
+              Baroni College, now the University of Bergamo, former headquarters of the German Gendarmerie.
+            </figcaption>
+          </figure>
+      
+          <figure class="gallery-item">
+            <img src="../assets/img/point-14(1).jpg"
+                 alt="Former Baroni College, today home to the University of Bergamo, 1920"
+                 data-full="../assets/img/point-14(1).jpg">
+            <figcaption>
+              Former Baroni College in Bergamo, today home to the University, 1920.
+            </figcaption>
+          </figure>
+      
+        </div>
+      
       </section>
 
       <!-- Approfondimento -->
@@ -249,6 +255,13 @@
   </footer>
 
   <script src="../js/title-home-en.js"></script>
+
+  <script src="../js/gallery.js"></script>
+  
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+  </div>
 </body>
 
 </html>
