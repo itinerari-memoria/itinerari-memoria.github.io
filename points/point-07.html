@@ -115,28 +115,38 @@
       <!-- Media -->
       <section class="card">
         <h2>Contenuti multimediali</h2>
-
-        <figure>
-          <img src="../assets/img/point-07.jpg" alt="Palazzo della Prefettura di Bergamo, via Torquato Tasso">
-          <figcaption>
-            Palazzo della Prefettura di Bergamo, luogo simbolo del potere
-            statale e della Liberazione.
-          </figcaption>
-        </figure>
-
-        <figure>
-          <img src="../assets/img/point-07(1).jpg" alt="Palazzo della Prefettura di Bergamo, via Torquato Tasso, 1960">
-          <figcaption>
-            Palazzo della Prefettura di Bergamo, Via Torquato Tasso, 1960
-          </figcaption>
-        </figure>
-
-        <figure>
-          <img src="../assets/img/point-07(2).jpg" alt="Palazzo della Prefettura di Bergamo, via Torquato Tasso, 1960">
-          <figcaption>
-            Palazzo della Prefettura di Bergamo, Via Torquato Tasso, 1945
-          </figcaption>
-        </figure>
+      
+        <div class="media-gallery">
+      
+          <figure class="gallery-item">
+            <img src="../assets/img/point-07.jpg"
+                 alt="Palazzo della Prefettura di Bergamo, via Torquato Tasso"
+                 data-full="../assets/img/point-07.jpg">
+            <figcaption>
+              Palazzo della Prefettura di Bergamo, luogo simbolo del potere
+              statale e della Liberazione.
+            </figcaption>
+          </figure>
+      
+          <figure class="gallery-item">
+            <img src="../assets/img/point-07(1).jpg"
+                 alt="Palazzo della Prefettura di Bergamo, Via Torquato Tasso, 1960"
+                 data-full="../assets/img/point-07(1).jpg">
+            <figcaption>
+              Palazzo della Prefettura di Bergamo, Via Torquato Tasso, 1960.
+            </figcaption>
+          </figure>
+      
+          <figure class="gallery-item">
+            <img src="../assets/img/point-07(2).jpg"
+                 alt="Palazzo della Prefettura di Bergamo, Via Torquato Tasso, 1945"
+                 data-full="../assets/img/point-07(2).jpg">
+            <figcaption>
+              Palazzo della Prefettura di Bergamo, Via Torquato Tasso, 1945.
+            </figcaption>
+          </figure>
+      
+        </div>
 
         <figure>
           <div class="video-container">
@@ -278,6 +288,13 @@
   </footer>
 
   <script src="../js/title-home.js"></script>
+
+  <script src="../js/gallery.js"></script>
+  
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+  </div>
 </body>
 
 </html>

@@ -96,23 +96,29 @@
       <!-- Media -->
       <section class="card">
         <h2>Multimedia contents</h2> 
-
-        <figure>
-          <img src="../assets/img/point-14.jpg" alt="Baroni College, today home to the University of Bergamo">
-          <figcaption>
-            Baroni College, now the University of Bergamo, former headquarters of the German Gendarmerie.
-          </figcaption>
-        </figure>
-
-        <figure>
-          <img src="../assets/img/point-14(1).jpg"
-            alt="Baroni College, today home to the University of Bergamo">
-          <figcaption>
-            Former Baroni College in Bergamo, today home to the University,
-            1920
-          </figcaption>
-        </figure>
-
+      
+        <div class="media-gallery">
+      
+          <figure class="gallery-item">
+            <img src="../assets/img/point-14.jpg"
+                 alt="Baroni College, today home to the University of Bergamo"
+                 data-full="../assets/img/point-14.jpg">
+            <figcaption>
+              Baroni College, now the University of Bergamo, former headquarters of the German Gendarmerie.
+            </figcaption>
+          </figure>
+      
+          <figure class="gallery-item">
+            <img src="../assets/img/point-14(1).jpg"
+                 alt="Former Baroni College, today home to the University of Bergamo, 1920"
+                 data-full="../assets/img/point-14(1).jpg">
+            <figcaption>
+              Former Baroni College in Bergamo, today home to the University, 1920.
+            </figcaption>
+          </figure>
+      
+        </div>
+      
       </section>
 
       <!-- Approfondimento -->
@@ -249,6 +255,13 @@
   </footer>
 
   <script src="../js/title-home-en.js"></script>
+
+  <script src="../js/gallery.js"></script>
+  
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+  </div>
 </body>
 
 </html>
