@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Punto 11 – Al centro della città</title>
+  <title>Punto 11 – Piazza Vittorio Veneto</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- CSS comune del progetto -->
@@ -19,9 +19,9 @@
         <span class="lang-active">IT</span> |
         <a href="point-11-en.html" class="lang-link">EN</a>
       </div>
-      <h1>Punto 11 – Al centro della città</h1>
+      <h1>Punto 11 – Piazza Vittorio Veneto</h1>
       <p class="subtitle">
-        Itinerari della Memoria 2.0
+        Al centro della città
       </p>
     </div>
   </header>
@@ -151,31 +151,19 @@
       <section class="card">
         <h2>Contenuti multimediali</h2>
 
-        <figure>
-          <img src="../assets/img/point-11.jpg" alt="Descrizione dell’immagine del punto 09">
-          <figcaption>
-            <!--Didascalia dell’immagine (luogo, data, fonte).-->
-            Centro città di Bergamo
-          </figcaption>
-        </figure>
-        <figure>
-          <img src="../assets/img/point-11-2.jpg" alt="Descrizione della torre del punto 09">
-          <figcaption>
-            <!--Didascalia dell’immagine (luogo, data, fonte).-->
-            La torre in piazza Vittorio Veneto con statua e orologio
-          </figcaption>
+        <div class="media-gallery">
+        <figure class="gallery-item">
+          <img src="../assets/img/point-11.jpg" alt="Centro città di Bergamo" data-full="../assets/img/point-11.jpg">
+          <figcaption>Centro città di Bergamo</figcaption>
         </figure>
 
-        <!--
-        Esempi alternativi (opzionali):
-
-        Audio:
-        <audio controls src="../assets/audio/point-01.mp3"></audio>
-
-        Video (meglio embed):
-        <iframe ...></iframe>
-        -->
+        <figure class="gallery-item">
+          <img src="../assets/img/point-11-2.jpg" alt="La torre in piazza Vittorio Veneto con statua e orologio" data-full="../assets/img/point-11-2.jpg">
+          <figcaption>La torre in piazza Vittorio Veneto con statua e orologio</figcaption>
+        </figure>
+      </div>
       </section>
+
       <section class="card">
         <h2>Approfondimento - "La battaglia dei crisantemi"</h2>
         <p>
@@ -255,20 +243,22 @@
           </p>
           <audio controls src="../assets/audio/point-11-03.mp3"></audio>
         </div>
-        <figure>
-          <img src="../assets/img/point-11-10.jpg" alt="Descrizione dell’immagine">
-          <figcaption>
-            <!--Didascalia dell’immagine (luogo, data, fonte).-->
-            Invito a partecipare
-          </figcaption>
-        </figure>
-        <figure>
-          <img src="../assets/img/point-11-3.jpg" alt="Descrizione dell’immagine">
-          <figcaption>
-            <!--Didascalia dell’immagine (luogo, data, fonte).-->
-            Targa nella torre di Bergamo
-          </figcaption>
-        </figure>
+        <div class="media-gallery">
+          <figure class="gallery-item">
+            <img src="../assets/img/point-11-10.jpg" alt="Invito a partecipare" data-full="../assets/img/point-11-10.jpg">
+            <figcaption>
+              <!--Didascalia dell'immagine (luogo, data, fonte).-->
+              Invito a partecipare
+            </figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="../assets/img/point-11-3.jpg" alt="Targa nella torre di Bergamo" data-full="../assets/img/point-11-3.jpg">
+            <figcaption>
+              <!--Didascalia dell'immagine (luogo, data, fonte).-->
+              Targa nella torre di Bergamo
+            </figcaption>
+          </figure>
+        </div>
       </section>
       <!-- Fonti -->
       <section class="card">
@@ -338,8 +328,15 @@
       </p>
     </div>
   </footer>
+  <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+  </div>
+
   <script src="../js/popup.js"></script>
   <script src="../js/title-home.js"></script>
+  <script src="../js/gallery.js"></script>
 </body>
 
 </html>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Point 11 – In the Heart of the City</title>
+    <title>Point 11 – Piazza Vittorio Veneto</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Project common CSS -->
@@ -19,9 +19,9 @@
                 <a href="point-11.html" class="lang-link">IT</a> |
                 <span class="lang-active">EN</span>
             </div>
-            <h1>Point 11 – In the Heart of the City</h1>
+            <h1>Point 11 – Piazza Vittorio Veneto</h1>
             <p class="subtitle">
-                Historical Itineraries 2.0
+                In the heart of the city
             </p>
         </div>
     </header>
@@ -159,19 +159,21 @@
             <section class="card">
                 <h2>Multimedia content</h2>
 
-                <figure>
-                    <img src="../assets/img/point-11.jpg" alt="View of Bergamo city center">
-                    <figcaption>
-                        Bergamo city center
-                    </figcaption>
-                </figure>
+                <div class="media-gallery">
+                  <figure class="gallery-item">
+                      <img src="../assets/img/point-11.jpg" alt="View of Bergamo city center" data-full="../assets/img/point-11.jpg">
+                      <figcaption>
+                          Bergamo city center
+                      </figcaption>
+                  </figure>
 
-                <figure>
-                    <img src="../assets/img/point-11-2.jpg" alt="Tower in Piazza Vittorio Veneto">
-                    <figcaption>
-                        The tower in Piazza Vittorio Veneto with statue and clock
-                    </figcaption>
-                </figure>
+                  <figure class="gallery-item">
+                      <img src="../assets/img/point-11-2.jpg" alt="Tower in Piazza Vittorio Veneto" data-full="../assets/img/point-11-2.jpg">
+                      <figcaption>
+                          The tower in Piazza Vittorio Veneto with statue and clock
+                      </figcaption>
+                  </figure>
+                </div>
             </section>
 
             <section class="card">
@@ -263,19 +265,21 @@
                     </p>
                     <audio controls src="../assets/audio/point-11-03-en.mp3"></audio>
                 </div>
-                <figure>
-                    <img src="../assets/img/point-11-10.jpg" alt="Descrizione dell’immagine">
-                    <figcaption>
-                        <!--Didascalia dell’immagine (luogo, data, fonte).-->
-                        Invitation to participate
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img src="../assets/img/point-11-3.jpg" alt="Commemorative plaque inside the tower">
-                    <figcaption>
-                        Plaque inside the tower of Bergamo
-                    </figcaption>
-                </figure>
+                <div class="media-gallery">
+                  <figure class="gallery-item">
+                      <img src="../assets/img/point-11-10.jpg" alt="Invitation to participate" data-full="../assets/img/point-11-10.jpg">
+                      <figcaption>
+                          <!--Didascalia dell'immagine (luogo, data, fonte).-->
+                          Invitation to participate
+                      </figcaption>
+                  </figure>
+                  <figure class="gallery-item">
+                      <img src="../assets/img/point-11-3.jpg" alt="Commemorative plaque inside the tower" data-full="../assets/img/point-11-3.jpg">
+                      <figcaption>
+                          Plaque inside the tower of Bergamo
+                      </figcaption>
+                  </figure>
+                </div>
             </section>
 
             <!-- Sources -->
@@ -353,8 +357,15 @@
         </div>
     </footer>
 
+    <!-- Lightbox -->
+  <div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; justify-content:center; align-items:center;">
+    <img class="lightbox-img" src="" alt="" style="max-width:90%; max-height:90%; border-radius:4px;">
+    <button class="lightbox-close" style="position:absolute; top:1rem; right:1rem; background:transparent; border:none; color:#fff; font-size:2rem; cursor:pointer;">&times;</button>
+  </div>
+
     <script src="../js/popup.js"></script>
     <script src="../js/title-home-en.js"></script>
+    <script src="../js/gallery.js"></script>
 </body>
 
 </html>
