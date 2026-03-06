@@ -93,21 +93,27 @@
             <section class="card">
                 <h2>Contenuti multimediali</h2>
 
-                <figure>
-                    <img src="../assets/img/point-02-1.jpg"
-                        alt="Dedica ad Ada ed Ernesto Rossi situata all'interno dell'Istituto Tecnico Vittorio Emanuele II">
-                    <figcaption>
-                        Ada ed Ernesto a sinistra; a destra le targhe a loro dedicate situate all'interno dell'Istituto
-                        Vittorio Emanuele II
-                    </figcaption>
-                </figure>
+                <div class="media-gallery">
+                    <figure class="gallery-item">
+                        <img src="../assets/img/point-02-1.jpg" alt="Ada ed Ernesto"
+                            data-full="../assets/img/point-02-1.jpg">
+                        <figcaption>Foto di Ada ed Ernesto Rossi</figcaption>
+                    </figure>
 
-                <figure>
-                    <img src="../assets/img/point-02-2.jpg" alt="Vittorio Emanuele prima e dopo">
-                    <figcaption>
-                        Istituto Tecnico Vittorio Emanuele II ai tempi del fascismo e nel presente
-                    </figcaption>
-                </figure>
+                    <figure class="gallery-item">
+                        <img src="../assets/img/point-02-2.jpg" alt="Targa dedicata ad Ada"
+                            data-full="../assets/img/point-02-2.jpg">
+                        <figcaption>Targa dedicata ad Ada Rossi all'interno dell'Istituto
+                            Vittorio Emanuele II</figcaption>
+                    </figure>
+
+                    <figure class="gallery-item">
+                        <img src="../assets/img/point-02-3.jpg" alt="Targa dedicata ad Ernesto"
+                            data-full="../assets/img/point-02-3.jpg">
+                        <figcaption>Targa dedicata ad Ernesto Rossi all'interno dell'Istituto
+                            Vittorio Emanuele II</figcaption>
+                    </figure>
+                </div>
 
                 <div class="audio-box">
                     <audio controls src="../assets/audio/point-02-3.mp3"></audio>
@@ -265,7 +271,17 @@
 
     <script src="../js/point-02.js"></script>
 
+    <script src="../js/popup.js"></script>
+
     <script src="../js/title-home.js"></script>
+
+    <script src="../js/gallery.js"></script>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-img" src="" alt="">
+    </div>
+
 </body>
 
 </html>

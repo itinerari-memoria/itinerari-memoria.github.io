@@ -108,27 +108,27 @@
             <section class="card">
                 <h2>Multimedia content</h2>
 
-                <figure>
-                    <img src="../assets/img/point-17-1.jpg" alt="Plaque in Via Pignolo 13">
-                    <figcaption>
-                        Memorial plaque dedicated to the Turani Group located at Via Pignolo 13.
-                    </figcaption>
-                </figure>
+                <div class="media-gallery">
+                    <figure class="gallery-item">
+                        <img src="../assets/img/point-17-1.jpg" alt="Lapide in via Pignolo 13"
+                            data-full="../assets/img/point-17-1.jpg">
+                        <figcaption>Lapide dedica alla banda Turani situata in via Pignolo 13</figcaption>
+                    </figure>
 
-                <figure>
-                    <img src="../assets/img/point-17-2.jpg" alt="Members of the Turani group">
-                    <figcaption>
-                        Commemorative photograph of the members of the Turani Group.
-                    </figcaption>
-                </figure>
+                    <figure class="gallery-item">
+                        <img src="../assets/img/point-17-2.jpg" alt="Membri della banda Turani"
+                            data-full="../assets/img/point-17-2.jpg">
+                        <figcaption>Foto commemorativa dei membri della banda Turani</figcaption>
+                    </figure>
 
-                <figure>
-                    <img src="../assets/img/point-17-3.jpg" alt="Plaque in Piazzale Goisis 6">
-                    <figcaption>
-                        Memorial plaque dedicated to three victims of the Turani Group, the first partisans from
-                        Bergamo, located in Piazzale Goisis 6.
-                    </figcaption>
-                </figure>
+                    <figure class="gallery-item">
+                        <img src="../assets/img/point-17-3.jpg" alt="Lapide in Piazzale Goisis 6"
+                            data-full="../assets/img/point-17-3.jpg">
+                        <figcaption>Lapide dedicata a tre vittime della Banda Turani, i primi partigiani bergamaschi,
+                            situata in
+                            Piazzale Goisis 6</figcaption>
+                    </figure>
+                </div>
 
             </section>
 
@@ -242,13 +242,16 @@
         </div>
     </footer>
 
-    <!-- Leaflet JS added -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/title-home-en.js"></script>
 
-    <!-- Script dedicated to the map -->
-    <script src="../js/point-17.js"></script>
+    <script src="../js/popup.js"></script>
 
-    <script src="../js/title-home.js"></script>
+    <script src="../js/gallery.js"></script>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-img" src="" alt="">
+    </div>
 </body>
 
 </html>

@@ -102,19 +102,19 @@
             <section class="card">
                 <h2>Contenuti multimediali</h2>
 
-                <figure>
-                    <img src="../assets/img/point-18-1.jpg" alt="Lapide in via Pignolo 10">
-                    <figcaption>
-                        Lapide in memoria di Ferruccio Dell'Orto in via Pignolo 10
-                    </figcaption>
-                </figure>
+                <div class="media-gallery">
+                    <figure class="gallery-item">
+                        <img src="../assets/img/point-18-1.jpg" alt="Lapide in via Pignolo 10"
+                            data-full="../assets/img/point-18-1.jpg">
+                        <figcaption>Lapide in memoria di Ferruccio Dell'Orto in via Pignolo 10</figcaption>
+                    </figure>
 
-                <figure>
-                    <img src="../assets/img/point-18-2.jpg" alt="Ferruccio Dell'Orto">
-                    <figcaption>
-                        Foto di Ferruccio Dell'Orto
-                    </figcaption>
-                </figure>
+                    <figure class="gallery-item">
+                        <img src="../assets/img/point-18-2.jpg" alt="Ferruccio Dell'Orto"
+                            data-full="../assets/img/point-18-2.jpg">
+                        <figcaption>Foto di Ferruccio Dell'Orto</figcaption>
+                    </figure>
+                </div>
 
                 <figure>
                     <div class="video-container">
@@ -284,13 +284,16 @@
         </div>
     </footer>
 
-    <!-- Leaflet JS aggiunto -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-    <!-- Script dedicato alla mappa -->
-    <script src="../js/point-18.js"></script>
-
     <script src="../js/title-home.js"></script>
+
+    <script src="../js/popup.js"></script>
+
+    <script src="../js/gallery.js"></script>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-img" src="" alt="">
+    </div>
 </body>
 
 </html>

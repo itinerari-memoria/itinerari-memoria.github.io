@@ -27,7 +27,7 @@
         </div>
     </header>
 
-    <main class="content">  
+    <main class="content">
         <div class="container">
 
             <section class="card">
@@ -87,21 +87,27 @@
             <section class="card">
                 <h2>Multimedia content</h2>
 
-                <figure>
-                    <img src="../assets/img/point-02-1.jpg"
-                        alt="Dedication to Ada and Ernesto Rossi inside the Vittorio Emanuele II Technical Institute">
-                    <figcaption>
-                        Ada and Ernesto on the left; on the right, the plaques dedicated to them inside the Vittorio
-                        Emanuele II Technical Institute
-                    </figcaption>
-                </figure>
+                <div class="media-gallery">
+                    <figure class="gallery-item">
+                        <img src="../assets/img/point-02-1.jpg" alt="Ada ed Ernesto"
+                            data-full="../assets/img/point-02-1.jpg">
+                        <figcaption>Foto di Ada ed Ernesto Rossi</figcaption>
+                    </figure>
 
-                <figure>
-                    <img src="../assets/img/point-02-2.jpg" alt="Vittorio Emanuele Institute before and after">
-                    <figcaption>
-                        Vittorio Emanuele II Technical Institute during the Fascist era and today
-                    </figcaption>
-                </figure>
+                    <figure class="gallery-item">
+                        <img src="../assets/img/point-02-2.jpg" alt="Targa dedicata ad Ada"
+                            data-full="../assets/img/point-02-2.jpg">
+                        <figcaption>Targa dedicata ad Ada Rossi all'interno dell'Istituto
+                            Vittorio Emanuele II</figcaption>
+                    </figure>
+
+                    <figure class="gallery-item">
+                        <img src="../assets/img/point-02-3.jpg" alt="Targa dedicata ad Ernesto"
+                            data-full="../assets/img/point-02-3.jpg">
+                        <figcaption>Targa dedicata ad Ernesto Rossi all'interno dell'Istituto
+                            Vittorio Emanuele II</figcaption>
+                    </figure>
+                </div>
 
                 <div class="audio-box">
                     <audio controls src="../assets/audio/point-02-3.mp3"></audio>
@@ -231,9 +237,16 @@
         </div>
     </footer>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="../js/point-02.js"></script>
-    <script src="../js/title-home.js"></script>
+    <script src="../js/popup.js"></script>
+
+    <script src="../js/title-home-en.js"></script>
+
+    <script src="../js/gallery.js"></script>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-img" src="" alt="">
+    </div>
 
 </body>
 
