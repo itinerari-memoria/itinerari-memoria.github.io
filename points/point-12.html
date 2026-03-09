@@ -81,21 +81,23 @@
     <section class="card">
       <h2>Contenuti multimediali</h2>
 
-      <figure>
-        <img src="../assets/img/point-12.jpg"
-              alt="Descrizione dell'immagine del punto 12">
-        <figcaption>
-          Facciata frontale del Palazzo della libertà
-        </figcaption>
-      </figure>
+      <div class="media-gallery">
+        <figure class="gallery-item">
+          <img src="../assets/img/point-12.jpg"
+                alt="Descrizione dell'immagine del punto 12">
+          <figcaption>
+            Facciata frontale del Palazzo della libertà
+          </figcaption>
+        </figure>
 
-      <figure>
-        <img src="../assets/img/point-12-02.jpg"
-              alt="Descrizione dell'immagine del punto 12">
-        <figcaption>
-          Facciata frontale del Palazzo della libertà con la fontana ottagonale di Claudio Nani
-        </figcaption>
-      </figure>
+        <figure class="gallery-item">
+          <img src="../assets/img/point-12-02.jpg"
+                alt="Descrizione dell'immagine del punto 12">
+          <figcaption>
+            Facciata frontale del Palazzo della libertà con la fontana ottagonale di Claudio Nani
+          </figcaption>
+        </figure>
+      </div>
 
       <!--
       Esempi alternativi (opzionali):
@@ -144,6 +146,12 @@
       <audio controls src="../assets/audio/point-12-01.mp3"></audio>
       </div>
     </section>
+
+    <style>
+      .gallery-item img {
+        height: 210px;
+      }
+    </style>
 
     <!-- Fonti -->
     <section class="card">
