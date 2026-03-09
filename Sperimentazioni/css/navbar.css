@@ -24,6 +24,7 @@
   max-width: 1200px;
   padding: 0 16px;
   height: 56px;
+  position: relative;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -134,7 +135,12 @@
 
 /* Breakpoints */
 @media (min-width: 768px){
-  .nav-links{ display:flex; }
+  .nav-links{
+    display:flex;
+    position:absolute;
+    left:50%;
+    transform: translateX(-50%);
+  }
   .menu-btn{ display:none; }
 }
 @media (min-width: 640px){

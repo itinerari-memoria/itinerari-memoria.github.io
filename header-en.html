@@ -1,0 +1,46 @@
+<header class="topbar" aria-label="Header">
+  <nav class="nav-wrap" aria-label="Primary">
+    <a href="index-en.html" class="brand" aria-label="Home - Historical Itineraries 2.0">
+      <img src="images/file.svg" alt="Historical Itineraries 2.0" width="36" height="36" loading="eager" />
+      <span class="sr-only">Historical Itineraries 2.0</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="index-en.html#sezione-progetto">Project</a>
+      <a href="index-en.html#sezione-itinerari">Itineraries</a>
+      <a href="index-en.html#sezione-telecamera">QR Code</a>
+    </div>
+
+    <button
+      id="menuBtn"
+      class="menu-btn"
+      aria-label="Open menu"
+      aria-controls="mobileMenu"
+      aria-expanded="false"
+    >
+      <svg viewBox="0 0 24 24" class="menu-icon" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <div id="mobileMenu" class="mobileMenu hidden" role="dialog" aria-modal="true">
+    <div class="overlay" data-overlay></div>
+    <div class="panel translate-x-full" data-panel>
+      <div class="panel-head">
+        <span class="panel-title">Historical Itineraries 2.0</span>
+        <button id="closeBtn" class="close-btn" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" class="menu-icon" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <nav class="mobile-links" aria-label="Mobile">
+        <a href="index-en.html#sezione-progetto">Project</a>
+        <a href="index-en.html#sezione-itinerari">Itineraries</a>
+        <a href="index-en.html#sezione-telecamera">QR Code</a>
+      </nav>
+    </div>
+  </div>
+</header>

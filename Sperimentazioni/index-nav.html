@@ -7,8 +7,10 @@
 
   <!-- CSS comune del progetto -->
   <link rel="stylesheet" href="../css/style.css" />
-
   <link rel="stylesheet" href="../Sperimentazioni/css/navbar.css" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
@@ -35,7 +37,7 @@
 
   <main class="content">
     <div class="container">
-      <section class="card">
+      <section class="card" id="sezione-progetto">
         <h2>Il progetto</h2>
         <p>
           Itinerari della Memoria 2.0 è un progetto digitale che nasce con
@@ -74,7 +76,7 @@
         </div>
       </section>
 
-      <section class="card">
+      <section class="card" id="sezione-itinerari">
         <h2>Mappa interattiva</h2>
         <div id="map"></div>
 
@@ -86,7 +88,7 @@
             Se il QR code non viene riconosciuto, puoi accedere manualmente alle pagine dell'itinerario.
           </p>
 
-          <button class="menu-toggle" id="puntiToggle">
+          <button class="menu-toggle" id="puntiToggle" type="button">
             <span>Accesso manuale ai punti (clicca per aprire)</span>
             <span class="icon">▼</span>
           </button>
@@ -120,9 +122,6 @@
           </div>
         </div>
       </section>
-
-      <!-- Leaflet CSS (meglio nel <head>, ma va anche qui) -->
-      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     </div>
   </main>
 
@@ -175,27 +174,33 @@
     let stream = null;
     let scanning = false;
 
-    function setLog(msg) { log.textContent = msg; }
+    function setLog(msg) {
+      log.textContent = msg;
+    }
 
     function isLikelyUrl(text) {
       try {
         const u = new URL(text);
         return u.protocol === "http:" || u.protocol === "https:";
       } catch {
-        return /^[a-z0-9.-]+\.[a-z]{2,}([\/?#].*)?$/i.test(text);
+        return /^[a-z0-9.-]+\.[a-z]{2,}([/?#].*)?$/i.test(text);
       }
     }
 
     function normalizeUrl(text) {
-      try { return new URL(text).toString(); }
-      catch { return "https://" + text; }
+      try {
+        return new URL(text).toString();
+      } catch {
+        return "https://" + text;
+      }
     }
 
     async function startCamera() {
-      if (!navigator.mediaDevices?.getUserMedia) {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
         setLog("Fotocamera non supportata su questo browser.");
         return;
       }
+
       try {
         stream = await navigator.mediaDevices.getUserMedia({
           video: { facingMode: { ideal: "environment" } },
@@ -225,6 +230,7 @@
         stream.getTracks().forEach(t => t.stop());
         stream = null;
       }
+
       video.srcObject = null;
       setLog("Fotocamera fermata.");
     }
@@ -242,7 +248,7 @@
           inversionAttempts: "dontInvert"
         });
 
-        if (code?.data) {
+        if (code && code.data) {
           const data = code.data.trim();
           setLog("QR letto: " + data);
 
@@ -258,6 +264,7 @@
           }
         }
       }
+
       requestAnimationFrame(tick);
     }
 
@@ -265,13 +272,13 @@
     stopBtn.addEventListener("click", stopCamera);
 
     // Scroll smooth al click del pulsante
-    document.addEventListener('DOMContentLoaded', function() {
-      const scrollDownBtn = document.getElementById('scrollDownBtn');
-      const contentSection = document.querySelector('.content');
+    document.addEventListener("DOMContentLoaded", function () {
+      const scrollDownBtn = document.getElementById("scrollDownBtn");
+      const contentSection = document.querySelector(".content");
 
       if (scrollDownBtn && contentSection) {
-        scrollDownBtn.addEventListener('click', function() {
-          contentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        scrollDownBtn.addEventListener("click", function () {
+          contentSection.scrollIntoView({ behavior: "smooth", block: "start" });
         });
       }
     });

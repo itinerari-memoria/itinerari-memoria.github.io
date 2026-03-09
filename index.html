@@ -12,17 +12,6 @@
 
 <body>
 
-  <header class="site-header">
-    <div class="container">
-      <div class="lang-switch">
-        <span class="lang-active">IT</span> |
-        <a href="index-en.html" class="lang-link">EN</a>
-      </div>
-      <h1>Itinerari della Memoria 2.0</h1>
-
-    </div>
-  </header>
-
  <section class="hero-section">
     <div class="container">
         <h2 class="hero-title">Bergamo <br> la memoria dei luoghi</h2>
@@ -47,7 +36,7 @@
     <div class="container">
 
 
-      <section class="card">
+      <section class="card" id="sezione-progetto">
         <h2>Il progetto</h2>
         <p>
           Itinerari della Memoria 2.0 è un progetto digitale che nasce con
@@ -90,7 +79,7 @@
       <!-- Aggiungi questo dentro il <body> dove vuoi la sezione GPS -->
 
       <!-- Mappa interattiva -->
-      <section class="card">
+      <section class="card" id="sezione-itinerari">
         <h2>Mappa interattiva</h2>
         <div id="map"></div>
 
@@ -120,7 +109,7 @@
                 </a>
 
                 <a href="points/point-03.html" class="punto-btn">
-                  <span class="titolo-principale">Liceo Scientifico Statale “Filippo Lussana”</span>
+                  <span class="titolo-principale">Liceo Scientifico Statale “Filippo Lussana ”</span>
                 </a>
 
                 <a href="points/point-04.html" class="punto-btn">
@@ -159,7 +148,7 @@
                 </a>
 
                 <a href="points/point-12.html" class="punto-btn">
-                  <span class="titolo-principale">Palazzo della libertà</span>
+                  <span class="titolo-principale">Palazzo della Libertà</span>
                 </a>
 
                 <a href="points/point-13.html" class="punto-btn">
@@ -218,6 +207,7 @@
 
   <!-- PER IL QR Code-->
   <script src="js/QrCode.js"></script>
+  <script type="module" src="js/header-loader.js"></script>
 
   <script>
     const video = document.getElementById("video");

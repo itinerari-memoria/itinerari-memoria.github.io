@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="it">
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -11,18 +11,6 @@
 </head>
 
 <body>
-
-    <header class="site-header">
-        <div class="container">
-            <div class="lang-switch">
-                <a href="index.html" class="lang-link">IT</a> |
-                <span class="lang-active">EN</span>
-            </div>
-            <h1>Historical Itineraries 2.0</h1>
-        </div>
-    </header>
-
-
     <!-- Hero Section in stile italiano ma in inglese -->
     <section class="hero-section">
         <div class="container">
@@ -47,7 +35,7 @@
     <main class="content">
         <div class="container">
 
-            <section class="card">
+            <section class="card" id="sezione-progetto">
                 <h2>The project</h2>
                 <p>
                     Itinerari della Memoria 2.0 is a digital project created with the aim
@@ -88,7 +76,7 @@
 
 
             <!-- Interactive Map -->
-            <section class="card">
+            <section class="card" id="sezione-itinerari">
                 <h2>Interactive Map</h2>
                 <div id="map"></div>
 
@@ -213,6 +201,7 @@
 
     <!-- PER IL QR Code-->
     <script src="js/QrCode.js"></script>
+    <script type="module" src="js/header-loader.js"></script>
 
     <script>
         const video = document.getElementById("video");
