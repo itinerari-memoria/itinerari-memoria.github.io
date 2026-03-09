@@ -58,22 +58,26 @@
       <section class="card">
         <h2>Contenuti multimediali</h2>
 
-        <figure>
-          <img src="../assets/img/point-13-2.jpg"
-               alt="Vista dall'alto del Monastero Matris Domini">
-          <figcaption>
-            Vista dall'alto del Monastero Matris Domini (Bergamo, 2024).
-          </figcaption>
-        </figure>
+        
+        <div class="media-gallery">
+          <figure>
+            <img src="../assets/img/point-13-2.jpg"
+                alt="Vista dall'alto del Monastero Matris Domini"
+                data-full="../assets/img/point-13-2.jpg">
+            <figcaption>
+              Vista dall'alto del Monastero Matris Domini (Bergamo, 2024).
+            </figcaption>
+          </figure>
 
-        <figure>
-          <img src="../assets/img/point-13-1.jpg"
-               alt="Interno della chiesa del Monastero Matris Domini">
-          <figcaption>
-            Interno della chiesa del Monastero Matris Domini (Bergamo, 2023).
-          </figcaption>
-        </figure>
-
+          <figure>
+            <img src="../assets/img/point-13-1.jpg"
+                alt="Interno della chiesa del Monastero Matris Domini"
+                data-full="../assets/img/point-13-1.jpg">
+            <figcaption>
+              Interno della chiesa del Monastero Matris Domini (Bergamo, 2023).
+            </figcaption>
+          </figure>
+        </div>
          
         <!--
         Esempi alternativi (opzionali):
@@ -149,5 +153,10 @@
 
   <script src="../js/popup.js"></script>
   <script src="../js/title-home.js"></script>
+  <script src="../js/gallery.js"></script>
+   <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+  </div>
 </body>
 </html>

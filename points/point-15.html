@@ -87,21 +87,25 @@
       <section class="card">
         <h2>Contenuti multimediali</h2>
 
-         <figure>
-          <img src="../assets/img/point-15-1.jpg"
-               alt="Vista dall'alto del Monastero Matris Domini">
-          <figcaption>
-            Cartolina che ritrae l'ex caserma Montelungo, prima Umberto I (Bergamo, 1944).
-          </figcaption>
-        </figure>
+        <div class="media-gallery">
+          <figure>
+            <img src="../assets/img/point-15-1.jpg"
+                alt="Vista dall'alto del Monastero Matris Domini"
+                data-full="../assets/img/point-15-1.jpg">
+            <figcaption>
+              Cartolina che ritrae l'ex caserma Montelungo, prima Umberto I (Bergamo, 1944).
+            </figcaption>
+          </figure>
 
-        <figure>
-          <img src="../assets/img/point-15-2.jpg"
-               alt="Interno della chiesa del Monastero Matris Domini">
-          <figcaption>
-            Vista dall'alto di ciò che restava della caserma prima della demolizione (Bergamo, 2017).
-          </figcaption>
-        </figure>
+          <figure>
+            <img src="../assets/img/point-15-2.jpg"
+                alt="Interno della chiesa del Monastero Matris Domini"
+                data-full="../assets/img/point-15-2.jpg">
+            <figcaption>
+              Vista dall'alto di ciò che restava della caserma prima della demolizione (Bergamo, 2017).
+            </figcaption>
+          </figure>
+        </div>
 
          
         <!--
@@ -163,5 +167,10 @@
   
   <script src="../js/popup.js"></script>
   <script src="../js/title-home.js"></script>
+  <script src="../js/gallery.js"></script>
+   <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+  </div>
 </body>
 </html>

@@ -71,33 +71,37 @@
       <section class="card">
         <h2>Multimedia Content</h2>
 
-        <figure>
-          <img src="../assets/img/point-01-1.jpg"
-               alt="Bergamo Railway Station">
-          <figcaption>
-            Bergamo Railway Station, departure point for deportees (Bergamo, 2025).
-          </figcaption>
-        </figure>
+        <div class="media-gallery">
+          <figure class="gallery-item">
+            <img src="../assets/img/point-01-1.jpg"
+                alt="Bergamo Railway Station"
+                data-full="../assets/img/point-01-1.jpg">
+            <figcaption>
+              Bergamo Railway Station, departure point for deportees (Bergamo, 2025).
+            </figcaption>
+          </figure>
 
-        <figure>
-          <img src="../assets/img/point-01-2.jpg"
-               alt="Commemorative plaque at the railway tracks of Bergamo station">
-          <figcaption>
-            Commemorative plaque at the railway tracks of Bergamo station, engraved with the names of the deportees and a survivor's quote (Bergamo, 2025).
-          </figcaption>
-        </figure>
+          <figure class="gallery-item">
+            <img src="../assets/img/point-01-2.jpg"
+                alt="Commemorative plaque at the railway tracks of Bergamo station"
+                data-full="../assets/img/point-01-2.jpg">
+            <figcaption>
+              Commemorative plaque at the railway tracks of Bergamo station, engraved with the names of the deportees and a survivor's quote (Bergamo, 2025).
+            </figcaption>
+          </figure>
 
-        <figure>
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/GNU3LJOVaf0" title="Related video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-          </div>
-          <figcaption>
-              Video explanation of the deportation
-          </figcaption>
-        </figure>
+          <figure class="gallery-item">
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/GNU3LJOVaf0" title="Related video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <figcaption>
+                Video explanation of the deportation
+            </figcaption>
+          </figure>
+        </div>
         <!--
         Alternative examples (optional):
 
@@ -120,7 +124,7 @@
 
         <h2>Multimedia Sources</h2>
         <ul>
-          <li>Video "The Deportation of Workers from Bergamo" - <a href="https://www.youtube.com/@Bergamonews">YouTube (Bergamo News)</a></li>
+          <li>Video "Bergamo, the Montelungo deportees and the duty to dissent" - <a href="https://www.youtube.com/@Bergamonews">YouTube (Bergamo News)</a></li>
           <li>Image 1: <a href="https://it.wikipedia.org/">Wikipedia</a></li>
           <li>Image 2: <a href="https://www.pietredellamemoria.it/">pietredellamemoria.it</a></li>
         </ul>
@@ -162,5 +166,10 @@
 
   <script src="../js/popup.js"></script>
   <script src="../js/title-home.js"></script>
+  <script src="../js/gallery.js"></script>
+   <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+  </div>
 </body>
 </html>

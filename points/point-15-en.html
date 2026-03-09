@@ -88,22 +88,25 @@
       <section class="card">
         <h2>Multimedia Content</h2>
 
-         <figure>
-          <img src="../assets/img/point-15-1.jpg"
-               alt="Postcard depicting the former Montelungo Barracks, previously Umberto I">
-          <figcaption>
-            Postcard depicting the former Montelungo Barracks, previously Umberto I (Bergamo, 1944).
-          </figcaption>
-        </figure>
+        <div class="media-gallery">
+          <figure>
+            <img src="../assets/img/point-15-1.jpg"
+                alt="Postcard depicting the former Montelungo Barracks, previously Umberto I"
+                data-full="../assets/img/point-15-1.jpg">
+            <figcaption>
+              Postcard depicting the former Montelungo Barracks, previously Umberto I (Bergamo, 1944).
+            </figcaption>
+          </figure>
 
-        <figure>
-          <img src="../assets/img/point-15-2.jpg"
-               alt="Aerial view of what remained of the barracks before demolition">
-          <figcaption>
-            Aerial view of what remained of the barracks before demolition (Bergamo, 2017).
-          </figcaption>
-        </figure>
-
+          <figure>
+            <img src="../assets/img/point-15-2.jpg"
+                alt="Aerial view of what remained of the barracks before demolition"
+                data-full="../assets/img/point-15-2.jpg">
+            <figcaption>
+              Aerial view of what remained of the barracks before demolition (Bergamo, 2017).
+            </figcaption>
+          </figure>
+        </div>    
         <!--
         Alternative examples (optional):
 
@@ -163,5 +166,10 @@
   
   <script src="../js/popup.js"></script>
   <script src="../js/title-home.js"></script>
+  <script src="../js/gallery.js"></script>
+   <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+  </div>
 </body>
 </html>
