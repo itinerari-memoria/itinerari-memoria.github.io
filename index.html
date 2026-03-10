@@ -12,23 +12,23 @@
 
 <body>
 
- <section class="hero-section">
+  <section class="hero-section">
     <div class="container">
-        <h2 class="hero-title">Bergamo <br> la memoria dei luoghi</h2>
-        <p class="hero-description">
-            Un museo diffuso per una memoria collettiva tra fascismo, occupazione nazista e Resistenza
-        </p>
-        
-        <!-- I due bottoni -->
-        <div class="hero-buttons">
-            <a href="#sezione-telecamera" class="hero-btn">Scansiona QR</a>
-            <a href="#map" class="hero-btn">Esplora Mappa</a>
-        </div>
+      <h2 class="hero-title">Bergamo <br> la memoria dei luoghi</h2>
+      <p class="hero-description">
+        Un museo diffuso per una memoria collettiva tra fascismo, occupazione nazista e Resistenza
+      </p>
+
+      <!-- I due bottoni -->
+      <div class="hero-buttons">
+        <a href="#sezione-telecamera" class="hero-btn">Scansiona QR</a>
+        <a href="#map" class="hero-btn">Esplora Mappa</a>
+      </div>
     </div> <!-- CHIUSURA del container -->
-    
+
     <!-- Pulsante che pulsa per scorrere giù - ORA FUORI dal container -->
     <button class="scroll-down-btn" id="scrollDownBtn" aria-label="Scorri verso il contenuto">
-        ↓
+      ↓
     </button>
   </section>
 
@@ -83,8 +83,8 @@
         <h2>Mappa interattiva</h2>
         <div id="map"></div>
 
-          <button id="gpsBtn" class="btn">Attiva localizzazione</button>
-          <p id="gpsStatus" class="gps-status"></p>
+        <button id="gpsBtn" class="btn">Attiva localizzazione</button>
+        <p id="gpsStatus" class="gps-status"></p>
         <!-- Accesso manuale -->
         <div class="punti-menu-container">
           <p class="punti-description">
@@ -188,7 +188,8 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>Progetto scolastico – Itinerari della Memoria</p>
+      <p>Bergamo, La Memoria dei Luoghi - I.T.I.S. P. Paleocapa Classe 5IG A.S. 2025/2026 </p>
+      <p>Contatti: </p>
     </div>
   </footer>
 
@@ -323,19 +324,19 @@
     stopBtn.addEventListener("click", stopCamera);
 
     // Scroll smooth al click del pulsante
-document.addEventListener('DOMContentLoaded', function() {
-    const scrollDownBtn = document.getElementById('scrollDownBtn');
-    const contentSection = document.querySelector('.content'); // La sezione dopo la hero
-    
-    if (scrollDownBtn && contentSection) {
-        scrollDownBtn.addEventListener('click', function() {
-            contentSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+    document.addEventListener('DOMContentLoaded', function () {
+      const scrollDownBtn = document.getElementById('scrollDownBtn');
+      const contentSection = document.querySelector('.content'); // La sezione dopo la hero
+
+      if (scrollDownBtn && contentSection) {
+        scrollDownBtn.addEventListener('click', function () {
+          contentSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
         });
-    }
-  });
+      }
+    });
   </script>
 
 </body>
