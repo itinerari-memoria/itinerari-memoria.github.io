@@ -4,24 +4,24 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 const points = [
-  { lat: 45.69116, lng: 9.67631, title: "A braccia incrociate - Punto 01", url: "points/point-01.html", id: "point-01" },
-  { lat: 45.69336, lng: 9.67568, title: "In memoria di Ernesto Rossi e Ada Rossi - Punto 02", url: "points/point-02.html", id: "point-02" },
+  { lat: 45.69116, lng: 9.67631, title: "01 - Stazione di Bergamo", url: "points/point-01.html", id: "point-01" },
+  { lat: 45.69336, lng: 9.67568, title: "02 - Istituto Tecnico Vittorio Emanuele II", url: "points/point-02.html", id: "point-02" },
   { lat: 45.69256, lng: 9.67478, title: "Il controllo dell'educazione - Punto 03", url: "points/point-03.html", id: "point-03" },
   { lat: 45.69416, lng: 9.67253, title: "04 - Credito Bergamasco", url: "points/point-04.html", id: "point-04" },
   { lat: 45.69687, lng: 9.67407, title: "05 - Liceo artistico “Giacomo e Pio Manzù", url: "points/point-05.html", id: "point-05" },
-  { lat: 45.69659, lng: 9.6738, title: "Donne in armi - Punto 06", url: "points/point-06.html", id: "point-06" },
+  { lat: 45.69659, lng: 9.6738, title: "06 - Scuola Media “Eugenio Donadoni”", url: "points/point-06.html", id: "point-06" },
   { lat: 45.69628, lng: 9.6731, title: "07 - La prefettura", url: "points/point-07.html", id: "point-07" },
   { lat: 45.69591, lng: 9.67217, title: "La Stampa - Punto 08", url: "points/point-08.html", id: "point-08" },
-  { lat: 45.69562, lng: 9.67049, title: "Piazza Vittorio Veneto - Punto 09", url: "points/point-09.html", id: "point-09" },
-  { lat: 45.69446, lng: 9.66834, title: "Palazzo Frizzoni - Punto 10", url: "points/point-10.html", id: "point-10" },
-  { lat: 45.6946, lng: 9.66944, title: "Piazza Vittorio Veneto - Punto 11", url: "points/point-11.html", id: "point-11" },
-  { lat: 45.69722, lng: 9.66859, title: "Casa, scuola, tempio - Punto 12", url: "points/point-12.html", id: "point-12" },
+  { lat: 45.69562, lng: 9.67049, title: "09 - Piazza Vittorio Veneto", url: "points/point-09.html", id: "point-09" },
+  { lat: 45.69446, lng: 9.66834, title: "10 - Palazzo Frizzoni", url: "points/point-10.html", id: "point-10" },
+  { lat: 45.6946, lng: 9.66944, title: "11 - Piazza Vittorio Veneto", url: "points/point-11.html", id: "point-11" },
+  { lat: 45.69722, lng: 9.66859, title: "12 - Casa, scuola, tempio", url: "points/point-12.html", id: "point-12" },
   { lat: 45.70324, lng: 9.67282, title: "14 - Collegio Baroni", url: "points/point-14.html", id: "point-14" },
-  { lat: 45.70021, lng: 9.6773, title: "Caserma Montelungo - Punto 15", url: "points/point-15.html", id: "point-15" },
-  { lat: 45.70083, lng: 9.66599, title: "Da Monastero a carcere - Punto 13", url: "points/point-13.html", id: "point-13" },
-  { lat: 45.69912, lng: 9.6752, title: "Pietre d'inciampo - Punto 16", url: "points/point-16.html", id: "point-16" },
-  { lat: 45.69876, lng: 9.67639, title: "La Banda Turani - Punto 17", url: "points/point-17.html", id: "point-17" },
-  { lat: 45.69844, lng: 9.67649, title: "Ferruccio Dell'Orto - Punto 18", url: "points/point-18.html", id: "point-18" }
+  { lat: 45.70021, lng: 9.6773, title: "15 - Caserma Montelungo", url: "points/point-15.html", id: "point-15" },
+  { lat: 45.70083, lng: 9.66599, title: "13 - Monastero Matris Domini", url: "points/point-13.html", id: "point-13" },
+  { lat: 45.69912, lng: 9.6752, title: "16 - Pietre d'inciampo", url: "points/point-16.html", id: "point-16" },
+  { lat: 45.69876, lng: 9.67639, title: "17 - Via Pignolo 13", url: "points/point-17.html", id: "point-17" },
+  { lat: 45.69844, lng: 9.67649, title: "18 - via Pignolo 10", url: "points/point-18.html", id: "point-18" }
 ];
 
 // Icone personalizzate
