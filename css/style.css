@@ -591,102 +591,96 @@
   }
   
   .popup-trigger {
-    position: relative;
-    color: var(--link);
-    font-weight: 600;
-    padding: 2px 4px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    background: var(--gradient-subtle);
-    border-bottom: 2px solid var(--link);
-    font-family: 'Crimson Text', serif;
-  }
-  
-  .popup-trigger:hover {
-    background: rgba(141, 110, 99, 0.1);
-    transform: translateY(-1px);
-  }
-  
-  .popup-box {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-    z-index: 2000;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 0.3s ease;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  .popup-content {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 32px;
-    max-width: 90%;
-    max-height: 80vh;
-    overflow-y: auto;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    animation: popupSlide 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    font-family: 'Crimson Text', serif;
-  }
-  
-  @keyframes popupSlide {
-    from {
-      opacity: 0;
-      transform: translateY(20px) scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-  
-  .popup-box.show .popup-content {
-    display: block;
-  }
-  
-  .popup-content h3 {
-    color: var(--primary);
-    margin-bottom: 16px;
-    font-size: 1.5rem;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-family: 'Crimson Text', serif;
-  }
-  
-  .popup-content button {
-    display: block;
-    margin: 24px auto 0;
-    padding: 12px 24px;
-    background: var(--gradient);
-    color: white;
-    border: none;
-    border-radius: var(--radius-lg);
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    box-shadow: 0 4px 15px rgba(93, 64, 55, 0.2);
-    font-family: 'Crimson Text', serif;
-  }
-  
-  .popup-content button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(93, 64, 55, 0.3);
-  }
+  position: relative;
+  color: var(--link);
+  font-weight: 600;
+  padding: 2px 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--gradient-subtle);
+  border-bottom: 2px solid var(--link);
+  font-family: 'Crimson Text', serif;
+}
+
+.popup-trigger:hover {
+  background: rgba(141, 110, 99, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Overlay senza tremolio */
+.popup-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6); /* leggermente più scuro */
+  /* backdrop-filter: blur(5px);  <-- rimosso */
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  /* forza layer separato per evitare tremolio */
+  will-change: opacity;
+}
+
+.popup-box.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.popup-content {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 32px;
+  max-width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  transform: scale(0.95);
+  opacity: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  position: relative;
+  font-family: 'Crimson Text', serif;
+  /* forza layer separato */
+  will-change: transform, opacity;
+}
+
+.popup-box.show .popup-content {
+  transform: scale(1);
+  opacity: 1;
+}
+/* Titoli e pulsanti */
+.popup-content h3 {
+  color: var(--primary);
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.popup-content button {
+  display: block;
+  margin: 24px auto 0;
+  padding: 12px 24px;
+  background: var(--gradient);
+  color: white;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(93,64,55,0.2);
+}
+
+.popup-content button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(93,64,55,0.3);
+}
   
   .menu-btn {
     display: inline-flex;
