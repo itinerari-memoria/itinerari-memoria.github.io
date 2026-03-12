@@ -28,6 +28,51 @@ function markActiveNav() {
   });
 }
 
+function getMobileNavItems() {
+  const path = window.location.pathname.toLowerCase();
+  const docLang = (document.documentElement.lang || "").toLowerCase();
+  const isEnglish = path.endsWith("index-en.html") || docLang.startsWith("en");
+
+  if (isEnglish) {
+    return [
+      { href: "index-en.html#sezione-progetto", label: "Project" },
+      { href: "index-en.html#sezione-itinerari", label: "Itineraries" },
+      { href: "index-en.html#sezione-telecamera", label: "QR Code" },
+      { href: "index.html", label: "Italiano", className: "mobile-lang-link" },
+    ];
+  }
+
+  return [
+    { href: "index.html#sezione-progetto", label: "Progetto" },
+    { href: "index.html#sezione-itinerari", label: "Itinerari" },
+    { href: "index.html#sezione-telecamera", label: "QR Code" },
+    { href: "index-en.html", label: "English", className: "mobile-lang-link" },
+  ];
+}
+
+function ensureMobilePanelLinks(container) {
+  const panel = container.querySelector("[data-panel]");
+  if (!panel) return;
+
+  let nav = panel.querySelector(".mobile-links");
+  if (!nav) {
+    nav = document.createElement("nav");
+    nav.className = "mobile-links";
+    nav.setAttribute("aria-label", "Mobile");
+    panel.appendChild(nav);
+  }
+
+  nav.innerHTML = "";
+
+  getMobileNavItems().forEach((item) => {
+    const link = document.createElement("a");
+    link.href = item.href;
+    link.textContent = item.label;
+    if (item.className) link.className = item.className;
+    nav.appendChild(link);
+  });
+}
+
 function initMobileMenu(container) {
   const btn = container.querySelector("#menuBtn");
   const dlg = container.querySelector("#mobileMenu");
@@ -90,6 +135,7 @@ async function loadHeader() {
   const html = await response.text();
   container.innerHTML = html;
 
+  ensureMobilePanelLinks(container);
   initMobileMenu(container);
   markActiveNav();
 }

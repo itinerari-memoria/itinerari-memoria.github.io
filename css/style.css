@@ -169,6 +169,31 @@
     font-weight: 600;
     color: var(--primary);
   }
+
+  .hero-lang-switch {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    z-index: 5;
+    pointer-events: auto;
+    background: rgba(20, 16, 12, 0.32);
+    border-color: rgba(255, 255, 255, 0.22);
+    color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  }
+
+  .hero-lang-switch .lang-link {
+    color: #f3e8d6;
+  }
+
+  .hero-lang-switch .lang-link:hover {
+    color: #ffffff;
+  }
+
+  .hero-lang-switch .lang-active {
+    color: #ffffff;
+  }
   
   .site-header h1 {
     margin: 0;
