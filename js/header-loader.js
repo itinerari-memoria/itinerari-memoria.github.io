@@ -35,16 +35,16 @@ function getMobileNavItems() {
 
   if (isEnglish) {
     return [
-      { href: "index-en.html#sezione-progetto", label: "Project" },
-      { href: "index-en.html#sezione-itinerari", label: "Itineraries" },
+      { href: "index-en.html#sezione-progetto", label: "The project" },
+      { href: "index-en.html#sezione-itinerari", label: "Itinerary" },
       { href: "index-en.html#sezione-telecamera", label: "QR Code" },
       { href: "index.html", label: "Italiano", className: "mobile-lang-link" },
     ];
   }
 
   return [
-    { href: "index.html#sezione-progetto", label: "Progetto" },
-    { href: "index.html#sezione-itinerari", label: "Itinerari" },
+    { href: "index.html#sezione-progetto", label: "Il progetto" },
+    { href: "index.html#sezione-itinerari", label: "Itinerario" },
     { href: "index.html#sezione-telecamera", label: "QR Code" },
     { href: "index-en.html", label: "English", className: "mobile-lang-link" },
   ];
