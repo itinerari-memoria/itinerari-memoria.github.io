@@ -107,12 +107,26 @@
             <section class="card">
                 <h2>Multimedia content</h2>
 
-                <figure>
-                    <img src="../assets/img/point-10.jpg" alt="Image of Point 10">
-                    <figcaption>
-                        Palazzo Frizzoni
-                    </figcaption>
-                </figure>
+                <div class="media-gallery">
+                    <figure class="gallery-item">
+                        <img src="../assets/img/point-10.jpg" alt="Image of point 10" data-full="../assets/img/point-10.jpg">
+                        <figcaption>
+                            Palazzo Frizzoni
+                        </figcaption>
+                    </figure>
+
+                    <figure class="gallery-item">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/w2HxdSS0Pz4" title="Related video"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <figcaption>
+                            Story of Antonio Locatelli
+                        </figcaption>
+                    </figure>
+                </div>
             </section>
 
             <!-- In-depth -->
@@ -166,13 +180,6 @@
                         🎧 Audio reading
                     </p>
                     <audio controls src="../assets/audio/point-10-03-en.mp3"></audio>
-                </div>
-                <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/w2HxdSS0Pz4"
-                        title="Antonio Locatelli" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
                 </div>
             </section>
 
@@ -236,6 +243,12 @@
     </footer>
     <script src="../js/popup.js"></script>
     <script src="../js/title-home-en.js"></script>
+    <script src="../js/gallery.js"></script>
+
+   <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+  </div>
 </body>
 
 </html>

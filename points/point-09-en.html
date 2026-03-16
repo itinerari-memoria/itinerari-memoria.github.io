@@ -132,12 +132,20 @@
             <section class="card">
                 <h2>Multimedia content</h2>
 
-                <figure>
-                    <img src="../assets/img/point-09.jpg" alt="Image description of point 09">
-                    <figcaption>
-                        Employment offices during the Italian Social Republic
-                    </figcaption>
-                </figure>
+                <div class="media-gallery">
+                    <figure class="gallery-item">
+                        <img src="../assets/img/point-09.jpg" alt="Image description of point 09" data-full="../assets/img/point-09.jpg">
+                        <figcaption>
+                            Employment offices during the Italian Social Republic
+                        </figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="../assets/img/point-09-2.jpg" alt="Image description of the in-depth section" data-full="../assets/img/point-09-2.jpg">
+                        <figcaption>
+                            Memorial plaque at Via Porta Dipinta 28, Bergamo
+                        </figcaption>
+                    </figure>
+                </div>
             </section>
 
             <!-- In-depth -->
@@ -200,12 +208,6 @@
                     </p>
                     <audio controls src="../assets/audio/point-09-03-en.mp3"></audio>
                 </div>
-                <figure>
-                    <img src="../assets/img/point-09-2.jpg" alt="Image description of the in-depth section">
-                    <figcaption>
-                        Memorial plaque at Via Porta Dipinta 28, Bergamo
-                    </figcaption>
-                </figure>
             </section>
 
             <!-- Sources -->
@@ -266,8 +268,15 @@
             </p>
         </div>
     </footer>
+      <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+  </div>
+
     <script src="../js/popup.js"></script>
     <script src="../js/title-home-en.js"></script>
+    <script src="../js/gallery.js"></script>
 </body>
 
 </html>
