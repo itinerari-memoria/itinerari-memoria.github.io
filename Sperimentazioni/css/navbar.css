@@ -38,7 +38,12 @@
   color:inherit;
   flex: 0 0 auto;
 }
-.brand img{ width:36px; height:36px; display:block; }
+.brand img{ 
+  width: 48px;  /* aumentato da 36px */
+  height: 48px; /* aumentato da 36px */
+  display: block; 
+  object-fit: contain; /* mantiene le proporzioni */
+}
 .sr-only{
   position:absolute;width:1px;height:1px;
   padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;

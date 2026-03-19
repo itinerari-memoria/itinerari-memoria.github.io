@@ -476,7 +476,42 @@
   .site-footer a::after {
     display: none;
   }
+  /* Logo footer - stile personalizzato che sovrascrive gli stili generali delle immagini */
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
   
+  .footer-text {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .footer-logo {
+    width: auto !important;
+    height: 60px !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    transition: none !important;
+    display: block !important;
+    margin: 0 !important; /* Rimuove il margine auto che avevamo prima */
+  }
+  
+  /* Per mobile: impila il contenuto */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .footer-text {
+      text-align: center;
+    }
+  }
   .btn-row {
     display: flex;
     flex-wrap: wrap;
