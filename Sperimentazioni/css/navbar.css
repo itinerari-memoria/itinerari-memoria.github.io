@@ -93,6 +93,11 @@
   background:rgba(255,255,255,.14);
 }
 
+.lang-active {
+  font-weight: 600;
+  color: var(--primary);
+}
+
 /* Social desktop */
 .social{ display:none; align-items:center; gap:14px; opacity:.9; }
 .social a{ color:inherit; text-decoration:none; }
