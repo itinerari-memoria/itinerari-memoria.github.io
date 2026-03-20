@@ -111,24 +111,28 @@
             <!-- Media -->
             <section class="card">
                 <h2>Multimedia contents</h2>
+                <div class="media-gallery">
 
-                <figure>
-                    <img src="../assets/img/point-16-1.jpg" alt="Image of point 16">
+                    <figure>
+                        <<img src="../assets/img/point-16-1.jpg" alt="Image of point 16">
                     <figcaption>
                         A Stolperstein (stumbling stone) in the cobblestone of Bergamo. The small bronze plaque
                         commemorates the citizen and partisan Aldo Ghezzi, deported and killed by the Nazis.
                     </figcaption>
-                </figure>
+                    </figure>
+                    <figure>
+                        <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/pJSwkMaTfo8?rel=0"
+                            title="Le pietre d'inciampo di Gunter Demnig a Bergamo"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                        </div>
+                        <figcaption>
+                        the Stolpersteine by Gunter Demnig in Bergamo
+                        </figcaption>
+                    </div>
 
-                <!--
-        Esempi alternativi (opzionali):
-
-        Audio:
-        <audio controls src="../assets/audio/point-01.mp3"></audio>
-
-        Video (meglio embed):
-        <iframe ...></iframe>
-        -->
             </section>
 
             <!-- Approfondimento -->
@@ -186,19 +190,6 @@
                 </div>
             </section>
 
-            <section class="card">
-                <h2>In-depth: the Stolpersteine by Gunter Demnig in Bergamo</h2>
-
-                <figure>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/pJSwkMaTfo8?rel=0"
-                            title="Le pietre d'inciampo di Gunter Demnig a Bergamo"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </figure>
-            </section>
 
             <section class="card">
                 <h2>Map of memory: the spread of Stolpersteine</h2>
@@ -597,12 +588,12 @@
 </body>
 
 <script>
-fetch('../footer-en.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('footer-placeholder').innerHTML = data;
-    })
-    .catch(err => console.error('Errore caricamento footer:', err));
+    fetch('../footer-en.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        })
+        .catch(err => console.error('Errore caricamento footer:', err));
 </script>
 
 </html>

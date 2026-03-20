@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <title>03 - State Scientific High School "Filippo Lussana"</title>
@@ -7,6 +8,7 @@
 
   <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
 
   <header class="site-header">
@@ -184,7 +186,8 @@
             <ul>
               <li><strong>Gruppi Universitari Fascisti (GUF)</strong> for university students</li>
               <li><strong>Summer camps</strong>, organized according to military-style models</li>
-              <li><strong>National After-Work organization</strong>, which offered leisure and activities for workers</li>
+              <li><strong>National After-Work organization</strong>, which offered leisure and activities for workers
+              </li>
             </ul>
             <p>
               In this way, the distinction between school, leisure time, and private life tended to disappear.
@@ -275,28 +278,43 @@
       <!-- Media -->
       <section class="card">
         <h2>Multimedia content</h2>
+        <div class="media-gallery">
+          <figure class="gallery-item">
+            <img src="../assets/img/point-03.png"
+              alt="Front facade of the Filippo Lussana State Scientific High School">
+            <figcaption>
+              Front facade of the "Filippo Lussana" State Scientific High School
+            </figcaption>
+          </figure>
 
-        <figure>
-          <img src="../assets/img/point-03.png"
-               alt="Front facade of the Filippo Lussana State Scientific High School">
-          <figcaption>
-            Front facade of the "Filippo Lussana" State Scientific High School
-          </figcaption>
-        </figure>
+          <figure class="gallery-item">
+            <img src="" alt="Descrizione" data-full="">
+            <figcaption>
+              <!-- Didascalia dell’immagine (luogo, data, fonte). -->
+
+              Descrizione
+            </figcaption>
+          </figure>
+        </div>
       </section>
 
       <!-- Timeline -->
       <section class="card">
         <h2>Timeline</h2>
         <ul>
-          <li><strong>1923</strong> - Gentile school reform: the school becomes a central instrument of the Fascist educational project.</li>
-          <li><strong>1928</strong> - Fascism dissolves non-Fascist youth organizations, including Scout associations.</li>
-          <li><strong>22 June 1932</strong> - Inauguration of the building on Via Angelo Maj as the headquarters of the Opera Nazionale Balilla.</li>
+          <li><strong>1923</strong> - Gentile school reform: the school becomes a central instrument of the Fascist
+            educational project.</li>
+          <li><strong>1928</strong> - Fascism dissolves non-Fascist youth organizations, including Scout associations.
+          </li>
+          <li><strong>22 June 1932</strong> - Inauguration of the building on Via Angelo Maj as the headquarters of the
+            Opera Nazionale Balilla.</li>
           <li><strong>1930s</strong> - The building becomes the seat of the Gioventu Italiana del Littorio.</li>
           <li><strong>1939</strong> - Beginning of pre-military service for young people.</li>
-          <li><strong>1943-1945</strong> - The building houses the avanguardisti moschettieri enrolled in the National Republican Guard.</li>
+          <li><strong>1943-1945</strong> - The building houses the avanguardisti moschettieri enrolled in the National
+            Republican Guard.</li>
           <li><strong>Post-war period</strong> - Seat of the "Paolina Secco Suardo" Teacher Training Institute.</li>
-          <li><strong>1968</strong> - The building becomes the seat of the "Filippo Lussana" State Scientific High School.</li>
+          <li><strong>1968</strong> - The building becomes the seat of the "Filippo Lussana" State Scientific High
+            School.</li>
         </ul>
       </section>
 
@@ -304,8 +322,10 @@
       <section class="card">
         <h2>Sources</h2>
         <ul>
-          <li><strong>Mario Pelliccioli</strong>, <em>Itinerari di memoria: un percorso a Bergamo tra fascismo, occupazione tedesca e Resistenza</em>, i Libri di Moltefedi, Bergamo 2023, pp. 24-29.</li>
-          <li><strong>Guya Bertelli, Manuela Brambilla, Matteo Invernizzi</strong>, <em>Bergamo: cent'anni di architettura 1890-1990</em>, Alcon, Bergamo 1994, pp. 68-69.</li>
+          <li><strong>Mario Pelliccioli</strong>, <em>Itinerari di memoria: un percorso a Bergamo tra fascismo,
+              occupazione tedesca e Resistenza</em>, i Libri di Moltefedi, Bergamo 2023, pp. 24-29.</li>
+          <li><strong>Guya Bertelli, Manuela Brambilla, Matteo Invernizzi</strong>, <em>Bergamo: cent'anni di
+              architettura 1890-1990</em>, Alcon, Bergamo 1994, pp. 68-69.</li>
         </ul>
       </section>
 
@@ -337,11 +357,12 @@
 </body>
 
 <script>
-fetch('../footer-en.html')
+  fetch('../footer-en.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('footer-placeholder').innerHTML = data;
     })
     .catch(err => console.error('Errore caricamento footer:', err));
 </script>
+
 </html>
