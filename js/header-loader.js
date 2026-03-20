@@ -1,4 +1,4 @@
-const NAVBAR_CSS_PATH = "Sperimentazioni/css/navbar.css";
+const NAVBAR_CSS_PATH = "../css/navbar.css";
 
 function ensureNavbarStylesheet() {
   const exists = [...document.querySelectorAll('link[rel="stylesheet"]')]
@@ -31,23 +31,22 @@ function markActiveNav() {
 function getMobileNavItems() {
   const path = window.location.pathname.toLowerCase();
   const docLang = (document.documentElement.lang || "").toLowerCase();
-  const isEnglish = path.endsWith("index-en.html") || docLang.startsWith("en");
+  const isEnglish = path.includes("en") || docLang.startsWith("en");
 
-  if (isEnglish) {
-    return [
-      { href: "index-en.html#sezione-progetto", label: "The project" },
-      { href: "index-en.html#sezione-itinerari", label: "Itinerary" },
-      { href: "index-en.html#sezione-telecamera", label: "QR Code" },
-      { href: "index.html", label: "Italiano", className: "mobile-lang-link" },
-    ];
-  }
-
-  return [
-    { href: "index.html#sezione-progetto", label: "Il progetto" },
-    { href: "index.html#sezione-itinerari", label: "Itinerario" },
-    { href: "index.html#sezione-telecamera", label: "QR Code" },
-    { href: "index-en.html", label: "English", className: "mobile-lang-link" },
-  ];
+  return {
+    isEnglish,
+    items: isEnglish
+      ? [
+          { href: "index-en.html#sezione-progetto", label: "The project" },
+          { href: "index-en.html#sezione-itinerari", label: "Itinerary" },
+          { href: "index-en.html#sezione-telecamera", label: "QR Code" },
+        ]
+      : [
+          { href: "index.html#sezione-progetto", label: "Il progetto" },
+          { href: "index.html#sezione-itinerari", label: "Itinerario" },
+          { href: "index.html#sezione-telecamera", label: "QR Code" },
+        ],
+  };
 }
 
 function ensureMobilePanelLinks(container) {
@@ -64,14 +63,32 @@ function ensureMobilePanelLinks(container) {
 
   nav.innerHTML = "";
 
-  getMobileNavItems().forEach((item) => {
+  const { isEnglish, items } = getMobileNavItems();
+
+  // 🔹 Link normali
+  items.forEach((item) => {
     const link = document.createElement("a");
     link.href = item.href;
     link.textContent = item.label;
-    if (item.className) link.className = item.className;
     nav.appendChild(link);
   });
+
+  // 🔹 SWITCH FIGO
+  const switchDiv = document.createElement("div");
+  switchDiv.className = "mobile-lang-switch" + (isEnglish ? " en" : "");
+
+  switchDiv.innerHTML = `
+  <a href="index.html" class="lang-option ${!isEnglish ? "active" : ""}" data-lang="it">IT</a>
+  <a href="index-en.html" class="lang-option ${isEnglish ? "active" : ""}" data-lang="en">EN</a>
+  <span class="lang-slider"></span>
+`;
+  nav.appendChild(switchDiv);
+
+  if(switchDiv) {
+    switchDiv.classList.toggle("en", isEnglish);
+  }
 }
+
 
 function initMobileMenu(container) {
   const btn = container.querySelector("#menuBtn");
@@ -138,6 +155,50 @@ async function loadHeader() {
   ensureMobilePanelLinks(container);
   initMobileMenu(container);
   markActiveNav();
+
+  // 🔹 Inizializza il lang switch solo dopo che l'HTML è stato inserito
+  initLangSwitch();
 }
 
 loadHeader().catch(console.error);
+
+function initLangSwitch() {
+  // Seleziona tutti gli switch lingua, desktop e mobile
+  const switchEls = document.querySelectorAll('.mobile-lang-switch, .desktop-lang-link');
+
+  switchEls.forEach(switchEl => {
+    const options = switchEl.querySelectorAll('.lang-option, a');
+    const slider = switchEl.querySelector('.lang-slider');
+
+    // Determina la lingua della pagina
+    const path = window.location.pathname.toLowerCase();
+    const isEnglish = path.endsWith("index-en.html") || document.documentElement.lang.toLowerCase().startsWith("en");
+
+    // Rimuove active da tutti i pulsanti
+    options.forEach(btn => btn.classList.remove('active'));
+
+    // Imposta il pulsante attivo
+    const activeBtn = Array.from(options).find(btn => {
+      const lang = btn.dataset.lang || btn.textContent.toLowerCase();
+      return (isEnglish && lang === "en") || (!isEnglish && lang === "it");
+    });
+
+    if (activeBtn) activeBtn.classList.add('active');
+
+    // Muove lo slider sotto il pulsante attivo
+    if (slider && activeBtn) {
+      const index = Array.from(options).indexOf(activeBtn);
+      slider.style.transform = `translateX(${index * 100}%)`;
+    }
+
+    // Click sui pulsanti per cambiare pagina
+    options.forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const lang = btn.dataset.lang || btn.textContent.toLowerCase();
+        if (lang === "en") window.location.href = "index-en.html";
+        else window.location.href = "index.html";
+      });
+    });
+  });
+}
