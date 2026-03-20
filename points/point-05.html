@@ -177,16 +177,31 @@
       <section class="card">
         <h2>Contenuti multimediali</h2>
 
-        <figure>
-          <img src="../assets/img/point-05.jpg"
-            alt="Edificio del Liceo Artistico Giacomo e Pio Manzù, ex sede del Tribunale Speciale">
-          <figcaption>
-            <!-- Didascalia dell’immagine (luogo, data, fonte). -->
+        <div class="media-gallery">
+          <figure class="gallery-item">
+            <img src="../assets/img/point-05.jpg"
+                alt="Edificio del Liceo Artistico Giacomo e Pio Manzù, ex sede del Tribunale Speciale"
+                data-full="../assets/img/point-05.jpg">
+            <figcaption>
+              <!-- Didascalia dell’immagine (luogo, data, fonte). -->
 
-            Liceo Artistico “Giacomo e Pio Manzù”, ex sede del Tribunale Speciale
-            per la difesa dello Stato.
-          </figcaption>
-        </figure>
+              Liceo Artistico “Giacomo e Pio Manzù”, ex sede del Tribunale Speciale
+              per la difesa dello Stato.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src=""
+                alt="Descrizione"
+                data-full="">
+            <figcaption>
+              <!-- Didascalia dell’immagine (luogo, data, fonte). -->
+
+              Descrizione
+            </figcaption>
+          </figure>
+        </div>
+
 
         <!--
         Esempi alternativi (opzionali):
@@ -279,6 +294,13 @@
   <script src="../js/popup.js"></script>
 
   <script src="../js/title-home.js"></script>
+
+  <script src="../js/gallery.js"></script>
+
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+  </div>
   
 </body>
 
