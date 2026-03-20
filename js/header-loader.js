@@ -40,11 +40,13 @@ function getMobileNavItems() {
           { href: "index-en.html#sezione-progetto", label: "The project" },
           { href: "index-en.html#sezione-itinerari", label: "Itinerary" },
           { href: "index-en.html#sezione-telecamera", label: "QR Code" },
+          { href: "chi_siamo-en.html", label: "About us" },
         ]
       : [
           { href: "index.html#sezione-progetto", label: "Il progetto" },
           { href: "index.html#sezione-itinerari", label: "Itinerario" },
           { href: "index.html#sezione-telecamera", label: "QR Code" },
+          { href: "chi_siamo-it.html", label: "Chi siamo" },
         ],
   };
 }
