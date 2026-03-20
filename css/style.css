@@ -1964,3 +1964,48 @@
   color: white;
   cursor: pointer;
 }
+
+
+.site-footer {
+  background: var(--primary); /* marrone scuro tema storico */
+  color: var(--accent-light); /* testo chiaro per contrasto */
+  padding: 40px 0;
+  font-family: 'Crimson Text', serif; /* coerente col menu */
+}
+
+.site-footer a {
+  color: var(--accent-light); /* link chiaro, visibile sul marrone */
+  text-decoration: underline;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-text {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-section-title {
+  font-weight: bold;
+  border-bottom: 2px solid var(--accent-light); /* riga visibile chiara */
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+/* link solo testuale, niente pulsante */
+.site-footer a.text-link {
+    display: inline;           /* non inline-flex */
+    padding: 0;                /* niente spazio extra */
+    border: none;              /* niente bordo */
+    border-radius: 0;          /* niente arrotondamento */
+    background: none;          /* niente sfondo */
+    color: var(--accent-light);/* colore coerente col footer */
+    text-decoration: underline;/* solo sottolineatura */
+    font-family: 'Crimson Text', serif;
+}
+
