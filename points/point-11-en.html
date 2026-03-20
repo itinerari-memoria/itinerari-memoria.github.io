@@ -350,13 +350,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <p>
-                School project – Historical Itineraries 2.0
-            </p>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <!-- Lightbox -->
   <div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; justify-content:center; align-items:center;">
@@ -369,4 +363,12 @@
     <script src="../js/gallery.js"></script>
 </body>
 
+<script>
+fetch('../footer-en.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    })
+    .catch(err => console.error('Errore caricamento footer:', err));
+</script>
 </html>

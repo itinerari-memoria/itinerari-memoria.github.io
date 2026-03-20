@@ -279,13 +279,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>
-        Progetto scolastico – Itinerari della Memoria 2.0
-      </p>
-    </div>
-  </footer>
+  <div id="footer-placeholder"></div>
 
   <script src="../js/title-home.js"></script>
 
@@ -296,5 +290,14 @@
     <img class="lightbox-img" src="" alt="">
   </div>
 </body>
+
+<script>
+  fetch('../footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    })
+    .catch(err => console.error('Errore caricamento footer:', err));
+</script>
 
 </html>

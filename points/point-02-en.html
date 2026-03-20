@@ -229,13 +229,7 @@
         </div>
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>
-                School project – Historical Itineraries 2.0
-            </p>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <script src="../js/popup.js"></script>
 
@@ -249,5 +243,14 @@
     </div>
 
 </body>
+
+<script>
+fetch('../footer-en.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    })
+    .catch(err => console.error('Errore caricamento footer:', err));
+</script>
 
 </html>
