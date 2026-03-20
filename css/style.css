@@ -253,7 +253,6 @@
   }
   
   .card:hover {
-    transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
     border-color: var(--accent);
   }
@@ -330,7 +329,6 @@
   }
   
   li:hover::before {
-    transform: translateX(4px);
     color: var(--primary);
   }
   
@@ -402,7 +400,6 @@
   }
   
   .note:hover {
-    transform: translateX(5px);
     box-shadow: var(--shadow);
     background-color: var(--accent-light);
   }
@@ -469,7 +466,6 @@
   .site-footer a:hover {
     background: rgba(255, 255, 255, 0.2);
     border-color: rgba(255, 255, 255, 0.4);
-    transform: translateY(-2px);
     color: white !important;
   }
   
@@ -547,22 +543,16 @@
     height: 0;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.2);
-    transform: translate(-50%, -50%);
     transition: width 0.6s, height 0.6s;
   }
   
   .btn:hover {
-    transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(93, 64, 55, 0.3);
   }
   
   .btn:hover::before {
     width: 300px;
     height: 300px;
-  }
-  
-  .btn:active {
-    transform: translateY(-1px);
   }
   
   .card .audio-box {
@@ -578,7 +568,6 @@
   }
   
   .card .audio-box:hover {
-    transform: translateY(-3px);
     box-shadow: var(--shadow);
     border-color: var(--accent);
   }
@@ -665,7 +654,6 @@
 
 .popup-trigger:hover {
   background: rgba(141, 110, 99, 0.1);
-  transform: translateY(-1px);
 }
 
 /* Overlay senza tremolio */
@@ -738,7 +726,6 @@
 }
 
 .popup-content button:hover {
-  transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(93,64,55,0.3);
 }
   
@@ -762,7 +749,6 @@
   }
   
   .menu-btn:hover {
-    transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(93, 64, 55, 0.4);
     color: white !important;
   }
@@ -801,7 +787,6 @@
     position: absolute;
     left: 30px;
     top: 50%;
-    transform: translateY(-50%);
     font-size: 1.5rem;
   }
   
@@ -857,12 +842,10 @@
   
   .menu-toggle:hover {
     background: var(--gradient);
-    transform: translateY(-3px);
     box-shadow: 0 15px 35px rgba(93, 64, 55, 0.3);
   }
   
   .menu-toggle.active {
-    transform: translateY(0);
     box-shadow: 0 10px 30px rgba(93, 64, 55, 0.2);
     border-bottom: none;
   }
@@ -891,11 +874,9 @@
     border: 2px solid var(--border);
     border-top: none;
     z-index: 1;
-    transform: translateY(-5px);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     max-height: 0;
     opacity: 0;
-    transform: translateY(-10px) scale(0.98);
   }
   
   .punti-dropdown::before {
@@ -913,7 +894,6 @@
     display: block;
     max-height: 5000px !important;
     opacity: 1;
-    transform: translateY(-5px) scale(1);
   }
   
   .punti-grid {
@@ -933,7 +913,6 @@
     top: 0;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
     width: 1px;
     background: linear-gradient(to bottom, 
       transparent 0%, 
@@ -1047,10 +1026,6 @@
     transform-origin: center;
   }
   
-  .punto-btn:hover {
-    transform: translateX(10px);
-  }
-  
   .punto-btn:hover .titolo-principale {
     color: var(--accent);
     text-shadow: 0 2px 10px rgba(160, 82, 45, 0.1);
@@ -1062,7 +1037,6 @@
   
   .punto-btn:hover .etichetta-punto {
     color: var(--link);
-    transform: translateX(5px);
   }
   
   .punto-btn:hover .icona-emoji {
@@ -1113,7 +1087,6 @@
   .punto-btn:hover .distanza-punto {
     background: var(--gradient);
     color: white;
-    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(93, 64, 55, 0.2);
   }
   
@@ -1365,7 +1338,6 @@
     background: var(--gradient);
     color: white !important;
     border-color: transparent;
-    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(93, 64, 55, 0.2);
   }
   
@@ -1389,11 +1361,9 @@
   @keyframes fadeInUpItem {
     from {
       opacity: 0;
-      transform: translateY(20px);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
     }
   }
   
@@ -1413,13 +1383,11 @@
   
   .fade-in {
     opacity: 0;
-    transform: translateY(30px);
     transition: opacity 0.8s ease, transform 0.8s ease;
   }
   
   .fade-in.visible {
     opacity: 1;
-    transform: translateY(0);
   }
   
   /* ===================== HERO SECTION ===================== */
@@ -1519,14 +1487,12 @@
   .hero-btn:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.6);
-    transform: translateY(-2px);
   }
   
   .scroll-down-btn {
     position: absolute;
     bottom: 40px;
     left: 50%;
-    transform: translateX(-50%);
     width: 50px;
     height: 50px;
     background: transparent;
@@ -1546,7 +1512,6 @@
   .scroll-down-btn:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: white;
-    transform: translateX(-50%) scale(1.1);
   }
   
   @keyframes pulse {
