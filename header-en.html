@@ -1,10 +1,8 @@
 <header class="topbar" aria-label="Header">
   <nav class="nav-wrap" aria-label="Primary">
     <a href="index-en.html" class="brand" aria-label="Home - Historical Itineraries 2.0">
-      <img src="../assets/img/logoC_monochrome.png" alt="Itinerari della Memoria 2.0" width="48" height="48"
-        loading="eager"
-        style="border: none !important; box-shadow: none !important; transform: none !important; transition: none !important; outline: none !important;"
-        class="brand-logo">
+      <img src="../assets/img/logoC_monochrome.png" alt="Historical Itineraries 2.0"
+        width="48" height="48" loading="eager" class="brand-logo">
       <span class="sr-only">Historical Itineraries 2.0</span>
     </a>
 
@@ -15,15 +13,16 @@
       <a href="chi_siamo-en.html">About us</a>
     </div>
 
-    <!-- <a href="index.html" class="desktop-lang-link">IT</a> -->
-
     <div class="desktop-lang-link">
-      <a href="index.html" class="lang-link">IT</a> |
-      <a href="index-en.html" class="lang-active">EN</a>
+      <a href="index.html" class="lang-option" data-lang="it">IT</a>
+      <a href="index-en.html" class="lang-option active" data-lang="en">EN</a>
+      <span class="lang-slider"></span>
     </div>
 
-    <button id="menuBtn" class="menu-btn" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
-      <svg viewBox="0 0 24 24" class="menu-icon" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <button id="menuBtn" class="menu-btn"
+      aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="menu-icon" fill="none"
+        stroke="currentColor" stroke-width="2" aria-hidden="true">
         <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
       </svg>
     </button>
@@ -35,24 +34,14 @@
       <div class="panel-head">
         <span class="panel-title">Historical Itineraries 2.0</span>
         <button id="closeBtn" class="close-btn" aria-label="Close menu">
-          <svg viewBox="0 0 24 24" class="menu-icon" fill="none" stroke="currentColor" stroke-width="2"
-            aria-hidden="true">
+          <svg viewBox="0 0 24 24" class="menu-icon" fill="none"
+            stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
-
-      <nav class="mobile-links" aria-label="Mobile">
-        <a href="index-en.html#sezione-progetto">The project</a>
-        <a href="index-en.html#sezione-itinerari">Itinerary</a>
-        <a href="index-en.html#sezione-telecamera">QR Code</a>
-        <a href="chi_siamo-en.html">About us</a>
-        <div class="mobile-lang-switch" data-lang-switch>
-          <a href="index.html" class="lang-option" data-lang="it">IT</a>
-          <a href="index-en.html" class="lang-option active" data-lang="en">EN</a>
-          <span class="lang-slider"></span>
-        </div>
-      </nav>
+      <!-- .mobile-links is populated by JS (ensureMobilePanelLinks) -->
+      <nav class="mobile-links" aria-label="Mobile"></nav>
     </div>
   </div>
 </header>

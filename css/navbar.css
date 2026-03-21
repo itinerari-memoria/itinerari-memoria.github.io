@@ -123,20 +123,41 @@
   background:rgba(255,255,255,.14);
 }
 
-  .lang-link {
-    font-weight: 600;
-    color: var(--primary);
-  }
-  
-  .lang-link:hover {
-    color: var(--accent);
-  }
-  
-  .lang-active {
-    text-decoration: none;
-    color: var(--link);
-    transition: var(--transition);
-  }
+/* Desktop lang switch (stessa logica del mobile) */
+.desktop-lang-link {
+  position: relative;  /* aggiunto */
+  overflow: hidden;    /* aggiunto */
+  gap: 0;              /* sovrascrive il gap generico */
+}
+
+.desktop-lang-link .lang-option {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.desktop-lang-link .lang-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  border-radius: 999px;
+  transition: transform 0.25s ease;
+  z-index: 0;
+}
 
 /* Social desktop */
 .social{ display:none; align-items:center; gap:14px; opacity:.9; }
