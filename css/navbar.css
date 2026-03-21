@@ -102,61 +102,41 @@
   color: #fff;
 }
 
-.desktop-lang-link{
-  display:none;
-  flex:0 0 auto;
-  align-items:center;
-  justify-content:center;
-  min-width:44px;
-  padding:8px 14px;
-  border:1px solid rgba(255,255,255,.24);
-  border-radius:999px;
-  background:rgba(255,255,255,.08);
-  color:inherit;
-  text-decoration:none;
-  font-size:13px;
-  font-weight:700;
-  letter-spacing:.04em;
-}
-
-.desktop-lang-link:hover{
-  background:rgba(255,255,255,.14);
-}
-
-/* Desktop lang switch (stessa logica del mobile) */
 .desktop-lang-link {
-  position: relative;  /* aggiunto */
-  overflow: hidden;    /* aggiunto */
-  gap: 0;              /* sovrascrive il gap generico */
-}
-
-.desktop-lang-link .lang-option {
-  flex: 1;
-  background: transparent;
-  border: none;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .04em;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 12px;
-  cursor: pointer;
+  display: none;
+  flex: 0 0 auto;
+  font-size: 0.9rem;
+  color: var(--muted);
+  background: rgba(255, 254, 249, 0.7);
+  padding: 6px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--border);
+  font-family: 'Crimson Text', serif;
   text-decoration: none;
 }
 
-.desktop-lang-link .lang-slider {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background: rgba(255,255,255,0.2);
-  border-radius: 999px;
-  transition: transform 0.25s ease;
-  z-index: 0;
+.desktop-lang-link .lang-option {
+  text-decoration: none;
+  color: var(--link);
+  transition: var(--transition);
+}
+
+.desktop-lang-link .lang-option:hover {
+  color: var(--accent);
+}
+
+.desktop-lang-link .lang-option.active {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+@media (min-width: 768px) {
+  .desktop-lang-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
 }
 
 /* Social desktop */
