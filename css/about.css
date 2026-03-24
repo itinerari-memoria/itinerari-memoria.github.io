@@ -204,73 +204,83 @@
       border-radius: 2px;
     }
 
-    /* ---- Card docenti ---- */
-    .cs-teachers {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 28px;
-      margin-bottom: 36px;
-    }
+    /* ---- Card docenti - singolo riquadro unico con due colonne ---- */
+.cs-teachers-single-card {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 36px;
+  transition: var(--transition);
+}
 
-    .cs-teacher-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 32px 28px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-      transition: var(--transition);
-    }
+.cs-teachers-single-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent);
+}
 
-    .cs-teacher-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 4px; height: 100%;
-      background: var(--gradient);
-      opacity: 0;
-      transition: opacity .3s;
-    }
+.cs-teacher-col {
+  padding: 32px 28px;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  text-align: center;  /* AGGIUNGI QUESTA RIGA */
+}
 
-    .cs-teacher-card:hover { box-shadow: var(--shadow-hover); border-color: var(--accent); }
-    .cs-teacher-card:hover::before { opacity: 1; }
+.cs-teacher-col:last-child {
+  border-bottom: none;
+}
 
-    .cs-teacher-role {
-      font-size: .82rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-family: 'Crimson Text', serif;
-      margin-bottom: 6px;
-      display: block;
-    }
+.cs-teacher-role {
+  font-size: .82rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-family: 'Crimson Text', serif;
+  margin-bottom: 6px;
+  display: block;
+}
 
-    .cs-teacher-name {
-      font-family: 'Crimson Text', serif;
-      font-size: 1.45rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin: 0 0 10px;
-    }
+.cs-teacher-name {
+  font-family: 'Crimson Text', serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 10px;
+}
 
-    .cs-teacher-subject {
-      font-family: 'Crimson Text', serif;
-      font-size: 1.05rem;
-      font-style: italic;
-      color: var(--muted);
-      margin: 0 0 14px;
-    }
+.cs-teacher-subject {
+  font-family: 'Crimson Text', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--muted);
+  margin: 0 0 14px;
+}
 
-    .cs-teacher-mail {
-      font-family: 'Crimson Text', serif;
-      font-size: .95rem;
-      color: var(--link);
-      word-break: break-all;
-    }
+.cs-teacher-mail {
+  font-family: 'Crimson Text', serif;
+  font-size: .95rem;
+  color: var(--link);
+  word-break: break-all;
+  text-decoration: none;
+  transition: color .2s;
+}
 
-    .cs-teacher-mail:hover { color: var(--accent); }
-    .cs-teacher-mail::after { display: none; }
+.cs-teacher-mail:hover {
+  color: var(--accent);
+}
+
+/* Responsive: su mobile diventa un unico riquadro con i docenti impilati */
+@media (max-width: 640px) {
+  .cs-teacher-col {
+    padding: 24px 20px;
+  }
+  
+  .cs-teacher-name {
+    font-size: 1.2rem;
+  }
+}
 
     /* ---- Badge classe ---- */
     .cs-class-badge {
