@@ -1,4 +1,68 @@
 
+
+    /* Methodology steps - improved responsive layout */
+.cs-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.cs-step {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.cs-step-icon {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  background: var(--primary-light, #f0f0f0);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.cs-step-content {
+  flex: 1;
+}
+
+.cs-step-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 0 0.25rem 0;
+  color: var(--primary, #1a3e60);
+}
+
+.cs-step-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted, #555);
+  line-height: 1.4;
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .cs-step-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.25rem;
+  }
+  
+  .cs-step-title {
+    font-size: 1rem;
+  }
+  
+  .cs-step-desc {
+    font-size: 0.875rem;
+  }
+}
+
+
     .cs-hero {
       margin-top: 56px;
       position: relative;
