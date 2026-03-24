@@ -1,10 +1,34 @@
 const NAVBAR_CSS_PATH = "../css/navbar.css";
 
+// Mappa IT → EN delle pagine
+const PAGE_LANG_MAP = {
+  "index.html":        "index-en.html",
+  "chi_siamo-it.html": "chi_siamo-en.html",
+  // aggiungi altre pagine qui...
+};
+const PAGE_LANG_MAP_REVERSE = Object.fromEntries(
+  Object.entries(PAGE_LANG_MAP).map(([it, en]) => [en, it])
+);
+
+function getCurrentFile() {
+  return window.location.pathname.split("/").pop() || "index.html";
+}
+
+function getLangCounterpart(targetLang) {
+  const current = getCurrentFile();
+  if (targetLang === "en") {
+    // Se la pagina corrente è in IT, restituisce la versione EN
+    return PAGE_LANG_MAP[current] ?? "index-en.html";
+  } else {
+    // Se la pagina corrente è in EN, restituisce la versione IT
+    return PAGE_LANG_MAP_REVERSE[current] ?? "index.html";
+  }
+}
+
 function ensureNavbarStylesheet() {
   const exists = [...document.querySelectorAll('link[rel="stylesheet"]')]
     .some((l) => (l.getAttribute("href") || "").includes("navbar.css"));
   if (exists) return;
-
   const link = document.createElement("link");
   link.rel = "stylesheet";
   link.href = NAVBAR_CSS_PATH;
@@ -18,9 +42,15 @@ function getHeaderFile() {
   return isEnglish ? "header-en.html" : "header-it.html";
 }
 
+function isCurrentlyEnglish() {
+  const path = window.location.pathname.toLowerCase();
+  const docLang = (document.documentElement.lang || "").toLowerCase();
+  return path.includes("-en.html") || docLang.startsWith("en");
+}
+
 function markActiveNav() {
   const links = document.querySelectorAll(".nav-links a, .mobile-links a");
-  const currentPath = window.location.pathname.split("/").pop() || "index.html";
+  const currentPath = getCurrentFile();
   links.forEach((a) => {
     const href = a.getAttribute("href") || "";
     const targetPath = href.split("#")[0].split("/").pop();
@@ -29,10 +59,7 @@ function markActiveNav() {
 }
 
 function getMobileNavItems() {
-  const path = window.location.pathname.toLowerCase();
-  const docLang = (document.documentElement.lang || "").toLowerCase();
-  const isEnglish = path.includes("en") || docLang.startsWith("en");
-
+  const isEnglish = isCurrentlyEnglish();
   return {
     isEnglish,
     items: isEnglish
@@ -67,7 +94,6 @@ function ensureMobilePanelLinks(container) {
 
   const { isEnglish, items } = getMobileNavItems();
 
-  // 🔹 Link normali
   items.forEach((item) => {
     const link = document.createElement("a");
     link.href = item.href;
@@ -75,22 +101,17 @@ function ensureMobilePanelLinks(container) {
     nav.appendChild(link);
   });
 
-  // 🔹 SWITCH FIGO
   const switchDiv = document.createElement("div");
   switchDiv.className = "mobile-lang-switch" + (isEnglish ? " en" : "");
 
+  // ✅ href dinamici basati sulla pagina corrente
   switchDiv.innerHTML = `
-  <a href="index.html" class="lang-option ${!isEnglish ? "active" : ""}" data-lang="it">IT</a>
-  <a href="index-en.html" class="lang-option ${isEnglish ? "active" : ""}" data-lang="en">EN</a>
-  <span class="lang-slider"></span>
-`;
+    <a href="${getLangCounterpart("it")}" class="lang-option ${!isEnglish ? "active" : ""}" data-lang="it">IT</a>
+    <a href="${getLangCounterpart("en")}" class="lang-option ${isEnglish ? "active" : ""}" data-lang="en">EN</a>
+    <span class="lang-slider"></span>
+  `;
   nav.appendChild(switchDiv);
-
-  if(switchDiv) {
-    switchDiv.classList.toggle("en", isEnglish);
-  }
 }
-
 
 function initMobileMenu(container) {
   const btn = container.querySelector("#menuBtn");
@@ -157,49 +178,37 @@ async function loadHeader() {
   ensureMobilePanelLinks(container);
   initMobileMenu(container);
   markActiveNav();
-
-  // 🔹 Inizializza il lang switch solo dopo che l'HTML è stato inserito
   initLangSwitch();
 }
 
 loadHeader().catch(console.error);
 
 function initLangSwitch() {
-  // Seleziona tutti gli switch lingua, desktop e mobile
-  const switchEls = document.querySelectorAll('.mobile-lang-switch, .desktop-lang-link');
+  const isEnglish = isCurrentlyEnglish();
 
-  switchEls.forEach(switchEl => {
+  document.querySelectorAll('.mobile-lang-switch, .desktop-lang-link').forEach(switchEl => {
     const options = switchEl.querySelectorAll('.lang-option, a');
     const slider = switchEl.querySelector('.lang-slider');
 
-    // Determina la lingua della pagina
-    const path = window.location.pathname.toLowerCase();
-    const isEnglish = path.endsWith("index-en.html") || document.documentElement.lang.toLowerCase().startsWith("en");
-
-    // Rimuove active da tutti i pulsanti
-    options.forEach(btn => btn.classList.remove('active'));
-
-    // Imposta il pulsante attivo
-    const activeBtn = Array.from(options).find(btn => {
-      const lang = btn.dataset.lang || btn.textContent.toLowerCase();
-      return (isEnglish && lang === "en") || (!isEnglish && lang === "it");
+    // ✅ Aggiorna href dinamicamente
+    options.forEach(btn => {
+      const lang = btn.dataset.lang || btn.textContent.trim().toLowerCase();
+      btn.href = getLangCounterpart(lang);
+      btn.classList.toggle('active', (isEnglish && lang === "en") || (!isEnglish && lang === "it"));
     });
 
-    if (activeBtn) activeBtn.classList.add('active');
-
     // Muove lo slider sotto il pulsante attivo
-    if (slider && activeBtn) {
-      const index = Array.from(options).indexOf(activeBtn);
-      slider.style.transform = `translateX(${index * 100}%)`;
+    if (slider) {
+      const activeIndex = Array.from(options).findIndex(btn => btn.classList.contains('active'));
+      if (activeIndex >= 0) slider.style.transform = `translateX(${activeIndex * 100}%)`;
     }
 
-    // Click sui pulsanti per cambiare pagina
+    // ✅ Click: naviga alla pagina corretta, non sempre all'index
     options.forEach(btn => {
       btn.addEventListener('click', e => {
         e.preventDefault();
-        const lang = btn.dataset.lang || btn.textContent.toLowerCase();
-        if (lang === "en") window.location.href = "index-en.html";
-        else window.location.href = "index.html";
+        const lang = btn.dataset.lang || btn.textContent.trim().toLowerCase();
+        window.location.href = getLangCounterpart(lang);
       });
     });
   });
