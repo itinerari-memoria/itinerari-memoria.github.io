@@ -14,7 +14,7 @@ const points = [
   { lat: 45.69591, lng: 9.67217, title: "08 - Biblioteca Ciro Caversazzi", url: "points/point-08.html", id: "point-08" },
   { lat: 45.69562, lng: 9.67049, title: "09 - Piazza Vittorio Veneto", url: "points/point-09.html", id: "point-09" },
   { lat: 45.69446, lng: 9.66834, title: "10 - Palazzo Frizzoni", url: "points/point-10.html", id: "point-10" },
-  { lat: 45.6946, lng: 9.66944, title: "11 - Piazza Vittorio Veneto", url: "points/point-11.html", id: "point-11" },
+  { lat: 45.6946, lng: 9.66944, title: "11 - Torre dei Caduti", url: "points/point-11.html", id: "point-11" },
   { lat: 45.69722, lng: 9.66859, title: "12 - Palazzo della Libertà", url: "points/point-12.html", id: "point-12" },
   { lat: 45.70324, lng: 9.67282, title: "14 - Collegio Baroni", url: "points/point-14.html", id: "point-14" },
   { lat: 45.70021, lng: 9.6773, title: "15 - Caserma Montelungo", url: "points/point-15.html", id: "point-15" },
