@@ -110,18 +110,19 @@
         <div class="media-gallery">
           <figure class="gallery-item">
             <img src="../assets/img/point-03.png"
-              alt="Front facade of the Filippo Lussana State Scientific High School">
+              alt="Front facade of the Filippo Lussana State Scientific High School"
+              data-full="../assets/img/point-03.png">
             <figcaption>
               Facciata frontale del Liceo Scientifico Statale “Filippo Lussana”
             </figcaption>
           </figure>
 
-          <figure class="gallery-item">
-            <img src="" alt="Descrizione" data-full="">
-            <figcaption>
-              <!-- Didascalia dell’immagine (luogo, data, fonte). -->
 
-              Descrizione
+          <figure class="gallery-item">
+            <img src="../assets/img/point-03(2).jpg"
+              data-full="../assets/img/point-03(2).jpg">
+            <figcaption>
+              Facciata frontale del Liceo Scientifico Statale “Filippo Lussana” nel 1959
             </figcaption>
           </figure>
         </div>
@@ -270,8 +271,14 @@
 
   <div id="footer-placeholder"></div>
 
+  <script src="../js/gallery.js"></script>
   <script src="../js/popup.js"></script>
   <script src="../js/title-home.js"></script>
+
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+  </div>
 </body>
 <script>
   fetch('../footer.html')
