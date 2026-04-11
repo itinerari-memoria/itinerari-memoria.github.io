@@ -5,8 +5,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 const points = [
   { lat: 45.69116, lng: 9.67631, title: "01 - Bergamo Station", url: "points/point-01-en.html", id: "point-01" },
-  { lat: 45.69336, lng: 9.67568, title: "02 - Vittorio Emanuele II Technical Institute", url: "points/point-02-en.html", id: "point-02" },
-  { lat: 45.69256, lng: 9.67478, title: "03 - Filippo Lussana State Scientific High School", url: "points/point-03.html", id: "point-03" },
+  { lat: 45.69256, lng: 9.67478, title: "02 - Vittorio Emanuele II Technical Institute", url: "points/point-02-en.html", id: "point-02" },
+  { lat: 45.69336, lng: 9.67568, title: "03 - Filippo Lussana State Scientific High School", url: "points/point-03.html", id: "point-03" },
   { lat: 45.69416, lng: 9.67253, title: "04 - Credito Bergamasco", url: "points/point-04-en.html", id: "point-04" },
   { lat: 45.69687, lng: 9.67407, title: "05 - “Giacomo and Pio Manzù” Art High School", url: "points/point-05-en.html", id: "point-05" },
   { lat: 45.69659, lng: 9.6738, title: "06 - “Eugenio Donadoni” Comprehensive Institute", url: "points/point-06-en.html", id: "point-06" },

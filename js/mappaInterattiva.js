@@ -5,8 +5,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 const points = [
   { lat: 45.69116, lng: 9.67631, title: "01 - Stazione di Bergamo", url: "points/point-01.html", id: "point-01" },
-  { lat: 45.69336, lng: 9.67568, title: "02 - Istituto Tecnico Vittorio Emanuele II", url: "points/point-02.html", id: "point-02" },
-  { lat: 45.69256, lng: 9.67478, title: "03 - Liceo Scientifico Statale Filippo Lussana", url: "points/point-03.html", id: "point-03" },
+  { lat: 45.69256, lng: 9.67478, title: "02 - Istituto Tecnico Vittorio Emanuele II", url: "points/point-02.html", id: "point-02" },
+  { lat: 45.69336, lng: 9.67568, title: "03 - Liceo Scientifico Statale Filippo Lussana", url: "points/point-03.html", id: "point-03" },
   { lat: 45.69416, lng: 9.67253, title: "04 - Credito Bergamasco", url: "points/point-04.html", id: "point-04" },
   { lat: 45.69687, lng: 9.67407, title: "05 - Liceo artistico “Giacomo e Pio Manzù", url: "points/point-05.html", id: "point-05" },
   { lat: 45.69659, lng: 9.6738, title: "06 - Istituto comprensivo “Eugenio Donadoni”", url: "points/point-06.html", id: "point-06" },
