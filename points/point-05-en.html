@@ -166,13 +166,25 @@
       <section class="card">
         <h2>Multimedia content</h2>
 
-        <figure>
-          <img src="../assets/img/point-05.jpg"
-            alt="Building of the Giacomo e Pio Manzù Art High School, former seat of the Special Tribunal">
-          <figcaption>
-            Art High School “Giacomo and Pio Manzù”, former seat of the Special Tribunal for the Defense of the State.
-          </figcaption>
-        </figure>
+        <div class="media-gallery">
+          <figure class="gallery-item">
+            <img src="../assets/img/point-05.jpg"
+              alt="Building of the Giacomo e Pio Manzù Art High School, former seat of the Special Tribunal"
+              data-full="../assets/img/point-05.jpg">
+            <figcaption>
+              Art High School “Giacomo and Pio Manzù”, former seat of the Special Tribunal for the Defense of the State.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="../assets/img/point-05(1).jpg"
+                alt="Authority arriving in via Tasso, 1925."
+                data-full="../assets/img/point-05(1).jpg">
+            <figcaption>
+              Authority arriving in via Tasso, 1925.
+            </figcaption>
+          </figure>
+        </div>
       </section>
 
       <section class="card">
@@ -216,11 +228,22 @@
       <!-- Fonti -->
       <section class="card">
         <h2>Sources</h2>
+
+        <h3>Bibliographic sources</h3>
         <ul>
           <li>Itinerari di memoria, Mario Pelliccioli</li>
           <li>Mimmo Franzinelli, <em>Il tribunale del Duce</em>, Mondadori, 2017</li>
           <li>Leonardo Pompeo D’Alessandro, <em>Giustizia fascista. Storia del Tribunale Speciale (1926–1943)</em>, Il
             Mulino, 2020</li>
+        </ul>
+        <h3>Graphic sources</h3>
+        <ul>
+          <li>
+            <a href="https://archivio.museodellestorie.bergamo.it/scheda/autorita-in-arrivo-in-via-tasso/"target="_blank"
+              rel="noopener">
+              Picture 1: Archivio Museo delle Storie di Bergamo
+            </a>
+          </li>
         </ul>
       </section>
 
@@ -250,6 +273,13 @@
 
   <script src="../js/popup.js"></script>
   <script src="../js/title-home-en.js"></script>
+
+   <script src="../js/gallery.js"></script>
+
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+  </div>
 
 </body>
 
