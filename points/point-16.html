@@ -96,15 +96,16 @@
                 <h2>Contenuti multimediali</h2>
 
                 <div class="media-gallery">
-                    <figure>
-                        <img src="../assets/img/point-16-1.jpg" alt="Immagine del punto 16">
+                    <figure class="gallery-item">
+                        <img src="../assets/img/point-16-1.jpg" alt="Immagine del punto 16"
+                        data-full="../assets/img/point-16-1.jpg">
                         <figcaption>
                             Una Stolperstein (pietra d'inciampo) nel selciato di Bergamo. <br>Targa che commemora Aldo
                             Ghezzi, deportato e ucciso dai nazisti.
                         </figcaption>
                     </figure>
 
-                    <figure>
+                    <figure class="gallery-item">
                         <div class="video-container">
                             <iframe src="https://www.youtube.com/embed/pJSwkMaTfo8?rel=0"
                                 title="Le pietre d'inciampo di Gunter Demnig a Bergamo"
@@ -230,6 +231,12 @@
 
     <script src="../js/popup.js"></script>
     <script src="../js/title-home.js"></script>
+    <script src="../js/gallery.js"></script>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-img" src="" alt="">
+    </div>
 
 </body>
 
