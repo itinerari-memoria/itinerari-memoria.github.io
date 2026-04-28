@@ -79,14 +79,8 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(to bottom, rgba(20,10,5,.25) 0%, rgba(20,10,5,.72) 100%),
-        repeating-linear-gradient(
-          135deg,
-          rgba(160,82,45,.04) 0px,
-          rgba(160,82,45,.04) 1px,
-          transparent 1px,
-          transparent 60px
-        );
+      linear-gradient(to bottom, rgba(20,10,5,.25) 0%, rgba(20,10,5,.72) 100%),
+      url('../assets/img/sfondo-chisiamo.jpg') center center / cover no-repeat;
     }
 
     .cs-hero-bg::after {
@@ -205,33 +199,47 @@
     }
 
     /* ---- Card docenti - singolo riquadro unico con due colonne ---- */
-.cs-teachers-single-card {
-  display: block;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  box-shadow: var(--shadow);
-  overflow: hidden;
-  margin-bottom: 36px;
-  transition: var(--transition);
-}
+    .cs-teachers-single-card {
+      display: flex;
+      flex-direction: row;
+      overflow: hidden; /* fondamentale per mantenere i bordi arrotondati */
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+    
+    .cs-teacher-col {
+      flex: 1;
+      text-align: center;  /* centra tutto il contenuto */
+      border-bottom: none;
+      border-right: 1px solid var(--border);
+      padding: 32px 28px;
+    }
+    
+    .cs-teacher-col:last-child {
+      border-right: none;
+    }
+    
 
 .cs-teachers-single-card:hover {
   box-shadow: var(--shadow-hover);
   border-color: var(--accent);
 }
 
-.cs-teacher-col {
-  padding: 32px 28px;
-  position: relative;
-  border-bottom: 1px solid var(--border);
-  text-align: center;  /* AGGIUNGI QUESTA RIGA */
-}
+@media (max-width: 640px) {
+  .cs-teachers-single-card {
+    flex-direction: column;
+  }
 
-.cs-teacher-col:last-child {
-  border-bottom: none;
-}
+  .cs-teacher-col {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
 
+  .cs-teacher-col:last-child {
+    border-bottom: none;
+  }
+}
 .cs-teacher-role {
   font-size: .82rem;
   letter-spacing: 2px;
