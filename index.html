@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
 
 <head>
   <meta charset="utf-8" />
-  <title>Heritage Itineraries 2.0</title>
+  <title>Itinerari della Memoria 2.0</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Common project CSS -->
+  <!-- CSS comune del progetto -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -14,14 +14,15 @@
 
   <section class="hero-section">
     <div class="container">
-      <h2 class="hero-title">Bergamo <br> the memory of places</h2>
+      <h2 class="hero-title">Bergamo <br> la memoria dei luoghi</h2>
       <p class="hero-description">
-        A widespread museum for a collective memory between Fascism, Nazi occupation and the Resistance
+        Un museo diffuso per una memoria collettiva tra fascismo, occupazione nazista e Resistenza
       </p>
 
-    </div>
+    </div> <!-- CHIUSURA del container -->
 
-    <button class="scroll-down-btn" id="scrollDownBtn" aria-label="Scroll to content">
+    <!-- Pulsante che pulsa per scorrere giù - ORA FUORI dal container -->
+    <button class="scroll-down-btn" id="scrollDownBtn" aria-label="Scorri verso il contenuto">
       ↓
     </button>
   </section>
@@ -29,32 +30,36 @@
   <main class="content">
     <div class="container">
 
+
       <section class="card" id="sezione-progetto">
-        <h2>The project</h2>
+        <h2>Il progetto</h2>
         <p>
-          "Bergamo, the memory of places" is a digital project created to enhance and make accessible
-          historical memory sites across the territory. Through a path that combines physical space and
-          digital content, the project allows visitors to rediscover monuments, buildings and places
-          that in the past were linked to Fascism.
+          "Bergamo, la memoria dei luoghi" è un progetto digitale che nasce con
+          l’obiettivo di valorizzare e rendere accessibili i luoghi della memoria storica
+          presenti sul territorio. Attraverso un percorso che unisce spazio fisico e
+          contenuti digitali, il progetto permette di riscoprire: monumenti, edifici e luoghi
+          che in passato sono stati legati al fascismo.
         </p>
         <p>
-          The website presents an itinerary composed of several stops, each identified by
-          a QR code placed at the real location. By scanning the code, users can access
-          information, images and insights that help understand the historical and symbolic value
-          of each place, transforming a simple visit into an experience of conscious knowledge.
+          Il sito presenta un itinerario composto da diverse tappe, ciascuna identificata da
+          un QR code posizionato sul luogo reale. Scansionando il codice, è possibile accedere
+          a informazioni, immagini e approfondimenti che aiutano a comprendere il valore
+          storico e simbolico di ogni luogo, trasformando una semplice visita in
+          un’esperienza di conoscenza consapevole.
         </p>
       </section>
 
+      <!-- Sezione QR -->
       <section class="card" id="sezione-telecamera">
-        <h2>QR scanning</h2>
+        <h2>Scansione QR</h2>
 
         <p class="subtitle">
-          Scan the QR code found at the itinerary locations
-          or manually select the place.
+          Scansiona il QR code presente nei luoghi dell’itinerario
+          oppure seleziona manualmente il luogo.
         </p>
 
         <div class="btn-row">
-          <button class="btn" id="startBtn">Start camera</button>
+          <button class="btn" id="startBtn">Avvia fotocamera</button>
           <button class="btn" id="stopBtn" disabled>Stop</button>
         </div>
 
@@ -62,102 +67,106 @@
         <canvas id="canvas" style="display:none;"></canvas>
 
         <div class="log" id="log">
-          Press “Start camera” and frame the QR code.
+          Premi “Avvia fotocamera” e inquadra il QR code.
         </div>
       </section>
 
+      <!-- Aggiungi questo dentro il <body> dove vuoi la sezione GPS -->
+
+      <!-- Mappa interattiva -->
       <section class="card" id="sezione-itinerari">
-        <h2>Interactive map</h2>
+        <h2>Mappa interattiva</h2>
         <div id="map"></div>
 
-        <button id="gpsBtn" class="btn">Enable location</button>
+        <button id="gpsBtn" class="btn">Attiva localizzazione</button>
         <p id="gpsStatus" class="gps-status"></p>
-
+        <!-- Accesso manuale -->
         <div class="punti-menu-container">
           <p class="punti-description">
-            If the QR code is not recognized, you can manually access the itinerary pages.
+            Se il QR code non viene riconosciuto, puoi accedere manualmente alle pagine dell'itinerario.
           </p>
 
           <button class="menu-toggle" id="puntiToggle">
-            <span>Manual access to points (click to open)</span>
+            <span>Accesso manuale ai punti (clicca per aprire)</span>
             <span class="icon">▼</span>
           </button>
 
           <div class="punti-dropdown" id="puntiDropdown">
             <div class="punti-grid">
-
+              <!-- Colonna 1 -->
               <div class="colonna-sinistra">
-                <a href="points/point-01-en.html" class="punto-btn">
-                  <span class="titolo-principale">Bergamo Station</span>
+                <a href="points/point-01.html" class="punto-btn">
+                  <span class="titolo-principale">Stazione di Bergamo</span>
                 </a>
 
-                <a href="points/point-02-en.html" class="punto-btn">
-                  <span class="titolo-principale">“Vittorio Emanuele II” Technical Institute</span>
+                <a href="points/point-02.html" class="punto-btn">
+                  <span class="titolo-principale">Istituto Tecnico "Vittorio Emanuele II"</span>
                 </a>
 
-                <a href="points/point-03-en.html" class="punto-btn">
-                  <span class="titolo-principale">“Filippo Lussana” Scientific High School</span>
+                <a href="points/point-03.html" class="punto-btn">
+                  <span class="titolo-principale">Liceo Scientifico Statale “Filippo Lussana ”</span>
                 </a>
 
-                <a href="points/point-04-en.html" class="punto-btn">
+                <a href="points/point-04.html" class="punto-btn">
                   <span class="titolo-principale">Credito Bergamasco</span>
                 </a>
 
-                <a href="points/point-05-en.html" class="punto-btn">
-                  <span class="titolo-principale">“Giacomo e Pio Manzù” Art High School</span>
+                <a href="points/point-05.html" class="punto-btn">
+                  <span class="titolo-principale">Liceo Artistico “Giacomo e Pio Manzù”</span>
                 </a>
 
-                <a href="points/point-06-en.html" class="punto-btn">
-                  <span class="titolo-principale">“Eugenio Donadoni” Comprehensive Institute</span>
+                <a href="points/point-06.html" class="punto-btn">
+                  <span class="titolo-principale">Istituto comprensivo “Eugenio Donadoni”</span>
                 </a>
 
-                <a href="points/point-07-en.html" class="punto-btn">
-                  <span class="titolo-principale">Prefecture</span>
+                <a href="points/point-07.html" class="punto-btn">
+                  <span class="titolo-principale">Prefettura</span>
                 </a>
 
-                <a href="points/point-08-en.html" class="punto-btn">
-                  <span class="titolo-principale">“Ciro Caversazzi” Library</span>
+                <a href="points/point-08.html" class="punto-btn">
+                  <span class="titolo-principale">Biblioteca "Ciro Caversazzi"</span>
                 </a>
 
-                <a href="points/point-09-en.html" class="punto-btn">
+                <a href="points/point-09.html" class="punto-btn">
                   <span class="titolo-principale">Piazza Vittorio Veneto</span>
                 </a>
               </div>
 
+              <!-- Colonna 2 -->
               <div class="colonna-destra">
-                <a href="points/point-10-en.html" class="punto-btn">
+                <a href="points/point-10.html" class="punto-btn">
                   <span class="titolo-principale">Palazzo Frizzoni</span>
                 </a>
 
-                <a href="points/point-11-en.html" class="punto-btn">
+                <a href="points/point-11.html" class="punto-btn">
                   <span class="titolo-principale">Torre dei Caduti</span>
                 </a>
 
-                <a href="points/point-12-en.html" class="punto-btn">
+                <a href="points/point-12.html" class="punto-btn">
                   <span class="titolo-principale">Palazzo della Libertà</span>
                 </a>
 
-                <a href="points/point-13-en.html" class="punto-btn">
-                  <span class="titolo-principale">Matris Domini Monastery</span>
+                <a href="points/point-13.html" class="punto-btn">
+                  <span class="titolo-principale">Monastero Matris Domini</span>
                 </a>
 
-                <a href="points/point-14-en.html" class="punto-btn">
-                  <span class="titolo-principale">Baroni College</span>
+                <a href="points/point-14.html" class="punto-btn">
+                  <span class="titolo-principale">Collegio Baroni</span>
                 </a>
 
-                <a href="points/point-15-en.html" class="punto-btn">
-                  <span class="titolo-principale">Montelungo Barracks</span>
+                <a href="points/point-15.html" class="punto-btn">
+                  <span class="titolo-principale">Caserma Montelungo</span>
                 </a>
 
-                <a href="points/point-16-en.html" class="punto-btn">
+                <a href="points/point-16.html" class="punto-btn">
                   <span class="titolo-principale">Via Pignolo 42</span>
                 </a>
 
-                <a href="points/point-17-en.html" class="punto-btn">
+                <a href="points/point-17.html" class="punto-btn">
                   <span class="titolo-principale">Via Pignolo 13</span>
                 </a>
 
-                <a href="points/point-18-en.html" class="punto-btn">
+                <a href="points/point-18.html" class="punto-btn">
                   <span class="titolo-principale">Via Pignolo 10</span>
                 </a>
               </div>
@@ -167,6 +176,7 @@
         </div>
       </section>
 
+      <!-- Leaflet CSS -->
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
     </div>
@@ -174,10 +184,17 @@
 
   <div id="footer-placeholder"></div>
 
+  <!-- Leaflet JS (necessario per far funzionare la mappa) -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- File JS esterno con la logica della mappa -->
   <script src="js/mappaInterattiva.js"></script>
+
   <script src="js/menuTendina.js"></script>
+
+  <!-- Libreria jsQR (solo client-side) -->
   <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+
+  <!-- PER IL QR Code-->
   <script src="js/qrcode.js"></script>
   <script type="module" src="js/header-loader.js"></script>
 
@@ -215,7 +232,7 @@
 
     async function startCamera() {
       if (!navigator.mediaDevices?.getUserMedia) {
-        setLog("Camera not supported on this browser.");
+        setLog("Fotocamera non supportata su questo browser.");
         return;
       }
 
@@ -231,11 +248,11 @@
         scanning = true;
         startBtn.disabled = true;
         stopBtn.disabled = false;
-        setLog("Camera started. Frame the QR…");
+        setLog("Fotocamera avviata. Inquadra il QR…");
 
         requestAnimationFrame(tick);
       } catch (err) {
-        setLog("Camera access error: " + err.message);
+        setLog("Errore accesso fotocamera: " + err.message);
       }
     }
 
@@ -250,7 +267,7 @@
       }
 
       video.srcObject = null;
-      setLog("Camera stopped.");
+      setLog("Fotocamera fermata.");
     }
 
     function tick() {
@@ -268,17 +285,17 @@
 
         if (code?.data) {
           const data = code.data.trim();
-          setLog("QR read: " + data);
+          setLog("QR letto: " + data);
 
           if (isLikelyUrl(data)) {
             const url = normalizeUrl(data);
-            setLog("Redirecting to: " + url);
+            setLog("Reindirizzo a: " + url);
 
             stopCamera();
             window.location.href = url;
             return;
           } else {
-            setLog("QR read but it is not a valid URL.");
+            setLog("QR letto ma non è un URL valido.");
           }
         }
       }
@@ -288,15 +305,16 @@
 
     function goToPoint(n) {
       const num = String(n).padStart(2, "0");
-      window.location.href = `points/point-${num}-en.html`;
+      window.location.href = `points/point-${num}.html`;
     }
 
     startBtn.addEventListener("click", startCamera);
     stopBtn.addEventListener("click", stopCamera);
 
+    // Scroll smooth al click del pulsante
     document.addEventListener('DOMContentLoaded', function () {
       const scrollDownBtn = document.getElementById('scrollDownBtn');
-      const contentSection = document.querySelector('.content');
+      const contentSection = document.querySelector('.content'); // La sezione dopo la hero
 
       if (scrollDownBtn && contentSection) {
         scrollDownBtn.addEventListener('click', function () {
@@ -308,13 +326,14 @@
       }
     });
 
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('footer-placeholder').innerHTML = data;
-      })
-      .catch(err => console.error('Footer loading error:', err));
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    })
+    .catch(err => console.error('Errore caricamento footer:', err));
   </script>
 
 </body>
+
 </html>
