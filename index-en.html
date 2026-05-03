@@ -2,337 +2,319 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>Historical Itineraries 2.0</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <title>Heritage Itineraries 2.0</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- CSS comune del progetto -->
-    <link rel="stylesheet" href="css/style.css" />
+  <!-- Common project CSS -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-    <!-- Hero Section in stile italiano ma in inglese -->
-    <section class="hero-section">
-        <div class="container">
-            <h2 class="hero-title">Bergamo, the memory of places</h2>
-            <p class="hero-description">
-                A museum spread for a collective memory between fascism, Nazi occupation and the Resistance
-            </p>
 
+  <section class="hero-section">
+    <div class="container">
+      <h2 class="hero-title">Bergamo <br> the memory of places</h2>
+      <p class="hero-description">
+        A widespread museum for a collective memory between Fascism, Nazi occupation and the Resistance
+      </p>
+
+    </div>
+
+    <button class="scroll-down-btn" id="scrollDownBtn" aria-label="Scroll to content">
+      ↓
+    </button>
+  </section>
+
+  <main class="content">
+    <div class="container">
+
+      <section class="card" id="sezione-progetto">
+        <h2>The project</h2>
+        <p>
+          "Bergamo, the memory of places" is a digital project created to enhance and make accessible
+          historical memory sites across the territory. Through a path that combines physical space and
+          digital content, the project allows visitors to rediscover monuments, buildings and places
+          that in the past were linked to Fascism.
+        </p>
+        <p>
+          The website presents an itinerary composed of several stops, each identified by
+          a QR code placed at the real location. By scanning the code, users can access
+          information, images and insights that help understand the historical and symbolic value
+          of each place, transforming a simple visit into an experience of conscious knowledge.
+        </p>
+      </section>
+
+      <section class="card" id="sezione-telecamera">
+        <h2>QR scanning</h2>
+
+        <p class="subtitle">
+          Scan the QR code found at the itinerary locations
+          or manually select the place.
+        </p>
+
+        <div class="btn-row">
+          <button class="btn" id="startBtn">Start camera</button>
+          <button class="btn" id="stopBtn" disabled>Stop</button>
         </div>
 
-        <!-- Pulsante che pulsa per scorrere giù -->
-        <button class="scroll-down-btn" id="scrollDownBtn" aria-label="Scroll to content">
-            ↓
-        </button>
-    </section>
+        <video id="video" playsinline muted></video>
+        <canvas id="canvas" style="display:none;"></canvas>
 
-    <main class="content">
-        <div class="container">
-
-            <section class="card" id="sezione-progetto">
-                <h2>The project</h2>
-                <p>
-                    "Bergamo, the memory of places" is a digital project created with the aim
-                    of enhancing and making accessible the sites of historical memory present in the area.
-                    Through a path that connects physical spaces with digital content, the project allows
-                    visitors to rediscover monuments, buildings, and places that in the past were linked
-                    to Fascism.
-                </p>
-                <p>
-                    The website presents an itinerary made up of several stops, each identified by a QR
-                    code placed at the real location. By scanning the code, users can access information,
-                    images, and in-depth materials that help them understand the historical and symbolic
-                    value of each site, transforming a simple visit into an experience of informed and
-                    conscious learning.
-                </p>
-            </section>
-            <!-- Sezione QR -->
-            <section class="card" id="sezione-telecamera">
-                <h2>QR Scan</h2>
-
-                <p class="subtitle">
-                    Scan the QR code present in the itinerary locations
-                    or manually select the point.
-                </p>
-
-                <div class="btn-row">
-                    <button class="btn" id="startBtn">Start camera</button>
-                    <button class="btn" id="stopBtn" disabled>Stop</button>
-                </div>
-
-                <video id="video" playsinline muted></video>
-                <canvas id="canvas" style="display:none;"></canvas>
-
-                <div class="log" id="log">
-                    Press “Start camera” and frame the QR code.
-                </div>
-            </section>
-
-
-            <!-- Interactive Map -->
-            <section class="card" id="sezione-itinerari">
-                <h2>Interactive Map</h2>
-                <div id="map"></div>
-
-                <button id="gpsBtn" class="btn">Enable Location</button>
-                <p id="gpsStatus" class="gps-status"></p>
-
-                <!-- Manual Access -->
-                <div class="punti-menu-container">
-                    <p class="punti-description">
-                        If the QR code is not recognized, you can manually access the itinerary pages.
-                    </p>
-
-                    <button class="menu-toggle" id="puntiToggle">
-                        <span>Manual Access to Points (click to open)</span>
-                        <span class="icon">▼</span>
-                    </button>
-
-                    <div class="punti-dropdown" id="puntiDropdown">
-                        <div class="punti-grid">
-                            <!-- Column 1 -->
-                            <div class="colonna-sinistra">
-                                <a href="points/point-01-en.html" class="punto-btn">
-                                    <span class="titolo-principale">Bergamo station</span>
-                                </a>
-
-                                <a href="points/point-02-en.html" class="punto-btn">
-                                    <span class="titolo-principale">"Vittorio Emanuele II" Technical Institute</span>
-                                </a>
-
-                                <a href="points/point-03-en.html" class="punto-btn">
-                                    <span class="titolo-principale">State Scientific High School "Filippo
-                                        Lussana"</span>
-                                </a>
-
-                                <a href="points/point-04-en.html" class="punto-btn">
-                                    <span class="titolo-principale">Credito Bergamasco</span>
-                                </a>
-
-                                <a href="points/point-05-en.html" class="punto-btn">
-                                    <span class="titolo-principale">“Giacomo and Pio Manzù” Art High School</span>
-                                </a>
-
-                                <a href="points/point-06-en.html" class="punto-btn">
-                                    <span class="titolo-principale">"Eugenio Donadoni" Comprehensive Institute</span>
-                                </a>
-
-                                <a href="points/point-07-en.html" class="punto-btn">
-                                    <span class="titolo-principale">Prefecture</span>
-                                </a>
-
-                                <a href="points/point-08-en.html" class="punto-btn">
-                                    <span class="titolo-principale">"Ciro Caversazzi" Library</span>
-                                </a>
-
-                                <a href="points/point-09-en.html" class="punto-btn">
-                                    <span class="titolo-principale">Square Vittorio Veneto</span>
-                                </a>
-                            </div>
-
-                            <!-- Column 2 -->
-                            <div class="colonna-destra">
-                                <a href="points/point-10-en.html" class="punto-btn">
-                                    <span class="titolo-principale">Frizzoni Palace</span>
-                                </a>
-
-                                <a href="points/point-11-en.html" class="punto-btn">
-                                    <span class="titolo-principale">Square Vittorio Veneto</span>
-                                </a>
-
-                                <a href="points/point-12-en.html" class="punto-btn">
-                                    <span class="titolo-principale">Palace of Freedom</span>
-                                </a>
-
-                                <a href="points/point-13-en.html" class="punto-btn">
-                                    <span class="titolo-principale">Matris Domini Monastery</span>
-                                </a>
-
-                                <a href="points/point-14-en.html" class="punto-btn">
-                                    <span class="titolo-principale">Collegio Baroni</span>
-                                </a>
-
-                                <a href="points/point-15-en.html" class="punto-btn">
-                                    <span class="titolo-principale">Montelungo Barracks</span>
-                                </a>
-
-                                <a href="points/point-16-en.html" class="punto-btn">
-                                    <span class="titolo-principale">Via Pignolo 42</span>
-                                </a>
-
-                                <a href="points/point-17-en.html" class="punto-btn">
-                                    <span class="titolo-principale">Via Pignolo 13</span>
-                                </a>
-
-                                <a href="points/point-18-en.html" class="punto-btn">
-                                    <span class="titolo-principale">via Pignolo 10</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Leaflet CSS -->
-            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <div class="log" id="log">
+          Press “Start camera” and frame the QR code.
         </div>
-    </main>
+      </section>
 
-    <div id="footer-placeholder"></div>
+      <section class="card" id="sezione-itinerari">
+        <h2>Interactive map</h2>
+        <div id="map"></div>
 
-    <!-- Leaflet JS (necessario per far funzionare la mappa) -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <!-- File JS esterno con la logica della mappa -->
-    <script src="js/mappaInterattiva-en.js"></script>
+        <button id="gpsBtn" class="btn">Enable location</button>
+        <p id="gpsStatus" class="gps-status"></p>
 
-    <script src="js/menuTendina.js"></script>
+        <div class="punti-menu-container">
+          <p class="punti-description">
+            If the QR code is not recognized, you can manually access the itinerary pages.
+          </p>
 
-    <!-- Libreria jsQR (solo client-side) -->
-    <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+          <button class="menu-toggle" id="puntiToggle">
+            <span>Manual access to points (click to open)</span>
+            <span class="icon">▼</span>
+          </button>
 
-    <!-- PER IL QR Code-->
-    <script src="js/qrcode.js"></script>
-    <script type="module" src="js/header-loader.js"></script>
+          <div class="punti-dropdown" id="puntiDropdown">
+            <div class="punti-grid">
 
-    <script>
-        const video = document.getElementById("video");
-        const canvas = document.getElementById("canvas");
-        const ctx = canvas.getContext("2d");
-        const log = document.getElementById("log");
-        const startBtn = document.getElementById("startBtn");
-        const stopBtn = document.getElementById("stopBtn");
+              <div class="colonna-sinistra">
+                <a href="points/point-01-en.html" class="punto-btn">
+                  <span class="titolo-principale">Bergamo Station</span>
+                </a>
 
-        let stream = null;
-        let scanning = false;
+                <a href="points/point-02-en.html" class="punto-btn">
+                  <span class="titolo-principale">“Vittorio Emanuele II” Technical Institute</span>
+                </a>
 
-        function setLog(msg) {
-            log.textContent = msg;
-        }
+                <a href="points/point-03-en.html" class="punto-btn">
+                  <span class="titolo-principale">“Filippo Lussana” Scientific High School</span>
+                </a>
 
-        function isLikelyUrl(text) {
-            try {
-                const u = new URL(text);
-                return u.protocol === "http:" || u.protocol === "https:";
-            } catch {
-                return /^[a-z0-9.-]+\.[a-z]{2,}([\/?#].*)?$/i.test(text);
-            }
-        }
+                <a href="points/point-04-en.html" class="punto-btn">
+                  <span class="titolo-principale">Credito Bergamasco</span>
+                </a>
 
-        function normalizeUrl(text) {
-            try {
-                return new URL(text).toString();
-            } catch {
-                return "https://" + text;
-            }
-        }
+                <a href="points/point-05-en.html" class="punto-btn">
+                  <span class="titolo-principale">“Giacomo e Pio Manzù” Art High School</span>
+                </a>
 
-        async function startCamera() {
-            if (!navigator.mediaDevices?.getUserMedia) {
-                setLog("Camera not supported on this browser.");
-                return;
-            }
+                <a href="points/point-06-en.html" class="punto-btn">
+                  <span class="titolo-principale">“Eugenio Donadoni” Comprehensive Institute</span>
+                </a>
 
-            try {
-                stream = await navigator.mediaDevices.getUserMedia({
-                    video: { facingMode: { ideal: "environment" } },
-                    audio: false
-                });
+                <a href="points/point-07-en.html" class="punto-btn">
+                  <span class="titolo-principale">Prefecture</span>
+                </a>
 
-                video.srcObject = stream;
-                await video.play();
+                <a href="points/point-08-en.html" class="punto-btn">
+                  <span class="titolo-principale">“Ciro Caversazzi” Library</span>
+                </a>
 
-                scanning = true;
-                startBtn.disabled = true;
-                stopBtn.disabled = false;
-                setLog("Camera started. Frame the QR…");
+                <a href="points/point-09-en.html" class="punto-btn">
+                  <span class="titolo-principale">Piazza Vittorio Veneto</span>
+                </a>
+              </div>
 
-                requestAnimationFrame(tick);
-            } catch (err) {
-                setLog("Camera access error: " + err.message);
-            }
-        }
+              <div class="colonna-destra">
+                <a href="points/point-10-en.html" class="punto-btn">
+                  <span class="titolo-principale">Palazzo Frizzoni</span>
+                </a>
 
-        function stopCamera() {
-            scanning = false;
-            startBtn.disabled = false;
-            stopBtn.disabled = true;
+                <a href="points/point-11-en.html" class="punto-btn">
+                  <span class="titolo-principale">Torre dei Caduti</span>
+                </a>
 
-            if (stream) {
-                stream.getTracks().forEach(t => t.stop());
-                stream = null;
-            }
+                <a href="points/point-12-en.html" class="punto-btn">
+                  <span class="titolo-principale">Palazzo della Libertà</span>
+                </a>
 
-            video.srcObject = null;
-            setLog("Camera stopped.");
-        }
+                <a href="points/point-13-en.html" class="punto-btn">
+                  <span class="titolo-principale">Matris Domini Monastery</span>
+                </a>
 
-        function tick() {
-            if (!scanning) return;
+                <a href="points/point-14-en.html" class="punto-btn">
+                  <span class="titolo-principale">Baroni College</span>
+                </a>
 
-            if (video.readyState === video.HAVE_ENOUGH_DATA) {
-                canvas.width = video.videoWidth;
-                canvas.height = video.videoHeight;
-                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                <a href="points/point-15-en.html" class="punto-btn">
+                  <span class="titolo-principale">Montelungo Barracks</span>
+                </a>
 
-                const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-                const code = jsQR(imageData.data, imageData.width, imageData.height, {
-                    inversionAttempts: "dontInvert"
-                });
+                <a href="points/point-16-en.html" class="punto-btn">
+                  <span class="titolo-principale">Via Pignolo 42</span>
+                </a>
 
-                if (code?.data) {
-                    const data = code.data.trim();
-                    setLog("QR read: " + data);
+                <a href="points/point-17-en.html" class="punto-btn">
+                  <span class="titolo-principale">Via Pignolo 13</span>
+                </a>
 
-                    if (isLikelyUrl(data)) {
-                        const url = normalizeUrl(data);
-                        setLog("Redirecting to: " + url);
+                <a href="points/point-18-en.html" class="punto-btn">
+                  <span class="titolo-principale">Via Pignolo 10</span>
+                </a>
+              </div>
 
-                        stopCamera();
-                        window.location.href = url;
-                        return;
-                    } else {
-                        setLog("QR read but it is not a valid URL.");
-                    }
-                }
-            }
+            </div>
+          </div>
+        </div>
+      </section>
 
-            requestAnimationFrame(tick);
-        }
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-        function goToPoint(n) {
-            const num = String(n).padStart(2, "0");
-            window.location.href = `points/point-${num}-en.html`;
-        }
+    </div>
+  </main>
 
-        startBtn.addEventListener("click", startCamera);
-        stopBtn.addEventListener("click", stopCamera);
+  <div id="footer-placeholder"></div>
 
-        // Scroll smooth al click del pulsante
-        document.addEventListener('DOMContentLoaded', function () {
-            const scrollDownBtn = document.getElementById('scrollDownBtn');
-            const contentSection = document.querySelector('.content'); // La sezione dopo la hero
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/mappaInterattiva.js"></script>
+  <script src="js/menuTendina.js"></script>
+  <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+  <script src="js/qrcode.js"></script>
+  <script type="module" src="js/header-loader.js"></script>
 
-            if (scrollDownBtn && contentSection) {
-                scrollDownBtn.addEventListener('click', function () {
-                    contentSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                });
-            }
+  <script>
+    const video = document.getElementById("video");
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const log = document.getElementById("log");
+    const startBtn = document.getElementById("startBtn");
+    const stopBtn = document.getElementById("stopBtn");
+
+    let stream = null;
+    let scanning = false;
+
+    function setLog(msg) {
+      log.textContent = msg;
+    }
+
+    function isLikelyUrl(text) {
+      try {
+        const u = new URL(text);
+        return u.protocol === "http:" || u.protocol === "https:";
+      } catch {
+        return /^[a-z0-9.-]+\.[a-z]{2,}([\/?#].*)?$/i.test(text);
+      }
+    }
+
+    function normalizeUrl(text) {
+      try {
+        return new URL(text).toString();
+      } catch {
+        return "https://" + text;
+      }
+    }
+
+    async function startCamera() {
+      if (!navigator.mediaDevices?.getUserMedia) {
+        setLog("Camera not supported on this browser.");
+        return;
+      }
+
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: { ideal: "environment" } },
+          audio: false
         });
 
+        video.srcObject = stream;
+        await video.play();
 
-  fetch('footer-en.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('footer-placeholder').innerHTML = data;
-    })
-    .catch(err => console.error('Errore caricamento footer:', err));
+        scanning = true;
+        startBtn.disabled = true;
+        stopBtn.disabled = false;
+        setLog("Camera started. Frame the QR…");
 
-    </script>
+        requestAnimationFrame(tick);
+      } catch (err) {
+        setLog("Camera access error: " + err.message);
+      }
+    }
+
+    function stopCamera() {
+      scanning = false;
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
+
+      if (stream) {
+        stream.getTracks().forEach(t => t.stop());
+        stream = null;
+      }
+
+      video.srcObject = null;
+      setLog("Camera stopped.");
+    }
+
+    function tick() {
+      if (!scanning) return;
+
+      if (video.readyState === video.HAVE_ENOUGH_DATA) {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const code = jsQR(imageData.data, imageData.width, imageData.height, {
+          inversionAttempts: "dontInvert"
+        });
+
+        if (code?.data) {
+          const data = code.data.trim();
+          setLog("QR read: " + data);
+
+          if (isLikelyUrl(data)) {
+            const url = normalizeUrl(data);
+            setLog("Redirecting to: " + url);
+
+            stopCamera();
+            window.location.href = url;
+            return;
+          } else {
+            setLog("QR read but it is not a valid URL.");
+          }
+        }
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    function goToPoint(n) {
+      const num = String(n).padStart(2, "0");
+      window.location.href = `points/point-${num}-en.html`;
+    }
+
+    startBtn.addEventListener("click", startCamera);
+    stopBtn.addEventListener("click", stopCamera);
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const scrollDownBtn = document.getElementById('scrollDownBtn');
+      const contentSection = document.querySelector('.content');
+
+      if (scrollDownBtn && contentSection) {
+        scrollDownBtn.addEventListener('click', function () {
+          contentSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        });
+      }
+    });
+
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      })
+      .catch(err => console.error('Footer loading error:', err));
+  </script>
 
 </body>
-
 </html>
