@@ -151,7 +151,7 @@
 
                     <figure class="gallery-item">
                         <div class="video-container">
-                            <video controls preload="metadata">
+                            <video class="lightbox-video" preload="metadata">
                                 <source src="../assets/video/point-06-1.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -262,6 +262,12 @@
     <div class="lightbox" id="lightbox">
         <span class="lightbox-close">&times;</span>
         <img class="lightbox-img" src="" alt="">
+    </div>
+
+    <div id="video-lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <video id="lightbox-video" controls></video>
+        </div>
     </div>
 
 </body>
