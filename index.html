@@ -100,7 +100,7 @@
                 </a>
 
                 <a href="points/point-02.html" class="punto-btn">
-                  <span class="titolo-principale">Istituto Tecnico "Vittorio Emanuele II"</span>
+                  <span class="titolo-principale">Istituto Tecnico “Vittorio Emanuele II“</span>
                 </a>
 
                 <a href="points/point-03.html" class="punto-btn">
@@ -326,12 +326,12 @@
       }
     });
 
-  fetch('footer.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('footer-placeholder').innerHTML = data;
-    })
-    .catch(err => console.error('Errore caricamento footer:', err));
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      })
+      .catch(err => console.error('Errore caricamento footer:', err));
   </script>
 
 </body>

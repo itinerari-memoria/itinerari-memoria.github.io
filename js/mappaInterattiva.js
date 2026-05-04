@@ -14,7 +14,7 @@ const points = [
   { lat: 45.69591, lng: 9.67217, title: "08 - Biblioteca Ciro Caversazzi", url: "points/point-08.html", id: "point-08" },
   { lat: 45.69562, lng: 9.67049, title: "09 - Piazza Vittorio Veneto", url: "points/point-09.html", id: "point-09" },
   { lat: 45.69446, lng: 9.66834, title: "10 - Palazzo Frizzoni", url: "points/point-10.html", id: "point-10" },
-  { lat: 45.695417, lng: 9.669139,  title: "11 - Torre dei Caduti", url: "points/point-11.html", id: "point-11" },
+  { lat: 45.695417, lng: 9.669139, title: "11 - Torre dei Caduti", url: "points/point-11.html", id: "point-11" },
   { lat: 45.69722, lng: 9.66859, title: "12 - Palazzo della Libertà", url: "points/point-12.html", id: "point-12" },
   { lat: 45.70324, lng: 9.67282, title: "14 - Collegio Baroni", url: "points/point-14.html", id: "point-14" },
   { lat: 45.70021, lng: 9.6773, title: "15 - Caserma Montelungo", url: "points/point-15.html", id: "point-15" },
@@ -25,17 +25,17 @@ const points = [
 ];
 
 // Icone personalizzate
-const userIcon = L.divIcon({ 
-  className: "user-marker", 
-  html: "●", 
+const userIcon = L.divIcon({
+  className: "user-marker",
+  html: "●",
   iconSize: [20, 20],
   iconAnchor: [10, 10]
 });
 
-const nearestIcon = L.divIcon({ 
-  className: "nearest-marker", 
-  html: "📍", 
-  iconSize: [24, 24], 
+const nearestIcon = L.divIcon({
+  className: "nearest-marker",
+  html: "📍",
+  iconSize: [24, 24],
   iconAnchor: [12, 24]
 });
 
@@ -62,7 +62,7 @@ points.forEach(p => {
       <a href="${googleMapsUrl}" target="_blank" class="popup-link">📍 Indicazioni stradali</a><br><br>
       <a href="${p.url}" class="menu-btn">Vai alla pagina</a>
     `);
-  
+
   // Aggiungi l'id al marker per riferimento
   marker.pointId = p.id;
 });
@@ -73,7 +73,7 @@ function openDropdown() {
     // Apri il dropdown
     puntiDropdown.classList.add('active');
     puntiToggle.classList.add('active');
-    
+
     // Calcola l'altezza necessaria dopo che il contenuto è stato renderizzato
     setTimeout(() => {
       const grid = document.querySelector('.punti-grid');
@@ -92,32 +92,32 @@ function openDropdown() {
 // Funzione per aggiornare le distanze nei bottoni
 function updateDistancesInButtons(userLat, userLng) {
   const puntoButtons = document.querySelectorAll('.punto-btn');
-  
+
   // Calcola tutte le distanze
   const distances = points.map(p => {
     const dist = map.distance([userLat, userLng], [p.lat, p.lng]);
     return { ...p, distance: dist };
   });
-  
+
   // Trova il punto più vicino
-  const nearestPoint = distances.reduce((prev, current) => 
+  const nearestPoint = distances.reduce((prev, current) =>
     (prev.distance < current.distance) ? prev : current
   );
-  
+
   // Aggiorna ogni bottone
   puntoButtons.forEach((button) => {
     const url = button.getAttribute('href');
     const punto = distances.find(p => p.url === url);
-    
+
     if (punto) {
       // Rimuovi eventuali distanze esistenti
       const existingDistance = button.querySelector('.distanza-punto');
       if (existingDistance) existingDistance.remove();
-      
+
       // Crea il nuovo elemento distanza
       const distanceSpan = document.createElement('span');
       distanceSpan.className = 'distanza-punto';
-      
+
       // Formatta la distanza
       let distanceText;
       if (punto.distance > 999) {
@@ -125,13 +125,13 @@ function updateDistancesInButtons(userLat, userLng) {
       } else {
         distanceText = Math.round(punto.distance) + ' m';
       }
-      
+
       distanceSpan.textContent = distanceText;
-      
+
       // Inserisci la distanza dopo l'etichetta o il sottotitolo
       const etichetta = button.querySelector('.etichetta-punto');
       const sottotitolo = button.querySelector('.sottotitolo');
-      
+
       if (etichetta) {
         etichetta.after(distanceSpan);
       } else if (sottotitolo) {
@@ -140,17 +140,17 @@ function updateDistancesInButtons(userLat, userLng) {
         const titolo = button.querySelector('.titolo-principale');
         if (titolo) titolo.after(distanceSpan);
       }
-      
+
       // Gestisci l'evidenziazione del punto più vicino
       button.classList.remove('punto-vicino');
-      
+
       // Rimuovi eventuali indicatori precedenti
       const oldIndicator = button.querySelector('.piu-vicino-indicator');
       if (oldIndicator) oldIndicator.remove();
-      
+
       if (punto.url === nearestPoint.url) {
         button.classList.add('punto-vicino');
-        
+
         // Aggiungi indicatore "Più vicino"
         const indicator = document.createElement('span');
         indicator.className = 'piu-vicino-indicator';
@@ -159,7 +159,7 @@ function updateDistancesInButtons(userLat, userLng) {
       }
     }
   });
-  
+
   // Ricalcola l'altezza del dropdown dopo aver aggiunto le distanze
   setTimeout(() => {
     if (puntiDropdown.classList.contains('active')) {
@@ -178,14 +178,14 @@ function updateUserPosition(position) {
   const lat = position.coords.latitude;
   const lng = position.coords.longitude;
   const acc = position.coords.accuracy;
-  
+
   currentPosition = { lat, lng };
-  
+
   gpsStatus.textContent = "Localizzazione attiva";
   gpsStatus.classList.add('active');
-  
+
   map.setView([lat, lng], 16);
-  
+
   if (!userMarker) {
     userMarker = L.marker([lat, lng], { icon: userIcon })
       .addTo(map)
@@ -193,17 +193,17 @@ function updateUserPosition(position) {
   } else {
     userMarker.setLatLng([lat, lng]);
   }
-  
+
   if (!accuracyCircle) {
-    accuracyCircle = L.circle([lat, lng], { 
-      radius: acc, 
-      color: "green", 
-      fillOpacity: 0.15 
+    accuracyCircle = L.circle([lat, lng], {
+      radius: acc,
+      color: "green",
+      fillOpacity: 0.15
     }).addTo(map);
   } else {
     accuracyCircle.setLatLng([lat, lng]).setRadius(acc);
   }
-  
+
   openDropdown();
   updateDistancesInButtons(lat, lng);
   highlightNearestPoint(lat, lng);
@@ -214,18 +214,18 @@ function highlightNearestPoint(userLat, userLng) {
   if (nearestMarker) {
     nearestMarker.setIcon(new L.Icon.Default());
   }
-  
+
   let nearest = null;
   let minDistance = Infinity;
-  
+
   points.forEach(p => {
     const dist = map.distance([userLat, userLng], [p.lat, p.lng]);
-    if (dist < minDistance) { 
-      minDistance = dist; 
-      nearest = p; 
+    if (dist < minDistance) {
+      minDistance = dist;
+      nearest = p;
     }
   });
-  
+
   if (nearest) {
     map.eachLayer(layer => {
       if (layer instanceof L.Marker && layer.getLatLng) {
@@ -246,10 +246,10 @@ function startTracking() {
     gpsBtn.style.display = "none";
     return;
   }
-  
+
   gpsStatus.textContent = "📍 Cercando la tua posizione...";
   gpsBtn.disabled = true;
-  
+
   navigator.geolocation.getCurrentPosition(
     (position) => {
       updateUserPosition(position);
@@ -261,7 +261,7 @@ function startTracking() {
     },
     { enableHighAccuracy: true, timeout: 10000 }
   );
-  
+
   watchId = navigator.geolocation.watchPosition(
     updateUserPosition,
     handleGeolocationError,
@@ -272,8 +272,8 @@ function startTracking() {
 // Funzione per gestire errori di geolocalizzazione
 function handleGeolocationError(error) {
   console.error("Errore GPS:", error);
-  
-  switch(error.code) {
+
+  switch (error.code) {
     case error.PERMISSION_DENIED:
       gpsStatus.textContent = "Permesso di localizzazione negato";
       break;
@@ -286,7 +286,7 @@ function handleGeolocationError(error) {
     default:
       gpsStatus.textContent = "Errore di localizzazione";
   }
-  
+
   gpsStatus.classList.remove('active');
   gpsBtn.disabled = false;
 }
@@ -297,36 +297,36 @@ function stopTracking() {
     navigator.geolocation.clearWatch(watchId);
     watchId = null;
   }
-  
+
   if (userMarker) {
     map.removeLayer(userMarker);
     userMarker = null;
   }
-  
+
   if (accuracyCircle) {
     map.removeLayer(accuracyCircle);
     accuracyCircle = null;
   }
-  
+
   if (nearestMarker) {
     nearestMarker.setIcon(new L.Icon.Default());
     nearestMarker = null;
   }
-  
+
   gpsStatus.textContent = "";
   gpsStatus.classList.remove('active');
   currentPosition = null;
-  
+
   const distanceSpans = document.querySelectorAll('.distanza-punto');
   distanceSpans.forEach(span => span.remove());
-  
+
   const puntoButtons = document.querySelectorAll('.punto-btn');
   puntoButtons.forEach(btn => btn.classList.remove('punto-vicino'));
 }
 
 // Aggiungi event listener al pulsante GPS
 if (gpsBtn) {
-  gpsBtn.addEventListener('click', function() {
+  gpsBtn.addEventListener('click', function () {
     if (!watchId) {
       startTracking();
       this.textContent = "📍 Ferma localizzazione";

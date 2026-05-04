@@ -2,7 +2,7 @@ const NAVBAR_CSS_PATH = "../css/navbar.css";
 
 // Mappa IT → EN delle pagine
 const PAGE_LANG_MAP = {
-  "index.html":        "index-en.html",
+  "index.html": "index-en.html",
   "chi_siamo-it.html": "chi_siamo-en.html",
   // aggiungi altre pagine qui...
 };
@@ -64,17 +64,17 @@ function getMobileNavItems() {
     isEnglish,
     items: isEnglish
       ? [
-          { href: "index-en.html#sezione-progetto", label: "The project" },
-          { href: "index-en.html#sezione-itinerari", label: "Itinerary" },
-          { href: "index-en.html#sezione-telecamera", label: "QR Code" },
-          { href: "chi_siamo-en.html", label: "About us" },
-        ]
+        { href: "index-en.html#sezione-progetto", label: "The project" },
+        { href: "index-en.html#sezione-itinerari", label: "Itinerary" },
+        { href: "index-en.html#sezione-telecamera", label: "QR Code" },
+        { href: "chi_siamo-en.html", label: "About us" },
+      ]
       : [
-          { href: "index.html#sezione-progetto", label: "Il progetto" },
-          { href: "index.html#sezione-itinerari", label: "Itinerario" },
-          { href: "index.html#sezione-telecamera", label: "QR Code" },
-          { href: "chi_siamo-it.html", label: "Chi siamo" },
-        ],
+        { href: "index.html#sezione-progetto", label: "Il progetto" },
+        { href: "index.html#sezione-itinerari", label: "Itinerario" },
+        { href: "index.html#sezione-telecamera", label: "QR Code" },
+        { href: "chi_siamo-it.html", label: "Chi siamo" },
+      ],
   };
 }
 

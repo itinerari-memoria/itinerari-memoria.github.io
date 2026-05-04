@@ -25,17 +25,17 @@ const points = [
 ];
 
 // Custom icons
-const userIcon = L.divIcon({ 
-  className: "user-marker", 
-  html: "●", 
+const userIcon = L.divIcon({
+  className: "user-marker",
+  html: "●",
   iconSize: [20, 20],
   iconAnchor: [10, 10]
 });
 
-const nearestIcon = L.divIcon({ 
-  className: "nearest-marker", 
-  html: "📍", 
-  iconSize: [24, 24], 
+const nearestIcon = L.divIcon({
+  className: "nearest-marker",
+  html: "📍",
+  iconSize: [24, 24],
   iconAnchor: [12, 24]
 });
 
@@ -62,7 +62,7 @@ points.forEach(p => {
       <a href="${googleMapsUrl}" target="_blank" class="popup-link">📍 Directions</a><br><br>
       <a href="${p.url}" class="menu-btn">Go to page</a>
     `);
-  
+
   // Add id to marker for reference
   marker.pointId = p.id;
 });
@@ -87,25 +87,25 @@ function openDropdown() {
 function updateDistancesInButtons(userLat, userLng) {
   // Collect all point buttons
   const puntoButtons = document.querySelectorAll('.punto-btn');
-  
+
   // Calculate distances for each point
   const distances = points.map(p => {
     const dist = map.distance([userLat, userLng], [p.lat, p.lng]);
     return { ...p, distance: dist };
   });
-  
+
   // Find the nearest point
-  const nearestPoint = distances.reduce((prev, current) => 
+  const nearestPoint = distances.reduce((prev, current) =>
     (prev.distance < current.distance) ? prev : current
   );
-  
+
   // Update each button
   puntoButtons.forEach(button => {
     const url = button.getAttribute('href');
-    
+
     // Try to find matching point
     let punto = distances.find(p => p.url === url);
-    
+
     // If not found, try to match by ID
     if (!punto) {
       const buttonId = button.dataset.id || button.id;
@@ -113,25 +113,25 @@ function updateDistancesInButtons(userLat, userLng) {
         punto = distances.find(p => p.id === buttonId);
       }
     }
-    
+
     // If still not found, try to match by title or partial URL
     if (!punto) {
       const buttonText = button.textContent.toLowerCase();
-      punto = distances.find(p => 
-        p.title.toLowerCase().includes(buttonText) || 
+      punto = distances.find(p =>
+        p.title.toLowerCase().includes(buttonText) ||
         buttonText.includes(p.id)
       );
     }
-    
+
     if (punto) {
       // Remove any existing distance spans
       const existingDistance = button.querySelector('.distanza-punto');
       if (existingDistance) existingDistance.remove();
-      
+
       // Add distance
       const distanceSpan = document.createElement('span');
       distanceSpan.className = 'distanza-punto';
-      
+
       // Format the distance
       let distanceText;
       if (punto.distance > 999) {
@@ -139,9 +139,9 @@ function updateDistancesInButtons(userLat, userLng) {
       } else {
         distanceText = Math.round(punto.distance) + ' m';
       }
-      
+
       distanceSpan.textContent = distanceText;
-      
+
       // Try to add after the emoji or at the end of the button
       const emojiSpan = button.querySelector('.icona-emoji');
       if (emojiSpan) {
@@ -149,10 +149,10 @@ function updateDistancesInButtons(userLat, userLng) {
       } else {
         button.appendChild(distanceSpan);
       }
-      
+
       // Remove any previous highlights
       button.classList.remove('punto-vicino');
-      
+
       // Highlight the nearest point
       if (punto.url === nearestPoint.url) {
         button.classList.add('punto-vicino');
@@ -166,16 +166,16 @@ function updateUserPosition(position) {
   const lat = position.coords.latitude;
   const lng = position.coords.longitude;
   const acc = position.coords.accuracy;
-  
+
   currentPosition = { lat, lng };
-  
+
   // Update GPS status
   gpsStatus.textContent = "Location active";
   gpsStatus.classList.add('active');
-  
+
   // Center map on user position
   map.setView([lat, lng], 16);
-  
+
   // Update or create user marker
   if (!userMarker) {
     userMarker = L.marker([lat, lng], { icon: userIcon })
@@ -184,24 +184,24 @@ function updateUserPosition(position) {
   } else {
     userMarker.setLatLng([lat, lng]);
   }
-  
+
   // Update or create accuracy circle
   if (!accuracyCircle) {
-    accuracyCircle = L.circle([lat, lng], { 
-      radius: acc, 
-      color: "green", 
-      fillOpacity: 0.15 
+    accuracyCircle = L.circle([lat, lng], {
+      radius: acc,
+      color: "green",
+      fillOpacity: 0.15
     }).addTo(map);
   } else {
     accuracyCircle.setLatLng([lat, lng]).setRadius(acc);
   }
-  
+
   // Open dropdown menu if not already open
   openDropdown();
-  
+
   // Update distances on buttons
   updateDistancesInButtons(lat, lng);
-  
+
   // Highlight nearest point on map
   highlightNearestPoint(lat, lng);
 }
@@ -212,19 +212,19 @@ function highlightNearestPoint(userLat, userLng) {
   if (nearestMarker) {
     nearestMarker.setIcon(new L.Icon.Default());
   }
-  
+
   // Find the nearest point
   let nearest = null;
   let minDistance = Infinity;
-  
+
   points.forEach(p => {
     const dist = map.distance([userLat, userLng], [p.lat, p.lng]);
-    if (dist < minDistance) { 
-      minDistance = dist; 
-      nearest = p; 
+    if (dist < minDistance) {
+      minDistance = dist;
+      nearest = p;
     }
   });
-  
+
   if (nearest) {
     // Find the corresponding marker
     map.eachLayer(layer => {
@@ -246,10 +246,10 @@ function startTracking() {
     gpsBtn.style.display = "none";
     return;
   }
-  
+
   gpsStatus.textContent = "📍 Looking for your location...";
   gpsBtn.disabled = true;
-  
+
   // First immediate request
   navigator.geolocation.getCurrentPosition(
     (position) => {
@@ -262,7 +262,7 @@ function startTracking() {
     },
     { enableHighAccuracy: true, timeout: 10000 }
   );
-  
+
   // Continue tracking position
   watchId = navigator.geolocation.watchPosition(
     updateUserPosition,
@@ -274,8 +274,8 @@ function startTracking() {
 // Function to handle geolocation errors
 function handleGeolocationError(error) {
   console.error("GPS Error:", error);
-  
-  switch(error.code) {
+
+  switch (error.code) {
     case error.PERMISSION_DENIED:
       gpsStatus.textContent = "Location permission denied";
       break;
@@ -288,7 +288,7 @@ function handleGeolocationError(error) {
     default:
       gpsStatus.textContent = "Location error";
   }
-  
+
   gpsStatus.classList.remove('active');
   gpsBtn.disabled = false;
 }
@@ -299,30 +299,30 @@ function stopTracking() {
     navigator.geolocation.clearWatch(watchId);
     watchId = null;
   }
-  
+
   if (userMarker) {
     map.removeLayer(userMarker);
     userMarker = null;
   }
-  
+
   if (accuracyCircle) {
     map.removeLayer(accuracyCircle);
     accuracyCircle = null;
   }
-  
+
   if (nearestMarker) {
     nearestMarker.setIcon(new L.Icon.Default());
     nearestMarker = null;
   }
-  
+
   gpsStatus.textContent = "";
   gpsStatus.classList.remove('active');
   currentPosition = null;
-  
+
   // Remove distances from buttons
   const distanceSpans = document.querySelectorAll('.distanza-punto');
   distanceSpans.forEach(span => span.remove());
-  
+
   // Remove point highlighting
   const puntoButtons = document.querySelectorAll('.punto-btn');
   puntoButtons.forEach(btn => btn.classList.remove('punto-vicino'));
@@ -330,7 +330,7 @@ function stopTracking() {
 
 // Add event listener to GPS button
 if (gpsBtn) {
-  gpsBtn.addEventListener('click', function() {
+  gpsBtn.addEventListener('click', function () {
     if (!watchId) {
       startTracking();
       this.textContent = "📍 Stop Location";

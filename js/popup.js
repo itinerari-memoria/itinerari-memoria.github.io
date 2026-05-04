@@ -20,7 +20,7 @@ document.querySelectorAll('.popup-trigger').forEach(trigger => {
 
   // Chiudi popup con ESC
   document.addEventListener('keydown', e => {
-    if(e.key === "Escape") {
+    if (e.key === "Escape") {
       popup.classList.remove('show');
     }
   });
